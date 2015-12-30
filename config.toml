@@ -35,4 +35,4 @@ paginate = 10
 	keepReadingStr = "READ MORE"
 	backtotopStr = "BACK TO TOP"
 	shareStr = "SHARE"
-	pageNotFoundTitle = "404 - Page not found"
+	pageNotFoundTitle = "404 - PAGE NOT FOUND"
