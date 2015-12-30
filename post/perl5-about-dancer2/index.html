@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>About Dancer2(ja) &middot; kobaken&#39;s blog</title>
+    <meta name="author" content="kobaken">
+    <meta name="description" content="Your description of the blog">
+    <meta name="generator" content="Hugo 0.14" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link rel="shortcut icon" href="https://kfly8.github.io/img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.2/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://kfly8.github.io/css/screen.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css">
+    <link rel="stylesheet" href="https://kfly8.github.io/css/monokai-sublime.css">
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #3498db;}
+    .pagination a {color: #3498db;}
+    .gist .gist-file .gist-meta a:visited {color: #3498db !important;}
+    a:focus, a:hover {color: #2079b4;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #2079b4;}
+    .older-posts:hover, .newer-posts:hover {color: #2079b4;}
+</style>
+</head>
+
+<body class="post-template">
+
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="https://kfly8.github.io/">kobaken&rsquo;s blog</a></h1>
+	
+	
+	<h1 class="blog-subtitle">Programming, Tech and Math</h1>
+	
+</header>
+    
+
+    <main class="content" role="main">
+	    <article class="post">
+	        <header>
+	        <h1 class="post-title">About Dancer2(ja)</h1>
+	        <div class="post-meta"><time datetime="20 December 2015">20 December 2015</time></div>
+	        </header>
+
+	        <section class="post-content">
+	            
+
+<p>この記事は、<a href="http://qiita.com/advent-calendar/2015/perl5">Perl5 Advent Calendar 2015</a> の20日目の記事です。</p>
+
+<p>Web Application Framework の Dancer2 について紹介したいと思います。</p>
+
+<p>まずは、YAPC::Asia 2014 の LT から。
+こちらは、Dancer2 のリリースマネージャーの <a href="https://twitter.com/perlsawyer">SawyerX</a> による、Dancer2の超速紹介です。
+Dancer2 の要点が凝縮されたLTです。</p>
+
+<p>[<a href="https://www.youtube.com/watch?v=0gapHdDTRUk:movie">https://www.youtube.com/watch?v=0gapHdDTRUk:movie</a>]</p>
+
+<p>目を凝らすとこんなスライドが見えます。DSLで、ルーティングを記述します。</p>
+
+<pre><code class="language-perl">package MyApp;
+use Dancer2;
+
+get '/' =&gt; sub {
+   template index =&gt; {
+      name =&gt; 'Sawyer X',
+      event =&gt; 'YAPC::Asia'
+   }
+};
+</code></pre>
+
+<p>JSON を返却するようなAPIも簡単に用意できます。</p>
+
+<pre><code class="language-perl">package MyApp::API;
+use Dancer2;
+
+set serializer =&gt; 'JSON';
+
+get '/' =&gt; sub {
+    return {
+        hello =&gt; 'world',
+    }
+};
+</code></pre>
+
+<p>Dancer2 は Plack化されているので、plackupできます。</p>
+
+<pre><code class="language-perl"># app.psgi
+use MyApp;
+my $app = MyApp-&gt;psgi_app;
+</code></pre>
+
+<pre><code class="language-sh">plackup app.psgi
+</code></pre>
+
+<p>ここまでが、LTの抜粋です。</p>
+
+<p>Dancer2 は、元々、Ruby のSinatra を Perl に port した Dancer の次バージョンです。
+Dancer の DSL はほぼそのままに、設計面での調整が大幅に入っています((<a href="http://advent.perldancer.org/2014/2)">http://advent.perldancer.org/2014/2)</a>)</p>
+
+<p>例えば、以下のような対応が行われています。</p>
+
+<ul>
+<li>Plack 対応</li>
+<li>DSL 実装を、Top 空間から、Dancer2::Core::DSL に分解</li>
+<li>Moo 採用</li>
+<li>デザインパターンの調整（デメテルの法則&hellip;）</li>
+</ul>
+
+<p>この対応に関して、2011 年の Dancer Advent Calendar にて、（超訳ですが）「全部書き換えるぞい」という記事があります。
+&gt; [<a href="http://advent.perldancer.org/2011/8:title">http://advent.perldancer.org/2011/8:title</a>]</p>
+
+<p>利用者が多数のプロダクトにおいて、こういった完全な書き換えは、個人的な興味をそそりました。
+今現在も活発に開発され、Dancer という名前を冠するPerl <a href="https://www.perl.dance/">カンファレンス</a>も開かれています。</p>
+
+<p>Dancer を作った sukria のポスト。
+[<a href="http://blog.sukria.net/2015/10/22/perl-dancer-2015-report:embed:cite">http://blog.sukria.net/2015/10/22/perl-dancer-2015-report:embed:cite</a>]</p>
+
+<p>最近の開発状況の話。
+[<a href="https://www.youtube.com/watch?v=UbU5R-SHbDE&amp;list=PLf1KDvMbyeCQq4mkMt8jDPzS9uPUX_mNo&amp;index=1:movie">https://www.youtube.com/watch?v=UbU5R-SHbDE&amp;list=PLf1KDvMbyeCQq4mkMt8jDPzS9uPUX_mNo&amp;index=1:movie</a>]</p>
+
+<p>（Dancer2::XS ってあって、すごいってなった）</p>
+
+<p>もう少し、Dancer2 の特徴を触れて、記事を終わりにしたいと思います。
+（と言っても、ほぼ、<a href="http://advent.perldancer.org/2014">2014 年の dancer advent calendar</a> ((SawyerX の一人アドベントカレンダー。つよい。)) からの抜粋です。</p>
+
+<ul>
+<li>[<a href="http://advent.perldancer.org/2014/5:title">http://advent.perldancer.org/2014/5:title</a>]</li>
+</ul>
+
+<p>fatpack、つまり一枚スクリプトにするのをサポートしています。
+（なので、XSモジュールは、recommend 扱いです）</p>
+
+<p>ポータビリティを考えると良い選択になるかもしれません。</p>
+
+<ul>
+<li>[<a href="http://advent.perldancer.org/2014/16:title">http://advent.perldancer.org/2014/16:title</a>]</li>
+</ul>
+
+<p>コマンドラインで利用も考慮されています。</p>
+
+<pre><code class="language-perl">use Dancer2;
+
+warn config-&gt;{environment}; # =&gt; development
+warn dancer_version;        # =&gt; 0.165000
+</code></pre>
+
+<ul>
+<li>[<a href="http://advent.perldancer.org/2014/10:title">http://advent.perldancer.org/2014/10:title</a>]</li>
+</ul>
+
+<p>複数のアプリケーションの同居が考慮されています。
+Dancer2 に appname を渡すことで、config やdbh などが、appname ごとに管理されます。</p>
+
+<p>以下の例だと、
+MyApp::Foo1, Foo2 で、一つの Dancer2::Core::App obj が作られ、
+Bar にもう一つの Dancer2::Core::App obj が作られます。</p>
+
+<pre><code class="language-perl">package MyApp::Foo1 {
+  use Dancer2 appname =&gt; 'foo';
+  get '/' =&gt; sub { ... }
+}
+
+package MyApp::Foo2 {
+  use Dancer2 appname =&gt; 'foo';
+  get '/' =&gt; sub { ... }
+}
+
+package MyApp::Bar {
+  use Dancer2;
+  get '/' =&gt; sub { ... }
+}
+</code></pre>
+
+<h1 id="まとめ:858d65b5c8a179eff8fb66c354151766">まとめ</h1>
+
+<ul>
+<li>なんだか Dancer2 楽しそうだぞ</li>
+</ul>
+
+<p>明日は、<a href="https://twitter.com/akihiro_0228">akihiro_0228</a> さんです。</p>
+
+	        </section>
+
+	        <section class="post-tags" style="padding-bottom:60px;">
+	            <div class="post-meta tags">
+	            <i class="fa fa-fw fa-tag"></i>
+	            
+	            </div>
+	        </section>
+			
+			
+	        	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'kfly8';
+    var disqus_identifier = 'https:\/\/kfly8.github.io\/post\/perl5-about-dancer2\/';
+    var disqus_title = 'About Dancer2(ja)';
+    var disqus_url = 'https:\/\/kfly8.github.io\/post\/perl5-about-dancer2\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	        
+			
+			
+
+	        <section class="share">
+	            <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> BACK TO TOP</a></p>
+	            <p class="info prompt">SHARE</p>
+	            <a href="http://twitter.com/share?text=About%20Dancer2%28ja%29&url=https%3a%2f%2fkfly8.github.io%2fpost%2fperl5-about-dancer2%2f" title="Share on Twitter"
+	                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+	                <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
+	            </a>
+	            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkfly8.github.io%2fpost%2fperl5-about-dancer2%2f" title="Share on Facebook"
+	                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+	                <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
+	            </a>
+	            <a href="https://plus.google.com/share?url=https%3a%2f%2fkfly8.github.io%2fpost%2fperl5-about-dancer2%2f" title="Share on Google+"
+	               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+	                <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
+	            </a>
+	        </section>
+
+	        <footer class="post-footer">
+	            <section class="author">
+    <div class="authorimage" style="background: url(https://kfly8.github.io/img/avatar.jpg)"></div>
+    <h4>kobaken</h4>
+    <p class="bio">Hello World!</p>
+    <p class="meta">
+      <i class="fa fa-fw fa-map-marker"></i> Tokyo
+    </p>
+</section>
+	        </footer>
+	    </article>
+	</main>
+
+    <footer class="site-footer">
+	<div class="inner">
+		<section class="footer-social">
+			
+		    <a href="//twitter.com/kfly8" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp;
+		    
+		    
+		    <a href="//github.com/kfly8" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+		    
+		    <a href="" target="_blank" title="RSS"><i class="fa fa-2x fa-fw fa-rss"></i> <span class="hidden">RSS</span></a>
+		</section>
+
+		<section class="copyright">&copy; 2015 <a href="https://kfly8.github.io/">kobaken</a>. </section>
+	</div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://kfly8.github.io/js/index.js"></script>
+<script src="https://kfly8.github.io/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+</body>
+</html>
