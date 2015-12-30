@@ -1,0 +1,38 @@
+baseurl = "https://kfly8.github.io/"
+languageCode = "ja-jp"
+title = "kobaken's blog"
+theme = "hugo-steam-theme"
+disqusShortname = "kfly8"
+paginate = 10
+
+[params]
+
+	title = "kobaken's blog"
+	subtitle = "Programming, Tech and Math"
+	copyright = "" #"Released under the MIT license."
+
+	# You can choose between green, orange, red and blue.
+	themeColor = "blue"
+	# Enable Google Analytics be inserting your tracking code
+	googleAnalytics = ""
+
+	# To provide some metadata for search engines and the about section in the footer
+	# feel free to add a few information about you and your website.
+	name = "kobaken"
+	bio = "Hello World!"
+	description = "Your description of the blog"
+	location = "Tokyo" # optional
+	twitter = "kfly8" # optional
+	github = "kfly8" # optional
+
+	# Enable a comment system
+	# You can choose between Disqus or Google Plus by setting comments
+	# to disqus or googleplus. For using Disqus you need to enter your
+	# shortname in disqusShortname at the top of the configs.
+	comments = "disqus"
+
+	# Customize or translate the strings
+	keepReadingStr = "READ MORE"
+	backtotopStr = "BACK TO TOP"
+	shareStr = "SHARE"
+	pageNotFoundTitle = "404 - Page not found"
