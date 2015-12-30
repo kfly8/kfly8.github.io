@@ -55,26 +55,11 @@ li {
   padding-left: 0.8em;
 }
 pre {
-  font-family: Menlo, "Consolas", Courier, monospace;
-  color: #596364;
-  font-size: 1em;
-  line-height: 1.2em;
-  padding: 1em;
   white-space: pre;
-  white-space: pre-wrap;
-  white-space: -moz-pre-wrap;
-  white-space: -pre-wrap;
-  white-space: -o-pre-wrap;
-  word-wrap: break-word;
-  background-color: #f7f7f7;
+  margin: 1em 0px 1em;
+  overflow: auto;
 }
 code {
-  font-family: Menlo, "Consolas", Courier, monospace;
-  font-size: 0.85em;
-  color: #596364;
-  background-color: #f7f7f7;
-  padding: 2px 4px;
-  line-height: 1.2em;
 }
 kbd {
   display: inline-block;
