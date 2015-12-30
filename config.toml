@@ -1,5 +1,5 @@
 baseurl = "https://kfly8.github.io/"
-languageCode = "ja-jp"
+languageCode = "ja"
 title = "kobaken's blog"
 #theme = "hugo-steam-theme"
 disqusShortname = "kfly8"
