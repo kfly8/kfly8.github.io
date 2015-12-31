@@ -1137,5 +1137,141 @@ done_testing();
 </description>
     </item>
     
+    <item>
+      <title>#Perl入学式 のお手伝いさせてもらってきた</title>
+      <link>https://kfly8.github.io/post/supported-perl-entrance/</link>
+      <pubDate>Sun, 30 Nov 2014 19:02:59 +0900</pubDate>
+      
+      <guid>https://kfly8.github.io/post/supported-perl-entrance/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.perl-entrance.org/&#34;&gt;Perl入学式&lt;/a&gt; に参加するのは初めてだったのですが、
+サポーターとして参加させてもらいました。
+お疲れ様でした！特に講師のid:xtetsuji さんお疲れ様でした！!&lt;/p&gt;
+
+&lt;p&gt;「サブルーチンと正規表現」がお題でした。
+資料は&lt;a href=&#34;https://github.com/perl-entrance-org/workshop-2014-04/blob/master/slide.md&#34;&gt;コチラ&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;寿司はコチラ。
+&lt;blockquote class=&#34;twitter-tweet&#34; lang=&#34;ja&#34;&gt;&lt;p&gt;Perl入学寿司 &lt;a href=&#34;https://twitter.com/hashtag/Perl%E5%85%A5%E5%AD%A6%E5%BC%8F?src=hash&#34;&gt;#Perl入学式&lt;/a&gt; (@ 立ち喰い寿司 都々井 in 品川区, 東京都) &lt;a href=&#34;https://t.co/dBvh02MXCZ&#34;&gt;https://t.co/dBvh02MXCZ&lt;/a&gt; &lt;a href=&#34;http://t.co/MVMMTHvfco&#34;&gt;pic.twitter.com/MVMMTHvfco&lt;/a&gt;&lt;/p&gt;&amp;mdash; OGATA Tetsuji (@xtetsuji) &lt;a href=&#34;https://twitter.com/xtetsuji/status/538527365635514368&#34;&gt;2014, 11月 29&lt;/a&gt;&lt;/blockquote&gt;
+美味かった。&lt;/p&gt;
+
+&lt;h1 id=&#34;面白かった-罠がコチラ:b9ad6d015439b1465565681b73a51293&#34;&gt;面白かった(?)罠がコチラ&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-perl&#34;&gt;use strict;
+use warnings;
+use utf8;
+
+sub dump_hash {
+    my $hash = @_;
+    $hash-&amp;gt;{foo};
+}
+
+dump_hash({foo =&amp;gt; 1, bar =&amp;gt; 2});
+# =&amp;gt; Can&#39;t use string (&amp;quot;1&amp;quot;) as a HASH ref while &amp;quot;strict refs&amp;quot; in use at foo.pl line 7.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;生徒:「&lt;code&gt;1&lt;/code&gt;って何?!?!」
+おれ:「配列をスカラーで評価して、配列長..ですね&amp;hellip;」
+生徒:「??????」
+おれ:「ですよね!!!!!!!!」&lt;/p&gt;
+
+&lt;p&gt;幸い？他のプログラミング言語を触っている人だったからか、
+「Perlだと、どう値を使いたいか意思表示できて、
+例えば、配列が欲しいのか、スカラが欲しいのかなど。
+逆に言うと意思表示に慣れるまで、ハマります！！」
+でコンテキストのことを濁し、次のような引数の取り方の例を見てもらったら納得してもらえたよう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-perl&#34;&gt;sub dump_hash2 {
+    my $h   = @_; # bad...
+    my ($h) = @_; # ok (補足: 括弧が、優先順位の括弧に見えてしまったよう。 my ($a,$b) = @_ の例も併わせて紹介して、リストの括弧と分かってもらえた。
+    my ($h,)= @_; # ok (さらに補足: 人によっては配列をより意識する為にこう書く人もいる
+    my $h   = shift; # ok
+    my $h   = $_[0]; # ok
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;蛇足にこんな例も話したら、楽しんでもらえたよう（多分）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-perl&#34;&gt;my @a  = (&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;);
+#my @a = qw/ a b c d /; # これで上と同じ意味
+
+my %hash  = ( a =&amp;gt; 1, b =&amp;gt; 2 );
+#my %hash = ( &#39;a&#39;, 1, &#39;b&#39;, 2 );  # これで上と同じ意味
+#my %hash = qw/ a 1 b 2 /;  # これも同じ意味
+my @b     = ( &#39;a&#39;, 1, &#39;b&#39;, 2 );  # さらに配列として受け止めることもできる
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;慣れるのは苦労するかもしれないけど、、、
+例えば、「対になっているデータが欲しいから、ハッシュにしよう！」
+とか思った時に、特にこねくり回したことしなくて良いのが、個人的に楽だと思っている。&lt;/p&gt;
+
+&lt;h1 id=&#34;完全なる蛇足:b9ad6d015439b1465565681b73a51293&#34;&gt;完全なる蛇足&lt;/h1&gt;
+
+&lt;p&gt;楽しみついでに、&lt;a href=&#34;https://github.com/perl-entrance-org/workshop-2014-04/blob/master/slide.md#%E3%82%B5%E3%83%96%E3%83%AB%E3%83%BC%E3%83%81%E3%83%B3%E3%81%AE%E5%AE%9A%E7%BE%A9-2&#34;&gt;サブルーチンの定義&lt;/a&gt;に関して、
+「!」「数字」や「日本語」をサブルーチン名に使ったりする応用例？を書いた。&lt;/p&gt;
+
+&lt;p&gt;この辺、YAPC::Asia 2014 のid:karupaneruraの&lt;a href=&#34;http://yapcasia.org/2014/talk/show/25f99ab0-fa15-11e3-b7e8-e4a96aeab6a4&#34;&gt;meta programmingの話&lt;/a&gt; が詳しい。(demoが多いので、動画がおすすめ）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-perl&#34;&gt;use strict;
+use warnings;
+use utf8;
+
+use Test::More;
+
+{
+    no strict qw/refs/;
+    *{&#39;world!&#39;} = sub { &#39;world&#39; };
+    is *{&#39;world!&#39;}{CODE}-&amp;gt;(), &#39;world&#39;, &#39;symbol table call&#39;;
+}
+
+done_testing;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-perl&#34;&gt;use strict;
+use warnings;
+use utf8;
+
+use Test::More;
+
+sub こんにちは { &#39;hello&#39; }
+is こんにちは(), &#39;hello&#39;;
+
+done_testing;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-perl&#34;&gt;use strict;
+use warnings;
+use utf8;
+
+use Test::More;
+use Package::Stash;
+
+my $stash = Package::Stash-&amp;gt;new(&#39;Foo&#39;);
+$stash-&amp;gt;add_symbol(&#39;&amp;amp;hello world!&#39;, sub { &#39;hello&#39; });
+
+subtest &#39;by get_symbol&#39; =&amp;gt; sub {
+    my $code = $stash-&amp;gt;get_symbol(&#39;&amp;amp;hello world!&#39;);
+    is $code-&amp;gt;(), &#39;hello&#39;
+};
+
+subtest &#39;by pkg&#39; =&amp;gt; sub {
+    ok Foo-&amp;gt;can(&#39;hello world!&#39;), &#39;can?&#39;;
+    my $code = Foo-&amp;gt;can(&#39;hello world!&#39;);
+    is $code-&amp;gt;(), &#39;hello&#39;;
+
+    my $method = &#39;hello world!&#39;;
+    is Foo-&amp;gt;$method(), &#39;hello&#39;;
+};
+
+done_testing;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;そんなこんなで、Perl入学式楽しませてもらいました！！
+ありがとうございました！
+またの機会もよろしくお願いします！&lt;/p&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>
