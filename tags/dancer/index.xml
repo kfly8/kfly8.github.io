@@ -95,8 +95,21 @@ Dancer の DSL はほぼそのままに、設計面での調整が大幅に入�
 &lt;p&gt;利用者が多数のプロダクトにおいて、こういった完全な書き換えは、個人的な興味をそそりました。
 今現在も活発に開発され、Dancer という名前を冠するPerl &lt;a href=&#34;https://www.perl.dance/&#34;&gt;カンファレンス&lt;/a&gt;も開かれています。&lt;/p&gt;
 
-&lt;p&gt;Dancer を作った sukria のポスト。
-&lt;a href=&#34;http://blog.sukria.net/2015/10/22/perl-dancer-2015-report&#34;&gt;perl-dancer-2015-report&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Dancer を作った sukria のポスト。&lt;/p&gt;
+
+&lt;iframe
+  sandbox=&#34;allow-scripts&#34;
+  security=&#34;restricted&#34;
+  src=&#34;http://blog.sukria.net/2015/10/22/perl-dancer-2015-report/embed/&#34;
+  width=&#34;600&#34;
+  height=&#34;338&#34;
+  frameborder=&#34;0&#34;
+  marginwidth=&#34;0&#34;
+  marginheight=&#34;0&#34;
+  scrolling=&#34;no&#34;
+  class=&#34;wp-embedded-content&#34;&gt;
+&lt;/iframe&gt;
+
 
 &lt;p&gt;最近の開発状況の話。&lt;/p&gt;
 

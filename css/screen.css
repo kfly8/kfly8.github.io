@@ -215,7 +215,7 @@ blockquote {
   font-style: italic;
   text-transform: uppercase;
   border-left: 0.4em solid rgba(0, 0, 0, 0.05);
-  margin-left: 1em;
+  margin-left: 0;
   padding-right: 1.5em;
   padding-left: 1em;
 }
@@ -568,7 +568,10 @@ blockquote p {
 
 section.post-content ul {
   list-style:square;
-  -webkit-padding-start: 15px;
+  -webkit-padding-start: 20px;
+}
+section.post-content ol {
+  -webkit-padding-start: 20px;
 }
 section.post-content li {
 }
