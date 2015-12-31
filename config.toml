@@ -34,5 +34,5 @@ paginate = 10
 	# Customize or translate the strings
 	keepReadingStr = "READ MORE"
 	backtotopStr = "TOP"
-	shareStr = "SHARE"
+	shareStr = ""
 	pageNotFoundTitle = "404 - PAGE NOT FOUND"
