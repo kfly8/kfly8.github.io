@@ -100,7 +100,7 @@ Dancer の DSL はほぼそのままに、設計面での調整が大幅に入�
 &lt;iframe
   sandbox=&#34;allow-scripts&#34;
   security=&#34;restricted&#34;
-  src=&#34;http://blog.sukria.net/2015/10/22/perl-dancer-2015-report/embed/&#34;
+  src=&#34;//blog.sukria.net/2015/10/22/perl-dancer-2015-report/embed/&#34;
   width=&#34;600&#34;
   height=&#34;338&#34;
   frameborder=&#34;0&#34;
@@ -576,7 +576,7 @@ print DBIx::Schema::DSL::Dumper-&amp;gt;dump(
 &lt;h1 id=&#34;a-name-section1-はじめに-a:ed130a5c49b36845906533f63e9cb3a3&#34;&gt;&lt;a name=&#34;section1&#34;&gt;はじめに&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;15日目の記事の id:akihiro0228 さんの記事を読んで、
-&lt;iframe src=&#34;http://akihiro0228.hatenablog.com/embed/2014/12/15/221806&#34;
+&lt;iframe src=&#34;//akihiro0228.hatenablog.com/embed/2014/12/15/221806&#34;
  class=&#34;embed-card embed-blogcard&#34;
  scrolling=&#34;no&#34;
  frameborder=&#34;0&#34;
@@ -652,7 +652,7 @@ say FOO; # =&amp;gt; foofoofoofoo
 
 &lt;p&gt;ずばり、 id:karupanerura 先生の話を例を取ってみます。&lt;/p&gt;
 
-&lt;iframe src=&#34;http://techblog.karupas.org/embed/20111117/1321542949&#34;
+&lt;iframe src=&#34;//techblog.karupas.org/embed/20111117/1321542949&#34;
  class=&#34;embed-card embed-blogcard&#34;
  scrolling=&#34;no&#34;
  frameborder=&#34;0&#34;
@@ -681,7 +681,7 @@ try {
 &lt;p&gt;このエラーだとよくわからないので、
 7日目の id:papix さんと11日目の id:hisaichi5518 さんが紹介しているB::Deparseを使います&lt;/p&gt;
 
-&lt;iframe src=&#34;http://papix.hatenablog.com/embed/2014/12/07/150335&#34;
+&lt;iframe src=&#34;//papix.hatenablog.com/embed/2014/12/07/150335&#34;
  class=&#34;embed-card embed-blogcard&#34;
  scrolling=&#34;no&#34;
  frameborder=&#34;0&#34;
@@ -689,7 +689,7 @@ try {
 &gt;&lt;/iframe&gt;
 
 
-&lt;iframe src=&#34;http://hisaichi5518.hatenablog.jp/embed/2014/12/11/222358&#34;
+&lt;iframe src=&#34;//hisaichi5518.hatenablog.jp/embed/2014/12/11/222358&#34;
  class=&#34;embed-card embed-blogcard&#34;
  scrolling=&#34;no&#34;
  frameborder=&#34;0&#34;
