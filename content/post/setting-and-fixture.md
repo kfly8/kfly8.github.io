@@ -1,15 +1,16 @@
-+++
-author = "kfly8"
-date = "2015-12-02T18:53:37+09:00"
-linktitle = "設定とFixture"
-title = "設定とFixture"
-tags = ["perl", "test"]
-+++
-
+---
+author: "kfly8"
+date: "2015-12-02T18:53:37+09:00"
+linktitle: "設定とFixture"
+title: "設定とFixture"
+tags: ["perl", "test"]
+description: |
+  この記事は、モバイルファクトリー Advent Calendar 2015 2日目の記事です
+---
 
 **この記事は、[モバイルファクトリー Advent Calendar 2015](http://qiita.com/advent-calendar/2015/mobilefactory) 2日目の記事です**
 
-昨日は、nekobato さんの [superagentとaxiosの使い分け](http://qiita.com/nekobato/items/0cd3ed1742310f74653c) でした  　
+昨日は、nekobato さんの [superagentとaxiosの使い分け](http://qiita.com/nekobato/items/0cd3ed1742310f74653c) でした
 
 
 [Perl Advent Calender 2014](http://qiita.com/advent-calendar/2014/perl) の最高の記事の

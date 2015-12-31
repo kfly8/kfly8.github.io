@@ -1,11 +1,12 @@
-+++
-author = "kfly8"
-date = "2015-12-02T18:39:52+09:00"
-linktitle = "Hello, Crystal"
-title = "Hello, Crystal"
-tags = ["crystal"]
-+++
-
+---
+author: "kfly8"
+date: "2015-12-02T18:39:52+09:00"
+linktitle: "Hello, Crystal"
+title: "Hello, Crystal"
+tags: ["crystal"]
+description: |
+  この記事は Crystal Advent Calendar 2015 の 2 日目の記事です
+---
 
 **この記事は [Crystal Advent Calendar 2015](http://www.adventar.org/calendars/800) の 2 日目の記事です**
 

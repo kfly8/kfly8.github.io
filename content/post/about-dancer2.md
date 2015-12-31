@@ -1,11 +1,13 @@
-+++
-author = "kfly8"
-date = "2015-12-20T20:43:25+09:00"
-linktitle = "About Dancer2(ja)"
-title = "About Dancer2(ja)"
-tags = ["perl", "dancer"]
-+++
-
+---
+author: "kfly8"
+date:   "2015-12-20T20:43:25+09:00"
+linktitle: "About Dancer2(ja)"
+title: "About Dancer2(ja)"
+tags: ["perl", "dancer"]
+description: |
+  この記事は、Perl5 Advent Calendar 2015 の20日目の記事です。
+  Web Application Framework の Dancer2 について紹介したいと思います。
+---
 
 この記事は、[Perl5 Advent Calendar 2015](http://qiita.com/advent-calendar/2015/perl5) の20日目の記事です。
 
