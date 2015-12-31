@@ -265,7 +265,7 @@ section.preview.archive h2 {
 }
 section.author {
   overflow: hidden;
-  margin-bottom: 50px;
+  margin-bottom: 3px 3px 3px 50px;
 }
 img.userimage {
   width: 70px;
