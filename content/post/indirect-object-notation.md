@@ -620,10 +620,6 @@ is_deeply(Class::Inspector->methods('Dog'), ['new']);
     * func Class->foo の Class->func->foo という誤読しやすい評価順
 
 
-## 補足 この記事のコードは、gistでも見れますー。
-[https://gist.github.com/kfly8/254fd149f7a07924ef63#file-constant-pl:title]
-
-
 
 # <a name="section9">明日</a>
 
