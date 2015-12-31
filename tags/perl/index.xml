@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Perl on kobaken&#39;s blog</title>
-    <link>https://kfly8.github.io/tags/perl/</link>
+    <link>http://kfly8.github.io/tags/perl/</link>
     <description>Recent content in Perl on kobaken&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Sun, 20 Dec 2015 20:43:25 +0900</lastBuildDate>
-    <atom:link href="https://kfly8.github.io/tags/perl/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://kfly8.github.io/tags/perl/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>About Dancer2(ja)</title>
-      <link>https://kfly8.github.io/post/about-dancer2/</link>
+      <link>http://kfly8.github.io/post/about-dancer2/</link>
       <pubDate>Sun, 20 Dec 2015 20:43:25 +0900</pubDate>
       
-      <guid>https://kfly8.github.io/post/about-dancer2/</guid>
+      <guid>http://kfly8.github.io/post/about-dancer2/</guid>
       <description>
 
 &lt;p&gt;この記事は、&lt;a href=&#34;http://qiita.com/advent-calendar/2015/perl5&#34;&gt;Perl5 Advent Calendar 2015&lt;/a&gt; の20日目の記事です。&lt;/p&gt;
@@ -184,10 +184,10 @@ package MyApp::Bar {
     
     <item>
       <title>設定とFixture</title>
-      <link>https://kfly8.github.io/post/setting-and-fixture/</link>
+      <link>http://kfly8.github.io/post/setting-and-fixture/</link>
       <pubDate>Wed, 02 Dec 2015 18:53:37 +0900</pubDate>
       
-      <guid>https://kfly8.github.io/post/setting-and-fixture/</guid>
+      <guid>http://kfly8.github.io/post/setting-and-fixture/</guid>
       <description>
 
 &lt;p&gt;&lt;strong&gt;この記事は、&lt;a href=&#34;http://qiita.com/advent-calendar/2015/mobilefactory&#34;&gt;モバイルファクトリー Advent Calendar 2015&lt;/a&gt; 2日目の記事です&lt;/strong&gt;&lt;/p&gt;
@@ -370,10 +370,10 @@ sub try_load {
     
     <item>
       <title>DBIx::Schema::DSL::Dumper というのを書きました</title>
-      <link>https://kfly8.github.io/post/dbix-schema-dsl-dumper/</link>
+      <link>http://kfly8.github.io/post/dbix-schema-dsl-dumper/</link>
       <pubDate>Wed, 04 Feb 2015 21:00:12 +0900</pubDate>
       
-      <guid>https://kfly8.github.io/post/dbix-schema-dsl-dumper/</guid>
+      <guid>http://kfly8.github.io/post/dbix-schema-dsl-dumper/</guid>
       <description>&lt;p&gt;songmuさんの書いた&lt;a href=&#34;https://github.com/Songmu/p5-DBIx-Schema-DSL&#34;&gt;DBIx::Schema::DSL&lt;/a&gt;
 を使いたい状況が出て来て、
 すでに結構もりもり書かれてたDDLを移行する為に書いてみました。&lt;/p&gt;
@@ -400,10 +400,10 @@ print DBIx::Schema::DSL::Dumper-&amp;gt;dump(
     
     <item>
       <title>間接オブジェクト記法のアンチパターン</title>
-      <link>https://kfly8.github.io/post/indirect-object-notation/</link>
+      <link>http://kfly8.github.io/post/indirect-object-notation/</link>
       <pubDate>Wed, 17 Dec 2014 12:54:09 +0900</pubDate>
       
-      <guid>https://kfly8.github.io/post/indirect-object-notation/</guid>
+      <guid>http://kfly8.github.io/post/indirect-object-notation/</guid>
       <description>
 
 &lt;p&gt;この記事は &lt;a href=&#34;http://qiita.com/advent-calendar/2014/perl&#34;&gt;Perl Advent Calendar 2014&lt;/a&gt; の 17日目 の記事です。&lt;/p&gt;
@@ -1027,10 +1027,10 @@ done_testing();
     
     <item>
       <title>#Perl入学式 のお手伝いさせてもらってきた</title>
-      <link>https://kfly8.github.io/post/supported-perl-entrance/</link>
+      <link>http://kfly8.github.io/post/supported-perl-entrance/</link>
       <pubDate>Sun, 30 Nov 2014 19:02:59 +0900</pubDate>
       
-      <guid>https://kfly8.github.io/post/supported-perl-entrance/</guid>
+      <guid>http://kfly8.github.io/post/supported-perl-entrance/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;http://www.perl-entrance.org/&#34;&gt;Perl入学式&lt;/a&gt; に参加するのは初めてだったのですが、
