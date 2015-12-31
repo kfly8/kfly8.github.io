@@ -25,7 +25,11 @@
 こちらは、Dancer2 のリリースマネージャーの &lt;a href=&#34;https://twitter.com/perlsawyer&#34;&gt;SawyerX&lt;/a&gt; による、Dancer2の超速紹介です。
 Dancer2 の要点が凝縮されたLTです。&lt;/p&gt;
 
-&lt;p&gt;[&lt;a href=&#34;https://www.youtube.com/watch?v=0gapHdDTRUk:movie&#34;&gt;https://www.youtube.com/watch?v=0gapHdDTRUk:movie&lt;/a&gt;]&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/0gapHdDTRUk&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+
 
 &lt;p&gt;目を凝らすとこんなスライドが見えます。DSLで、ルーティングを記述します。&lt;/p&gt;
 
@@ -87,8 +91,13 @@ Dancer の DSL はほぼそのままに、設計面での調整が大幅に入�
 &lt;p&gt;Dancer を作った sukria のポスト。
 [&lt;a href=&#34;http://blog.sukria.net/2015/10/22/perl-dancer-2015-report:embed:cite&#34;&gt;http://blog.sukria.net/2015/10/22/perl-dancer-2015-report:embed:cite&lt;/a&gt;]&lt;/p&gt;
 
-&lt;p&gt;最近の開発状況の話。
-[&lt;a href=&#34;https://www.youtube.com/watch?v=UbU5R-SHbDE&amp;amp;list=PLf1KDvMbyeCQq4mkMt8jDPzS9uPUX_mNo&amp;amp;index=1:movie&#34;&gt;https://www.youtube.com/watch?v=UbU5R-SHbDE&amp;amp;list=PLf1KDvMbyeCQq4mkMt8jDPzS9uPUX_mNo&amp;amp;index=1:movie&lt;/a&gt;]&lt;/p&gt;
+&lt;p&gt;最近の開発状況の話。&lt;/p&gt;
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/UbU5R-SHbDE&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+
 
 &lt;p&gt;（Dancer2::XS ってあって、すごいってなった）&lt;/p&gt;
 
