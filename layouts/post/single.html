@@ -18,14 +18,6 @@
 	            {{ .Content }}
 	        </section>
 
-			{{ if eq .Site.Params.comments "disqus" }}
-	        	{{ template "_internal/disqus.html" . }}
-	        {{ end }}
-
-			{{ if eq .Site.Params.comments "googleplus" }}
-				{{ partial "googleplus-comments" . }}
-			{{ end }}
-
 	        <section class="share">
 	            <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> {{ .Site.Params.backtotopStr }}</a></p>
 	            <p class="info prompt">{{ .Site.Params.shareStr }}</p>
@@ -45,6 +37,15 @@
 	              <i class="fa fa-2x fa-fw fa-hatena" style="margin-left: -8px"></i> <span class="hidden">B!</span>
               </a>
 	        </section>
+
+			{{ if eq .Site.Params.comments "disqus" }}
+	        	{{ template "_internal/disqus.html" . }}
+	        {{ end }}
+
+			{{ if eq .Site.Params.comments "googleplus" }}
+				{{ partial "googleplus-comments" . }}
+			{{ end }}
+
 	    </article>
 	</main>
 
