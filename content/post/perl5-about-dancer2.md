@@ -14,7 +14,7 @@ Web Application Framework の Dancer2 について紹介したいと思います
 こちらは、Dancer2 のリリースマネージャーの [SawyerX](https://twitter.com/perlsawyer) による、Dancer2の超速紹介です。
 Dancer2 の要点が凝縮されたLTです。
 
-[https://www.youtube.com/watch?v=0gapHdDTRUk:movie]
+{{% youtube 0gapHdDTRUk %}}
 
 目を凝らすとこんなスライドが見えます。DSLで、ルーティングを記述します。
 
@@ -60,7 +60,9 @@ plackup app.psgi
 
 
 Dancer2 は、元々、Ruby のSinatra を Perl に port した Dancer の次バージョンです。
-Dancer の DSL はほぼそのままに、設計面での調整が大幅に入っています((http://advent.perldancer.org/2014/2))
+Dancer の DSL はほぼそのままに、設計面での調整が大幅に入っています
+
+> http://advent.perldancer.org/2014/2
 
 例えば、以下のような対応が行われています。
 
@@ -70,16 +72,18 @@ Dancer の DSL はほぼそのままに、設計面での調整が大幅に入�
 * デザインパターンの調整（デメテルの法則...）
 
 この対応に関して、2011 年の Dancer Advent Calendar にて、（超訳ですが）「全部書き換えるぞい」という記事があります。
-> [http://advent.perldancer.org/2011/8:title]
+
+> http://advent.perldancer.org/2011/8
 
 利用者が多数のプロダクトにおいて、こういった完全な書き換えは、個人的な興味をそそりました。
 今現在も活発に開発され、Dancer という名前を冠するPerl [カンファレンス](https://www.perl.dance/)も開かれています。
 
 Dancer を作った sukria のポスト。
-[http://blog.sukria.net/2015/10/22/perl-dancer-2015-report:embed:cite]
+[perl-dancer-2015-report](http://blog.sukria.net/2015/10/22/perl-dancer-2015-report)
 
 最近の開発状況の話。
-[https://www.youtube.com/watch?v=UbU5R-SHbDE&list=PLf1KDvMbyeCQq4mkMt8jDPzS9uPUX_mNo&index=1:movie]
+
+{{% youtube UbU5R-SHbDE %}}
 
 （Dancer2::XS ってあって、すごいってなった）
 
@@ -88,14 +92,14 @@ Dancer を作った sukria のポスト。
 （と言っても、ほぼ、[2014 年の dancer advent calendar](http://advent.perldancer.org/2014) ((SawyerX の一人アドベントカレンダー。つよい。)) からの抜粋です。
 
 
-* [http://advent.perldancer.org/2014/5:title]
+> http://advent.perldancer.org/2014/5
 
 fatpack、つまり一枚スクリプトにするのをサポートしています。
 （なので、XSモジュールは、recommend 扱いです）
 
 ポータビリティを考えると良い選択になるかもしれません。
 
-* [http://advent.perldancer.org/2014/16:title]
+> http://advent.perldancer.org/2014/16
 
 コマンドラインで利用も考慮されています。
 
@@ -106,7 +110,7 @@ warn config->{environment}; # => development
 warn dancer_version;        # => 0.165000
 ```
 
-* [http://advent.perldancer.org/2014/10:title]
+> http://advent.perldancer.org/2014/10
 
 複数のアプリケーションの同居が考慮されています。
 Dancer2 に appname を渡すことで、config やdbh などが、appname ごとに管理されます。
