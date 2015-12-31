@@ -4,7 +4,7 @@
 body {
   background-color: #ffffff;
   color: #596364; /* darker color */
-  font-size: 15px;
+  font-size: 100%;
   font-weight: 100;
   line-height: 1.6em;
   margin: 0;
@@ -44,7 +44,7 @@ p,
 li,
 dt,
 dd {
-  font-size: 17px;
+  font-size: 100%;
   font-weight: 100;
   line-height: 28px;
 }
@@ -68,7 +68,7 @@ kbd {
   border: #ccc 1px solid;
   color: #666;
   text-shadow: #fff 0 1px 0;
-  font-size: 0.9em;
+  font-size: 90%;
   font-weight: bold;
   background: #f4f4f4;
   border-radius: 4px;
@@ -79,7 +79,7 @@ kbd {
 h1 {
   color: #151515;
   font-family: "Roboto Slab", "Merriweather", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
-  font-size: 36px;
+  font-size: 140%;
   font-weight: 400;
   line-height: 42px;
   margin: 0;
@@ -127,14 +127,14 @@ h2.blog-description {
   text-align: left;
 }
 h1.blog-title {
-  font-size: 50px;
+  font-size: 200%;
   line-height: 52px;
   margin-top: 80px;
   margin-bottom: 5px;
   padding: 0;
 }
 h1.blog-subtitle {
-  font-size: 26px;
+  font-size: 100%;
   line-height: 32px;
   margin-top: -8px;
   margin-bottom: 85px;
@@ -187,7 +187,7 @@ section.author h4 {
 }
 section.author p.attr,
 section.share p.info {
-  font-size: 16px;
+  font-size: 100%;
   line-height: 20px;
   text-transform: uppercase;
   font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
@@ -203,13 +203,13 @@ section.share p.info {
   display: inline-block;
 }
 section.author p.bio {
-  font-size: 14px;
+  font-size: 100%;
   margin-left: 99px;
   line-height: 1.2em;
 }
 blockquote {
   font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
-  font-size: 1.6em;
+  font-size: 100%;
   font-weight: 300;
   line-height: 1.2em;
   font-style: italic;
@@ -222,13 +222,13 @@ blockquote {
 .post-meta {
   color: #95a5a6;
   font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
-  font-size: 18px;
+  font-size: 80%;
   font-weight: 300;
   margin-top: 0.3em;
   text-transform: uppercase;
 }
 .tags {
-  font-size: 16px;
+  font-size: 100%;
   margin-bottom: 0.5em;
 }
 div.authorimage {
@@ -286,7 +286,7 @@ footer {
 footer section {
   font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
   font-weight: 300;
-  font-size: 18px;
+  font-size: 100%;
   margin: 0 auto;
   max-width: 600px;
   text-transform: uppercase;
@@ -317,7 +317,7 @@ nav ul {
 nav ul li {
   display: inline-block;
   font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
-  font-size: 18px;
+  font-size: 120%;
   font-weight: 300;
   margin: 0;
   padding: 0 .5em;
@@ -358,7 +358,7 @@ a.archive-link {
   border-top: 1px solid #ecf0f1;
   display: block;
   font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
-  font-size: 24px;
+  font-size: 120%;
   font-weight: 300;
   margin-bottom: 3em;
   margin-top: 3em;
@@ -372,7 +372,7 @@ a.archive-link {
   max-width: 600px;
   font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
   text-transform: uppercase;
-  font-size: 20px;
+  font-size: 120%;
   color: #596364;
   text-align: center;
   padding: 0.5em 0;
@@ -472,7 +472,7 @@ a.archive-link {
   content: "\e001";
 }
 .icon-ghost {
-  font-size: 12px;
+  font-size: 80%;
   position: relative;
   top: -1px;
 }
@@ -535,7 +535,7 @@ section.post-content h4 {
 }
 section.post-content h4 {
   font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
-  font-size: 23px;
+  font-size: 120%;
   text-transform: uppercase;
   font-weight: 300;
 }
@@ -557,7 +557,7 @@ pre {
 
 blockquote p {
   font-family: "Merriweather", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
-  font-size: 0.65em;
+  font-size: 80%;
   font-weight: 300;
   line-height: 1.55em;
   font-style: italic;
@@ -578,7 +578,7 @@ section.post-content li {
 }
 
 p.backtotop {
-  font-size: 16px;
+  font-size: 100%;
   line-height: 20px;
   text-transform: uppercase;
   font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
@@ -596,7 +596,7 @@ a.backtotoptext {
 
 sup {
   padding-left: 1px;
-  font-size: 13px;
+  font-size: 70%;
   font-weight: bold;
 }
 
@@ -608,7 +608,7 @@ ol.notes {
 ol.notes > li {
   padding: -0.8em;
   margin-left: -15px;
-  font-size: 12.5px;
+  font-size: 70%;
   line-height: 20px;
 }
 
@@ -626,11 +626,12 @@ hr {
 
 section.footer-social {
   margin-bottom: 23px;
-  font-size: 17px;
+  font-size: 90%;
 }
 
 section.post-content {
   margin-bottom: 60px;
+  font-size: 90%;
 }
 
 section.bloginfo {
@@ -643,7 +644,7 @@ section.bloginfo {
 }
 
 section.author .meta {
-  font-size: 12px;
+  font-size: 80%;
   line-height: 19px;
   font-family: "Roboto Slab", "Merriweather", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
   color: #bbbbbb;
@@ -651,7 +652,7 @@ section.author .meta {
   margin-left: 108px;
 }
 section.author .meta a {
-  font-size: 12px;
+  font-size: 80%;
   color: #bbbbbb;
 }
 
@@ -663,5 +664,5 @@ h1.posts-tagged {
   color: #596364;
   text-transform: uppercase;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 100%;
 }
