@@ -21,7 +21,7 @@
     {{ "<!-- Stylesheets -->" | safeHTML }}
     <link rel="stylesheet" href="{{ .Site.BaseURL }}css/screen.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css">
-    <link rel="stylesheet" href="{{ .Site.BaseURL }}css/monokai-sublime.css">
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}css/solarized-light.css">
 
     {{ "<!-- Stylesheet for theme color -->" | safeHTML }}
     {{ partial (printf "themes/%s-theme" .Site.Params.themeColor) . }}
