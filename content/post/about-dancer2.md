@@ -83,7 +83,7 @@ Dancer の DSL はほぼそのままに、設計面での調整が大幅に入�
 
 Dancer を作った sukria のポスト。
 
-{{% wp "http://blog.sukria.net/2015/10/22/perl-dancer-2015-report" %}}
+{{% wp "//blog.sukria.net/2015/10/22/perl-dancer-2015-report" %}}
 
 最近の開発状況の話。
 

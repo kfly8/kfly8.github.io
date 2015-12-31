@@ -28,7 +28,7 @@ description: |
 # <a name="section1">はじめに</a>
 
 15日目の記事の id:akihiro0228 さんの記事を読んで、
-{{% hatenablog "http://akihiro0228.hatenablog.com/embed/2014/12/15/221806" %}}
+{{% hatenablog "//akihiro0228.hatenablog.com/embed/2014/12/15/221806" %}}
 
 自分がよくハマってしまう[間接オブジェクト記法](http://perldoc.jp/docs/perl/5.8.8/perlobj.pod#Indirect32Object32Syntax)について紹介したいと思います。
 <b>便乗です！</b>
@@ -104,7 +104,7 @@ say FOO; # => foofoofoofoo
 
 ずばり、 id:karupanerura 先生の話を例を取ってみます。
 
-{{% hatenablog "http://techblog.karupas.org/embed/20111117/1321542949" %}}
+{{% hatenablog "//techblog.karupas.org/embed/20111117/1321542949" %}}
 
 
 ```perl
@@ -129,9 +129,9 @@ try {
 このエラーだとよくわからないので、
 7日目の id:papix さんと11日目の id:hisaichi5518 さんが紹介しているB::Deparseを使います
 
-{{% hatenablog "http://papix.hatenablog.com/embed/2014/12/07/150335" %}}
+{{% hatenablog "//papix.hatenablog.com/embed/2014/12/07/150335" %}}
 
-{{% hatenablog "http://hisaichi5518.hatenablog.jp/embed/2014/12/11/222358" %}}
+{{% hatenablog "//hisaichi5518.hatenablog.jp/embed/2014/12/11/222358" %}}
 
 
 ```perl
