@@ -100,7 +100,7 @@ Dancer の DSL はほぼそのままに、設計面での調整が大幅に入�
 &lt;iframe
   sandbox=&#34;allow-scripts&#34;
   security=&#34;restricted&#34;
-  src=&#34;http://blog.sukria.net/2015/10/22/perl-dancer-2015-report/embed/&#34;
+  src=&#34;//blog.sukria.net/2015/10/22/perl-dancer-2015-report/embed/&#34;
   width=&#34;600&#34;
   height=&#34;338&#34;
   frameborder=&#34;0&#34;
