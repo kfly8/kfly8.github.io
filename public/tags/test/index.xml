@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Test on kobaken&#39;s blog</title>
-    <link>https://kfly8.github.io/tags/test/</link>
+    <link>http://kfly8.github.io/tags/test/</link>
     <description>Recent content in Test on kobaken&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Wed, 02 Dec 2015 18:53:37 +0900</lastBuildDate>
-    <atom:link href="https://kfly8.github.io/tags/test/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://kfly8.github.io/tags/test/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>設定とFixture</title>
-      <link>https://kfly8.github.io/post/setting-and-fixture/</link>
+      <link>http://kfly8.github.io/post/setting-and-fixture/</link>
       <pubDate>Wed, 02 Dec 2015 18:53:37 +0900</pubDate>
       
-      <guid>https://kfly8.github.io/post/setting-and-fixture/</guid>
+      <guid>http://kfly8.github.io/post/setting-and-fixture/</guid>
       <description>
 
 &lt;p&gt;&lt;strong&gt;この記事は、&lt;a href=&#34;http://qiita.com/advent-calendar/2015/mobilefactory&#34;&gt;モバイルファクトリー Advent Calendar 2015&lt;/a&gt; 2日目の記事です&lt;/strong&gt;&lt;/p&gt;

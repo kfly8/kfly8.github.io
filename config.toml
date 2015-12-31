@@ -1,4 +1,4 @@
-baseurl = "https://kfly8.github.io/"
+baseurl = "http://kfly8.github.io/"
 languageCode = "ja"
 title = "kobaken's blog"
 #theme = "hugo-steam-theme"
