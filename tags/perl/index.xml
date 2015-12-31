@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>kobaken&#39;s blog</title>
-    <link>https://kfly8.github.io/</link>
-    <description>Recent content on kobaken&#39;s blog</description>
+    <title>Perl on kobaken&#39;s blog</title>
+    <link>https://kfly8.github.io/tags/perl/</link>
+    <description>Recent content in Perl on kobaken&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Sun, 20 Dec 2015 20:43:25 +0900</lastBuildDate>
-    <atom:link href="https://kfly8.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://kfly8.github.io/tags/perl/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>About Dancer2(ja)</title>
@@ -352,155 +352,6 @@ sub try_load {
 &lt;/ul&gt;
 
 &lt;p&gt;明日は、 nekobato さんです!&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Hello, Crystal</title>
-      <link>https://kfly8.github.io/post/hello-crystal/</link>
-      <pubDate>Wed, 02 Dec 2015 18:39:52 +0900</pubDate>
-      
-      <guid>https://kfly8.github.io/post/hello-crystal/</guid>
-      <description>
-
-&lt;p&gt;&lt;strong&gt;この記事は &lt;a href=&#34;http://www.adventar.org/calendars/800&#34;&gt;Crystal Advent Calendar 2015&lt;/a&gt; の 2 日目の記事です&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;昨日は、&lt;a href=&#34;https://twitter.com/pine613&#34;&gt;pine613&lt;/a&gt; さんの &lt;a href=&#34;http://qiita.com/pine613/items/7407e56771b504bed82f&#34;&gt;これから Crystal を始める方へ: Crystal 日本語情報まとめ&lt;/a&gt; でした。
-&lt;a href=&#34;http://ja.crystal-lang.org&#34;&gt;公式ドキュメントの日本語訳&lt;/a&gt;が整っているの素敵ですね!!&lt;/p&gt;
-
-&lt;p&gt;今日は、crystal の setup から、heroku に deploy するまで、です。
-完全、後発です。厳しいです。詳しいことは、↓を見ると良いのではないでしょうか!?&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://subvisual.co/blog/posts/63-deploying-a-crystal-application-to-heroku&#34;&gt;deploying-a-crystal-application-to-heroku&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://zephiransas.github.io/blog/2015/11/10/crystal-on-heroku/&#34;&gt;crystal-on-heroku&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;setup:655554d8faba66a38325aa6a7a1bf315&#34;&gt;setup&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;*env 最高&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;% anyenv install crenv
-% crenv install 0.9.1
-% crenv rehash
-% crystal -v
-Crystal 0.9.1 [b3b1223] (Fri Oct 30 03:26:53 UTC 2015)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;initialize-app:655554d8faba66a38325aa6a7a1bf315&#34;&gt;initialize app&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;% crystal init app app # `app` という名前のapplication の雛形用意
-% cd app
-% git commit -m &#39;initial commit&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;create-app:655554d8faba66a38325aa6a7a1bf315&#34;&gt;create app&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;crystal-lang.org の冒頭のHello返すだけのHTTP server に OptionParserでport食わせられるようにしただけ&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;% cat src/app.cr
-
-require &amp;quot;http/server&amp;quot;
-require &amp;quot;option_parser&amp;quot;
-
-port = 8080
-OptionParser.parse! do |parser|
-  parser.on(&amp;quot;-p PORT&amp;quot;, &amp;quot;--port=PORT&amp;quot;, &amp;quot;Set server port&amp;quot;) { |p| port = p.to_i }
-end
-
-server = HTTP::Server.new(&amp;quot;0.0.0.0&amp;quot;, port) do |req|
-  HTTP::Response.ok &amp;quot;text/plain&amp;quot;, &amp;quot;Hello&amp;quot;
-end
-
-puts &amp;quot;Listening on http://0.0.0.0:#{port}&amp;quot;
-server.listen
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;試しに実行してみる&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;# 即時実行
-% crystal run src/app.cr
-Listening on http://0.0.0.0:8080
-
-# ビルドしてあげる
-% crystal build src/app.cr
-% ./app -p 5000
-Listening on http://0.0.0.0:5000
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;deploy-to-heroku:655554d8faba66a38325aa6a7a1bf315&#34;&gt;deploy to heroku&lt;/h1&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Procfile とりあえず用意して、手元の環境で、ps 動かしてみる&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;% cat Procfile
-web: ./app -p $PORT
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;% heroku local
-forego | starting web.1 on port 5000
-web.1  | Listening on http://0.0.0.0:5000
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;% git add .
-% git commit -m &#39;update&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;heroku-create:655554d8faba66a38325aa6a7a1bf315&#34;&gt;heroku create&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;↓のカスタムビルドは、適宜・・好きなのを用意してください
-
-&lt;ul&gt;
-&lt;li&gt;今回は手抜きで、crystal version が、手元では、&lt;code&gt;0.9.1&lt;/code&gt; だけど、&lt;code&gt;0.9.0&lt;/code&gt; でビルドされるカスタムビルドパックを利用しました:p&lt;/li&gt;
-&lt;li&gt;今回のカスタムビルドの要件は、&lt;code&gt;0.9.0&lt;/code&gt; でのビルド。&lt;code&gt;shard.yml&lt;/code&gt; があること。&lt;code&gt;./src/app.cr&lt;/code&gt; がソースファイルで、 &lt;code&gt;./app&lt;/code&gt; にリリースビルドされて、&lt;code&gt;Procfile&lt;/code&gt; で &lt;code&gt;./app&lt;/code&gt; を呼び出している感じですね。&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;% heroku create --buildpack https://github.com/scaint/heroku-buildpack-crystal.git
-% git push heroku master
-
-Counting objects: 16, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (10/10), done.
-Writing objects: 100% (16/16), 306.50 KiB | 0 bytes/s, done.
-Total 16 (delta 0), reused 0 (delta 0)
-remote: Compressing source files... done.
-remote: Building source:
-remote:
-remote: -----&amp;gt; Fetching set buildpack https://github.com/scaint/heroku-buildpack-crystal.git... done
-remote: -----&amp;gt; Crystal app detected
-remote: -----&amp;gt; Installing Crystal 0.9.0
-remote: -----&amp;gt; Installing Shards 0.5.3
-remote: -----&amp;gt; Installing Dependencies
-remote: -----&amp;gt; Compiling src/app.cr
-remote:
-remote: -----&amp;gt; Discovering process types
-remote:        Procfile declares types -&amp;gt; web
-remote:
-remote: -----&amp;gt; Compressing... done, 409K
-remote: -----&amp;gt; Launching... done, v3
-remote:        https://arcane-harbor-8307.herokuapp.com/ deployed to Heroku
-remote:
-remote: Verifying deploy... done.
-To https://git.heroku.com/arcane-harbor-8307.git
- * [new branch]      master -&amp;gt; master
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;% heroku open
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;反省:655554d8faba66a38325aa6a7a1bf315&#34;&gt;反省&lt;/h1&gt;
-
-&lt;p&gt;アドベントカレンダー事前に準備する&lt;/p&gt;
-
-&lt;p&gt;明日は、　5t111111　さんです！&lt;/p&gt;
 </description>
     </item>
     

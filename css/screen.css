@@ -241,7 +241,6 @@ div.authorimage {
   float: left;
 }
 h1.post-title {
-  margin-top: 35px;
 }
 h1.post-title a,
 h1.blog-title a {
@@ -572,8 +571,6 @@ section.post-content li {
 }
 
 .tags {
-  text-align: right;
-  padding-right: 6px;
 }
 
 p.backtotop {
