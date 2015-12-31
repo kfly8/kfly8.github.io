@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>#Perl入学式 のお手伝いさせてもらってきた &middot; kobaken&#39;s blog</title>
+    <meta name="author" content="kobaken">
+    <meta name="description" content="Your description of the blog">
+    <meta name="generator" content="Hugo 0.16-DEV" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link rel="shortcut icon" href="https://kfly8.github.io/img/favicon.ico">
+    <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.2/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://kfly8.github.io/css/screen.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css">
+    <link rel="stylesheet" href="https://kfly8.github.io/css/monokai-sublime.css">
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #3498db;}
+    .pagination a {color: #3498db;}
+    .gist .gist-file .gist-meta a:visited {color: #3498db !important;}
+    a:focus, a:hover {color: #2079b4;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #2079b4;}
+    .older-posts:hover, .newer-posts:hover {color: #2079b4;}
+</style>
+</head>
+
+<body class="post-template">
+
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="https://kfly8.github.io/">kobaken&rsquo;s blog</a></h1>
+	
+	
+	<h1 class="blog-subtitle">Programming, Tech and Math</h1>
+	
+</header>
+    
+
+    <main class="content" role="main">
+	    <article class="post">
+	        <header>
+	        <h1 class="post-title">#Perl入学式 のお手伝いさせてもらってきた</h1>
+	        <div class="post-meta">
+            <time datetime="30 November 2014">30 November 2014</time>
+            <span class="post-meta tags">
+<i class="fa fa-fw fa-tag"></i>
+
+<a href="https://kfly8.github.io/tags/perl">perl </a>
+
+</span>
+
+          </div>
+	        </header>
+
+	        <section class="post-content">
+	            
+
+<p><a href="http://www.perl-entrance.org/">Perl入学式</a> に参加するのは初めてだったのですが、
+サポーターとして参加させてもらいました。
+お疲れ様でした！特に講師のid:xtetsuji さんお疲れ様でした！!</p>
+
+<p>「サブルーチンと正規表現」がお題でした。
+資料は<a href="https://github.com/perl-entrance-org/workshop-2014-04/blob/master/slide.md">コチラ</a></p>
+
+<p>寿司はコチラ。
+<blockquote class="twitter-tweet" lang="ja"><p>Perl入学寿司 <a href="https://twitter.com/hashtag/Perl%E5%85%A5%E5%AD%A6%E5%BC%8F?src=hash">#Perl入学式</a> (@ 立ち喰い寿司 都々井 in 品川区, 東京都) <a href="https://t.co/dBvh02MXCZ">https://t.co/dBvh02MXCZ</a> <a href="http://t.co/MVMMTHvfco">pic.twitter.com/MVMMTHvfco</a></p>&mdash; OGATA Tetsuji (@xtetsuji) <a href="https://twitter.com/xtetsuji/status/538527365635514368">2014, 11月 29</a></blockquote>
+美味かった。</p>
+
+<h1 id="面白かった-罠がコチラ:b9ad6d015439b1465565681b73a51293">面白かった(?)罠がコチラ</h1>
+
+<pre><code class="language-perl">use strict;
+use warnings;
+use utf8;
+
+sub dump_hash {
+    my $hash = @_;
+    $hash-&gt;{foo};
+}
+
+dump_hash({foo =&gt; 1, bar =&gt; 2});
+# =&gt; Can't use string (&quot;1&quot;) as a HASH ref while &quot;strict refs&quot; in use at foo.pl line 7.
+</code></pre>
+
+<p>生徒:「<code>1</code>って何?!?!」
+おれ:「配列をスカラーで評価して、配列長..ですね&hellip;」
+生徒:「??????」
+おれ:「ですよね!!!!!!!!」</p>
+
+<p>幸い？他のプログラミング言語を触っている人だったからか、
+「Perlだと、どう値を使いたいか意思表示できて、
+例えば、配列が欲しいのか、スカラが欲しいのかなど。
+逆に言うと意思表示に慣れるまで、ハマります！！」
+でコンテキストのことを濁し、次のような引数の取り方の例を見てもらったら納得してもらえたよう。</p>
+
+<pre><code class="language-perl">sub dump_hash2 {
+    my $h   = @_; # bad...
+    my ($h) = @_; # ok (補足: 括弧が、優先順位の括弧に見えてしまったよう。 my ($a,$b) = @_ の例も併わせて紹介して、リストの括弧と分かってもらえた。
+    my ($h,)= @_; # ok (さらに補足: 人によっては配列をより意識する為にこう書く人もいる
+    my $h   = shift; # ok
+    my $h   = $_[0]; # ok
+}
+</code></pre>
+
+<p>蛇足にこんな例も話したら、楽しんでもらえたよう（多分）</p>
+
+<pre><code class="language-perl">my @a  = ('a', 'b', 'c', 'd');
+#my @a = qw/ a b c d /; # これで上と同じ意味
+
+my %hash  = ( a =&gt; 1, b =&gt; 2 );
+#my %hash = ( 'a', 1, 'b', 2 );  # これで上と同じ意味
+#my %hash = qw/ a 1 b 2 /;  # これも同じ意味
+my @b     = ( 'a', 1, 'b', 2 );  # さらに配列として受け止めることもできる
+</code></pre>
+
+<p>慣れるのは苦労するかもしれないけど、、、
+例えば、「対になっているデータが欲しいから、ハッシュにしよう！」
+とか思った時に、特にこねくり回したことしなくて良いのが、個人的に楽だと思っている。</p>
+
+<h1 id="完全なる蛇足:b9ad6d015439b1465565681b73a51293">完全なる蛇足</h1>
+
+<p>楽しみついでに、<a href="https://github.com/perl-entrance-org/workshop-2014-04/blob/master/slide.md#%E3%82%B5%E3%83%96%E3%83%AB%E3%83%BC%E3%83%81%E3%83%B3%E3%81%AE%E5%AE%9A%E7%BE%A9-2">サブルーチンの定義</a>に関して、
+「!」「数字」や「日本語」をサブルーチン名に使ったりする応用例？を書いた。</p>
+
+<p>この辺、YAPC::Asia 2014 のid:karupaneruraの<a href="http://yapcasia.org/2014/talk/show/25f99ab0-fa15-11e3-b7e8-e4a96aeab6a4">meta programmingの話</a> が詳しい。(demoが多いので、動画がおすすめ）</p>
+
+<pre><code class="language-perl">use strict;
+use warnings;
+use utf8;
+
+use Test::More;
+
+{
+    no strict qw/refs/;
+    *{'world!'} = sub { 'world' };
+    is *{'world!'}{CODE}-&gt;(), 'world', 'symbol table call';
+}
+
+done_testing;
+</code></pre>
+
+<pre><code class="language-perl">use strict;
+use warnings;
+use utf8;
+
+use Test::More;
+
+sub こんにちは { 'hello' }
+is こんにちは(), 'hello';
+
+done_testing;
+</code></pre>
+
+<pre><code class="language-perl">use strict;
+use warnings;
+use utf8;
+
+use Test::More;
+use Package::Stash;
+
+my $stash = Package::Stash-&gt;new('Foo');
+$stash-&gt;add_symbol('&amp;hello world!', sub { 'hello' });
+
+subtest 'by get_symbol' =&gt; sub {
+    my $code = $stash-&gt;get_symbol('&amp;hello world!');
+    is $code-&gt;(), 'hello'
+};
+
+subtest 'by pkg' =&gt; sub {
+    ok Foo-&gt;can('hello world!'), 'can?';
+    my $code = Foo-&gt;can('hello world!');
+    is $code-&gt;(), 'hello';
+
+    my $method = 'hello world!';
+    is Foo-&gt;$method(), 'hello';
+};
+
+done_testing;
+</code></pre>
+
+<p>そんなこんなで、Perl入学式楽しませてもらいました！！
+ありがとうございました！
+またの機会もよろしくお願いします！</p>
+
+	        </section>
+
+			
+	        	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'kfly8';
+    var disqus_identifier = 'https:\/\/kfly8.github.io\/post\/supported-perl-entrance\/';
+    var disqus_title = '#Perl入学式 のお手伝いさせてもらってきた';
+    var disqus_url = 'https:\/\/kfly8.github.io\/post\/supported-perl-entrance\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	        
+
+			
+
+	        <section class="share">
+	            <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> TOP</a></p>
+	            <p class="info prompt"></p>
+	            <a href="http://twitter.com/share?text=%23Perl%e5%85%a5%e5%ad%a6%e5%bc%8f%20%e3%81%ae%e3%81%8a%e6%89%8b%e4%bc%9d%e3%81%84%e3%81%95%e3%81%9b%e3%81%a6%e3%82%82%e3%82%89%e3%81%a3%e3%81%a6%e3%81%8d%e3%81%9f&url=https%3a%2f%2fkfly8.github.io%2fpost%2fsupported-perl-entrance%2f" title="Share on Twitter"
+	                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+	                <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
+	            </a>
+	            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkfly8.github.io%2fpost%2fsupported-perl-entrance%2f" title="Share on Facebook"
+	                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+	                <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
+	            </a>
+	            <a href="https://plus.google.com/share?url=https%3a%2f%2fkfly8.github.io%2fpost%2fsupported-perl-entrance%2f" title="Share on Google+"
+	               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+	                <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
+	            </a>
+              <a href="http://b.hatena.ne.jp/entry/https://kfly8.github.io/post/supported-perl-entrance/" class="hatena-bookmark-button" data-hatena-bookmark-title="#Perl入学式 のお手伝いさせてもらってきた" data-hatena-bookmark-layout="simple" title="このエントリーをはてなブックマークに追加">
+	              <i class="fa fa-2x fa-fw fa-hatena" style="margin-left: -8px"></i> <span class="hidden">B!</span>
+              </a>
+	        </section>
+	    </article>
+	</main>
+
+    <footer class="site-footer">
+
+	<section class="author">
+    <div class="authorimage" style="background: url(https://kfly8.github.io/img/avatar.jpg)"></div>
+    <h4>kobaken</h4>
+    <p class="bio">Hello World!</p>
+    <p class="meta">
+      <i class="fa fa-fw fa-map-marker"></i> Tokyo
+      <a href="//twitter.com/kfly8" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp; 
+      <a href="//github.com/kfly8" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      <a href="" target="_blank" title="RSS"><i class="fa fa-2x fa-fw fa-rss"></i> <span class="hidden">RSS</span></a>
+    </p>
+</section>
+
+	<section class="copyright">&copy; 2015 <a href="https://kfly8.github.io/">kobaken</a>. </section>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://kfly8.github.io/js/index.js"></script>
+<script src="https://kfly8.github.io/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<!-- Google Analytics -->
+<script>
+  var _gaq=[['_setAccount','UA-71885424-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+</body>
+</html>
