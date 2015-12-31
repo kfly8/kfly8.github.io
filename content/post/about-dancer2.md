@@ -82,7 +82,8 @@ Dancer の DSL はほぼそのままに、設計面での調整が大幅に入�
 今現在も活発に開発され、Dancer という名前を冠するPerl [カンファレンス](https://www.perl.dance/)も開かれています。
 
 Dancer を作った sukria のポスト。
-[perl-dancer-2015-report](http://blog.sukria.net/2015/10/22/perl-dancer-2015-report)
+
+{{% wp "http://blog.sukria.net/2015/10/22/perl-dancer-2015-report" %}}
 
 最近の開発状況の話。
 
