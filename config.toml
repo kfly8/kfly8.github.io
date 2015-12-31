@@ -20,7 +20,7 @@ paginate = 10
 	# feel free to add a few information about you and your website.
 	name = "kobaken"
 	bio = "Hello World!"
-	description = "Your description of the blog"
+	description = "Programming, Tech And Math"
 	location = "Tokyo" # optional
 	twitter = "kfly8" # optional
 	github = "kfly8" # optional
