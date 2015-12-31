@@ -3,6 +3,7 @@ author = "kfly8"
 date = "2015-12-02T18:53:37+09:00"
 linktitle = "設定とFixture"
 title = "設定とFixture"
+tags = ["perl", "test"]
 +++
 
 

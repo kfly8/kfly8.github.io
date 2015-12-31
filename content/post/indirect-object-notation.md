@@ -3,6 +3,7 @@ author = "kfly8"
 date = "2014-12-17T12:54:09+09:00"
 linktitle = "間接オブジェクト記法のアンチパターン"
 title = "間接オブジェクト記法のアンチパターン"
+tags = ["perl"]
 +++
 
 この記事は [Perl Advent Calendar 2014](http://qiita.com/advent-calendar/2014/perl) の 17日目 の記事です。

@@ -11,10 +11,10 @@
     
     <item>
       <title>About Dancer2(ja)</title>
-      <link>https://kfly8.github.io/post/perl5-about-dancer2/</link>
+      <link>https://kfly8.github.io/post/about-dancer2/</link>
       <pubDate>Sun, 20 Dec 2015 20:43:25 +0900</pubDate>
       
-      <guid>https://kfly8.github.io/post/perl5-about-dancer2/</guid>
+      <guid>https://kfly8.github.io/post/about-dancer2/</guid>
       <description>
 
 &lt;p&gt;この記事は、&lt;a href=&#34;http://qiita.com/advent-calendar/2015/perl5&#34;&gt;Perl5 Advent Calendar 2015&lt;/a&gt; の20日目の記事です。&lt;/p&gt;
@@ -159,7 +159,7 @@ package MyApp::Bar {
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;まとめ:858d65b5c8a179eff8fb66c354151766&#34;&gt;まとめ&lt;/h1&gt;
+&lt;h1 id=&#34;まとめ:d5fa33a926e58371ddf4a9e076d3305f&#34;&gt;まとめ&lt;/h1&gt;
 
 &lt;ul&gt;
 &lt;li&gt;なんだか Dancer2 楽しそうだぞ&lt;/li&gt;
@@ -506,10 +506,10 @@ To https://git.heroku.com/arcane-harbor-8307.git
     
     <item>
       <title>DBIx::Schema::DSL::Dumper というのを書きました</title>
-      <link>https://kfly8.github.io/post/perl5-dbix-schema-dsl-dumper/</link>
+      <link>https://kfly8.github.io/post/dbix-schema-dsl-dumper/</link>
       <pubDate>Wed, 04 Feb 2015 21:00:12 +0900</pubDate>
       
-      <guid>https://kfly8.github.io/post/perl5-dbix-schema-dsl-dumper/</guid>
+      <guid>https://kfly8.github.io/post/dbix-schema-dsl-dumper/</guid>
       <description>&lt;p&gt;songmuさんの書いた&lt;a href=&#34;https://github.com/Songmu/p5-DBIx-Schema-DSL&#34;&gt;DBIx::Schema::DSL&lt;/a&gt;
 を使いたい状況が出て来て、
 すでに結構もりもり書かれてたDDLを移行する為に書いてみました。&lt;/p&gt;
@@ -536,17 +536,17 @@ print DBIx::Schema::DSL::Dumper-&amp;gt;dump(
     
     <item>
       <title>間接オブジェクト記法のアンチパターン</title>
-      <link>https://kfly8.github.io/post/perl5-indirect-object-notation/</link>
+      <link>https://kfly8.github.io/post/indirect-object-notation/</link>
       <pubDate>Wed, 17 Dec 2014 12:54:09 +0900</pubDate>
       
-      <guid>https://kfly8.github.io/post/perl5-indirect-object-notation/</guid>
+      <guid>https://kfly8.github.io/post/indirect-object-notation/</guid>
       <description>
 
 &lt;p&gt;この記事は &lt;a href=&#34;http://qiita.com/advent-calendar/2014/perl&#34;&gt;Perl Advent Calendar 2014&lt;/a&gt; の 17日目 の記事です。&lt;/p&gt;
 
 &lt;p&gt;16日目の記事は &lt;a href=&#34;http://qiita.com/magnolia_k_&#34;&gt;magnolia&lt;em&gt;k&lt;/em&gt;&lt;/a&gt; さんの &lt;a href=&#34;http://qiita.com/magnolia_k_/items/b0a14e29c8090568f5b3&#34;&gt;perlの関数を第一級オブジェクトとして扱う話&lt;/a&gt; でした&lt;/p&gt;
 
-&lt;h1 id=&#34;目次:31588a77e3c575ef340ce5f76e59c59c&#34;&gt;目次&lt;/h1&gt;
+&lt;h1 id=&#34;目次:ed130a5c49b36845906533f63e9cb3a3&#34;&gt;目次&lt;/h1&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#section1&#34;&gt;はじめに&lt;/a&gt;&lt;/li&gt;
@@ -560,7 +560,7 @@ print DBIx::Schema::DSL::Dumper-&amp;gt;dump(
 &lt;li&gt;&lt;a href=&#34;#section9&#34;&gt;明日&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&#34;a-name-section1-はじめに-a:31588a77e3c575ef340ce5f76e59c59c&#34;&gt;&lt;a name=&#34;section1&#34;&gt;はじめに&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;a-name-section1-はじめに-a:ed130a5c49b36845906533f63e9cb3a3&#34;&gt;&lt;a name=&#34;section1&#34;&gt;はじめに&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;15日目の記事の id:akihiro0228 さんの記事を読んで、
 [&lt;a href=&#34;http://akihiro0228.hatenablog.com/entry/2014/12/15/221806:embed&#34;&gt;http://akihiro0228.hatenablog.com/entry/2014/12/15/221806:embed&lt;/a&gt;]&lt;/p&gt;
@@ -568,7 +568,7 @@ print DBIx::Schema::DSL::Dumper-&amp;gt;dump(
 &lt;p&gt;自分がよくハマってしまう&lt;a href=&#34;http://perldoc.jp/docs/perl/5.8.8/perlobj.pod#Indirect32Object32Syntax&#34;&gt;間接オブジェクト記法&lt;/a&gt;について紹介したいと思います。
 &lt;b&gt;便乗です！&lt;/b&gt;&lt;/p&gt;
 
-&lt;h1 id=&#34;a-name-section2-間接オブジェクト記法ってそもそも何-a:31588a77e3c575ef340ce5f76e59c59c&#34;&gt;&lt;a name=&#34;section2&#34;&gt;間接オブジェクト記法ってそもそも何？&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;a-name-section2-間接オブジェクト記法ってそもそも何-a:ed130a5c49b36845906533f63e9cb3a3&#34;&gt;&lt;a name=&#34;section2&#34;&gt;間接オブジェクト記法ってそもそも何？&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;メソッドを呼び出しの別表現です&lt;/p&gt;
 
@@ -586,7 +586,7 @@ method $obj $a, $b;   # 間接オブジェクト記法
 ですが、意図せず間接オブジェクト記法な呼び出しにしてしまったり、
 この表現の方が簡潔に書ける例もあったりするので紹介してみたいと思います&lt;/p&gt;
 
-&lt;h1 id=&#34;a-name-section3-間接オブジェクト記法が活きる例-a:31588a77e3c575ef340ce5f76e59c59c&#34;&gt;&lt;a name=&#34;section3&#34;&gt;間接オブジェクト記法が活きる例&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;a-name-section3-間接オブジェクト記法が活きる例-a:ed130a5c49b36845906533f63e9cb3a3&#34;&gt;&lt;a name=&#34;section3&#34;&gt;間接オブジェクト記法が活きる例&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;定数を扱う時に便利なconstantプラグマを使ってみます
 普段使う時は、以下のような感じで使うと思います&lt;/p&gt;
@@ -629,7 +629,7 @@ say FOO; # =&amp;gt; foofoofoofoo
 
 &lt;p&gt;逆に今度は、よくあるハマる例を書いてみます&lt;/p&gt;
 
-&lt;h1 id=&#34;a-name-section4-ハマる例1-try-tiny-のuse-漏れ-a:31588a77e3c575ef340ce5f76e59c59c&#34;&gt;&lt;a name=&#34;section4&#34;&gt;ハマる例1 Try::Tiny のuse 漏れ&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;a-name-section4-ハマる例1-try-tiny-のuse-漏れ-a:ed130a5c49b36845906533f63e9cb3a3&#34;&gt;&lt;a name=&#34;section4&#34;&gt;ハマる例1 Try::Tiny のuse 漏れ&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;ずばり、 id:karupanerura 先生の話を例を取ってみます。&lt;/p&gt;
 
@@ -745,7 +745,7 @@ try sub {
 
 &lt;p&gt;Deparse したコードを見ると、try に coderef が渡されていることが分かると思います&lt;/p&gt;
 
-&lt;h1 id=&#34;a-name-section5-余談-code-block-a:31588a77e3c575ef340ce5f76e59c59c&#34;&gt;&lt;a name=&#34;section5&#34;&gt;余談 code block&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;a-name-section5-余談-code-block-a:ed130a5c49b36845906533f63e9cb3a3&#34;&gt;&lt;a name=&#34;section5&#34;&gt;余談 code block&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://metacpan.org/source/DOY/Try-Tiny-0.22/lib/Try/Tiny.pm#L24&#34;&gt;Try::Tiny の try のコード&lt;/a&gt;
 を見ると、次のようにサブルーチン名に&lt;code&gt;(&amp;amp;;@)&lt;/code&gt;といった指定がされています&lt;/p&gt;
@@ -759,7 +759,7 @@ try sub {
 &lt;p&gt;これにより、blockで、coderef を表現できるので、より簡潔な記法ができます
 try 以外にも、grep, mapなどが身近な例だと思います&lt;/p&gt;
 
-&lt;h3 id=&#34;coderef-を実行しながら-sumを取る関数を実装してみます:31588a77e3c575ef340ce5f76e59c59c&#34;&gt;coderef を実行しながら、sumを取る関数を実装してみます&lt;/h3&gt;
+&lt;h3 id=&#34;coderef-を実行しながら-sumを取る関数を実装してみます:ed130a5c49b36845906533f63e9cb3a3&#34;&gt;coderef を実行しながら、sumを取る関数を実装してみます&lt;/h3&gt;
 
 &lt;p&gt;まずは、prototypeを使わない例&lt;/p&gt;
 
@@ -866,7 +866,7 @@ subtest &#39;critic&#39; =&amp;gt; sub {
 done_testing;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;a-name-section6-ハマる例2-universal-a:31588a77e3c575ef340ce5f76e59c59c&#34;&gt;&lt;a name=&#34;section6&#34;&gt;ハマる例2? UNIVERSAL&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;a-name-section6-ハマる例2-universal-a:ed130a5c49b36845906533f63e9cb3a3&#34;&gt;&lt;a name=&#34;section6&#34;&gt;ハマる例2? UNIVERSAL&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;間接オブジェクトわざとらしく使ってみたいと思います
 &lt;code&gt;can&lt;/code&gt;を使っているのがわざとらしいです！&lt;/p&gt;
@@ -1019,7 +1019,7 @@ subtest &#39;methods count&#39; =&amp;gt; sub {
 done_testing;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;a-name-section7-ハマる例3-テストにて-a:31588a77e3c575ef340ce5f76e59c59c&#34;&gt;&lt;a name=&#34;section7&#34;&gt;ハマる例3 テストにて&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;a-name-section7-ハマる例3-テストにて-a:ed130a5c49b36845906533f63e9cb3a3&#34;&gt;&lt;a name=&#34;section7&#34;&gt;ハマる例3 テストにて&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;生々しいですが、例2のClass::Inspector を使っていて、今、ミスった例です。&lt;/p&gt;
 
@@ -1109,7 +1109,7 @@ done_testing();
 &lt;pre&gt;&lt;code class=&#34;language-perl&#34;&gt;is_deeply(Class::Inspector-&amp;gt;methods(&#39;Dog&#39;), [&#39;new&#39;]);
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&#34;a-name-section8-まとめ-a:31588a77e3c575ef340ce5f76e59c59c&#34;&gt;&lt;a name=&#34;section8&#34;&gt;まとめ&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;a-name-section8-まとめ-a:ed130a5c49b36845906533f63e9cb3a3&#34;&gt;&lt;a name=&#34;section8&#34;&gt;まとめ&lt;/a&gt;&lt;/h1&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Perl には、method を呼び出す方法に、method $obj LIST のような呼び出し方もあり、それを間接オブジェクト記法という&lt;/li&gt;
@@ -1127,11 +1127,11 @@ done_testing();
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;補足-この記事のコードは-gistでも見れますー:31588a77e3c575ef340ce5f76e59c59c&#34;&gt;補足 この記事のコードは、gistでも見れますー。&lt;/h2&gt;
+&lt;h2 id=&#34;補足-この記事のコードは-gistでも見れますー:ed130a5c49b36845906533f63e9cb3a3&#34;&gt;補足 この記事のコードは、gistでも見れますー。&lt;/h2&gt;
 
 &lt;p&gt;[&lt;a href=&#34;https://gist.github.com/kfly8/254fd149f7a07924ef63#file-constant-pl:title&#34;&gt;https://gist.github.com/kfly8/254fd149f7a07924ef63#file-constant-pl:title&lt;/a&gt;]&lt;/p&gt;
 
-&lt;h1 id=&#34;a-name-section9-明日-a:31588a77e3c575ef340ce5f76e59c59c&#34;&gt;&lt;a name=&#34;section9&#34;&gt;明日&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&#34;a-name-section9-明日-a:ed130a5c49b36845906533f63e9cb3a3&#34;&gt;&lt;a name=&#34;section9&#34;&gt;明日&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;18日目は、&lt;a href=&#34;http://qiita.com/waniji&#34;&gt;wanji&lt;/a&gt; さんです！&lt;/p&gt;
 </description>

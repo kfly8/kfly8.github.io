@@ -1,0 +1,6 @@
+<span class="post-meta tags">
+<i class="fa fa-fw fa-tag"></i>
+{{ range .Params.tags }}
+<a href="{{ $.Site.BaseURL }}tags/{{ . }}">{{ . }} </a>
+{{ end }}
+</span>

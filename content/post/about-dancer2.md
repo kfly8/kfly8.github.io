@@ -3,6 +3,7 @@ author = "kfly8"
 date = "2015-12-20T20:43:25+09:00"
 linktitle = "About Dancer2(ja)"
 title = "About Dancer2(ja)"
+tags = ["perl", "dancer"]
 +++
 
 

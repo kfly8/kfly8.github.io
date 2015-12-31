@@ -3,6 +3,7 @@ author = "kfly8"
 date = "2015-12-02T18:39:52+09:00"
 linktitle = "Hello, Crystal"
 title = "Hello, Crystal"
+tags = ["crystal"]
 +++
 
 

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Test on kobaken&#39;s blog</title>
+    <link>https://kfly8.github.io/tags/test/</link>
+    <description>Recent content in Test on kobaken&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Wed, 02 Dec 2015 18:53:37 +0900</lastBuildDate>
+    <atom:link href="https://kfly8.github.io/tags/test/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>設定とFixture</title>
+      <link>https://kfly8.github.io/post/setting-and-fixture/</link>
+      <pubDate>Wed, 02 Dec 2015 18:53:37 +0900</pubDate>
+      
+      <guid>https://kfly8.github.io/post/setting-and-fixture/</guid>
+      <description>
+
+&lt;p&gt;&lt;strong&gt;この記事は、&lt;a href=&#34;http://qiita.com/advent-calendar/2015/mobilefactory&#34;&gt;モバイルファクトリー Advent Calendar 2015&lt;/a&gt; 2日目の記事です&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;昨日は、nekobato さんの &lt;a href=&#34;http://qiita.com/nekobato/items/0cd3ed1742310f74653c&#34;&gt;superagentとaxiosの使い分け&lt;/a&gt; でした  　&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://qiita.com/advent-calendar/2014/perl&#34;&gt;Perl Advent Calender 2014&lt;/a&gt; の最高の記事の
+&lt;a href=&#34;http://www.songmu.jp/riji/entry/2014-12-25-test-anything.html&#34;&gt;ソースコード以外もとにかくテストする。もしくはカバレッジだけではダメだという話&lt;/a&gt; から、
+&lt;code&gt;アプリケーション設定ファイルのテスト&lt;/code&gt; と &lt;code&gt;Fixtureのテスト&lt;/code&gt; の例を書いてみたいと思います&lt;/p&gt;
+
+&lt;h1 id=&#34;アプリケーション設定ファイルのテスト:d08054f2f5aa943738fabfb18293ec30&#34;&gt;アプリケーション設定ファイルのテスト&lt;/h1&gt;
+
+&lt;p&gt;本番環境、開発環境、テスト環境で設定が過不足がないかチェックするため、
+&lt;a href=&#34;https://metacpan.org/pod/Test%3A%3ADeep&#34;&gt;Test::Deep&lt;/a&gt;, &lt;a href=&#34;https://metacpan.org/pod/Test%3A%3ADeep%3A%3AMatcher&#34;&gt;Test::Deep::Matcher&lt;/a&gt; を利用しています&lt;/p&gt;
+
+&lt;p&gt;テストの流れとしては&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;本番環境の設定値を、Test::Deep::Matcher のmatcher に変換&lt;/li&gt;
+&lt;li&gt;開発環境、テスト環境の設定値が、matcher にあうか比較&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;です&lt;/p&gt;
+
+&lt;p&gt;例えば、以下のような本番設定があったとして..&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;# production.pl
+{
+  servers =&amp;gt; [
+    &#39;XX.XX.XXX.XXX:11211&#39;,
+    &#39;XX.XX.XXX.YYY:11211&#39;,
+  ],
+  options =&amp;gt; {
+    utf8 =&amp;gt; 1,
+  },
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;再帰的にmatcherに変換してあげます&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-perl&#34;&gt;use Test::Deep::Matcher;
+use Test::Deep qw//;
+
+sub convert_matcher {
+    my $v = shift;
+
+    if (!ref $v) {
+        return Data::Util::is_integer($v) ? is_integer
+             : Data::Util::is_number($v)  ? is_number
+             : Data::Util::is_string($v)  ? is_string
+             : Data::Util::is_value($v)   ? is_value
+             : undef;
+    }
+    elsif(ref $v eq &#39;ARRAY&#39;) {
+        return Test::Deep::array_each(convert_matcher($v-&amp;gt;[0])) # XXX: 仮定
+    }
+    elsif(rev $v eq &#39;HASH&#39;) {
+        return +{ map { $_ =&amp;gt; convert_matcher($v-&amp;gt;{$_}) } keys %$v }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あとは比較するだけです&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-perl&#34;&gt;my $expect = convert_matcher($production_conf)
+cmp_deeply $development_conf, $expect;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;余談:d08054f2f5aa943738fabfb18293ec30&#34;&gt;(余談)&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上の例では、本番環境の設定から(雑な)型推定をしました&lt;/li&gt;
+&lt;li&gt;設定の型定義を用意しておけるなら、その方が良いかもしれません
+
+&lt;ul&gt;
+&lt;li&gt;異常値などの定義をしやすいですし&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以下、&lt;code&gt;crystal&lt;/code&gt; の例です&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;require &amp;quot;json&amp;quot;
+
+class Config
+  JSON.mapping({
+    servers: String,
+    options: { type: ServerOptions },
+  })
+end
+
+class ServerOptions
+  JSON.mapping({
+    utf8: Int32
+  })
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;fixture-のテスト:d08054f2f5aa943738fabfb18293ec30&#34;&gt;Fixture のテスト&lt;/h1&gt;
+
+&lt;p&gt;リレーションチェックのため、
+&lt;a href=&#34;https://metacpan.org/pod/DBIx%3A%3ASchema%3A%3ADSL&#34;&gt;DBIx::Schema::DSL&lt;/a&gt;, &lt;a href=&#34;https://metacpan.org/pod/SQL%3A%3ATranslator%3A%3ASchema&#34;&gt;SQL::Translator::Schema&lt;/a&gt; を利用しています&lt;/p&gt;
+
+&lt;p&gt;チェックには、外部キー制約を利用します
+実際のアプリケーションでの利用は、&lt;a href=&#34;http://connpass.com/event/11463/&#34;&gt;諸事情&lt;/a&gt; でしていないですが、
+テストでの利用では最高に便利です
+(この辺の外部キーありなしのスイッチを、&lt;code&gt;no_fk_output/output&lt;/code&gt; だけで簡単にできるのが、&lt;code&gt;DBIx::Schema::DSL&lt;/code&gt; めっちゃ便利だーってなって便利です)&lt;/p&gt;
+
+&lt;p&gt;流れは、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;外部キー制約つきのスキーマを用意して、&lt;code&gt;INSERT&lt;/code&gt; する&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;だけです。
+ただ、エラーメッセージを、人間が読みやすい形にするため、地味にループを回すようなコードにしています:p&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-perl&#34;&gt;# Schema
+use 5.014002;
+package MyProj::DB::Schema {
+    use DBIx::Schema::DSL;
+
+    create_table &#39;module&#39; =&amp;gt; columns {
+        integer &#39;id&#39;, primary_key, auto_increment;
+        varchar &#39;name&#39;;
+        integer &#39;author_id&#39;;
+
+        add_index &#39;author_id_idx&#39; =&amp;gt; [&#39;author_id&#39;];
+
+        belongs_to &#39;author&#39;;
+    };
+
+    create_table &#39;author&#39; =&amp;gt; columns {
+        integer &#39;id&#39;, primary_key, auto_increment;
+        varchar &#39;name&#39;, unique;
+    };
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-perl&#34;&gt;# belongs_to.t
+
+$db-&amp;gt;execute(MyProj::DB::Schema-&amp;gt;output);
+
+my $schema         = MyProj::DB::Schema-&amp;gt;context-&amp;gt;schema;
+my $module_schema  = $schema-&amp;gt;get_table(&#39;module&#39;);
+my $constraints    = $module_schema-&amp;gt;fkey_constraints;
+
+for my $fkey (@$constraints) {
+    my $ref_table = $fkey-&amp;gt;reference_table;
+
+    my @errors = try_load($ref_table);
+    ok !@errors
+       or note explain @errors;
+}
+
+sub try_load {
+    my ($table) = @_;
+
+    my @errors;
+    for my $row (@{$FIXTURE_DATA{$table}}) {
+        try {
+            $db-&amp;gt;insert($table =&amp;gt; $row);
+        }
+        catch {
+            push @errors =&amp;gt; shift;
+        };
+    }
+    return @errors;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;まとめ:d08054f2f5aa943738fabfb18293ec30&#34;&gt;まとめ&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;アプリケーション設定ファイルのテスト&lt;/code&gt; と &lt;code&gt;Fixtureのテスト&lt;/code&gt; の実装例を紹介しました&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;明日は、 nekobato さんです!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

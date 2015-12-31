@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dancer on kobaken&#39;s blog</title>
+    <link>https://kfly8.github.io/tags/dancer/</link>
+    <description>Recent content in Dancer on kobaken&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 20 Dec 2015 20:43:25 +0900</lastBuildDate>
+    <atom:link href="https://kfly8.github.io/tags/dancer/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>About Dancer2(ja)</title>
+      <link>https://kfly8.github.io/post/about-dancer2/</link>
+      <pubDate>Sun, 20 Dec 2015 20:43:25 +0900</pubDate>
+      
+      <guid>https://kfly8.github.io/post/about-dancer2/</guid>
+      <description>
+
+&lt;p&gt;この記事は、&lt;a href=&#34;http://qiita.com/advent-calendar/2015/perl5&#34;&gt;Perl5 Advent Calendar 2015&lt;/a&gt; の20日目の記事です。&lt;/p&gt;
+
+&lt;p&gt;Web Application Framework の Dancer2 について紹介したいと思います。&lt;/p&gt;
+
+&lt;p&gt;まずは、YAPC::Asia 2014 の LT から。
+こちらは、Dancer2 のリリースマネージャーの &lt;a href=&#34;https://twitter.com/perlsawyer&#34;&gt;SawyerX&lt;/a&gt; による、Dancer2の超速紹介です。
+Dancer2 の要点が凝縮されたLTです。&lt;/p&gt;
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/0gapHdDTRUk&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+
+
+&lt;p&gt;目を凝らすとこんなスライドが見えます。DSLで、ルーティングを記述します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-perl&#34;&gt;package MyApp;
+use Dancer2;
+
+get &#39;/&#39; =&amp;gt; sub {
+   template index =&amp;gt; {
+      name =&amp;gt; &#39;Sawyer X&#39;,
+      event =&amp;gt; &#39;YAPC::Asia&#39;
+   }
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;JSON を返却するようなAPIも簡単に用意できます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-perl&#34;&gt;package MyApp::API;
+use Dancer2;
+
+set serializer =&amp;gt; &#39;JSON&#39;;
+
+get &#39;/&#39; =&amp;gt; sub {
+    return {
+        hello =&amp;gt; &#39;world&#39;,
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Dancer2 は Plack化されているので、plackupできます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-perl&#34;&gt;# app.psgi
+use MyApp;
+my $app = MyApp-&amp;gt;psgi_app;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;plackup app.psgi
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ここまでが、LTの抜粋です。&lt;/p&gt;
+
+&lt;p&gt;Dancer2 は、元々、Ruby のSinatra を Perl に port した Dancer の次バージョンです。
+Dancer の DSL はほぼそのままに、設計面での調整が大幅に入っています&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://advent.perldancer.org/2014/2&#34;&gt;http://advent.perldancer.org/2014/2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;例えば、以下のような対応が行われています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Plack 対応&lt;/li&gt;
+&lt;li&gt;DSL 実装を、Top 空間から、Dancer2::Core::DSL に分解&lt;/li&gt;
+&lt;li&gt;Moo 採用&lt;/li&gt;
+&lt;li&gt;デザインパターンの調整（デメテルの法則&amp;hellip;）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;この対応に関して、2011 年の Dancer Advent Calendar にて、（超訳ですが）「全部書き換えるぞい」という記事があります。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://advent.perldancer.org/2011/8&#34;&gt;http://advent.perldancer.org/2011/8&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;利用者が多数のプロダクトにおいて、こういった完全な書き換えは、個人的な興味をそそりました。
+今現在も活発に開発され、Dancer という名前を冠するPerl &lt;a href=&#34;https://www.perl.dance/&#34;&gt;カンファレンス&lt;/a&gt;も開かれています。&lt;/p&gt;
+
+&lt;p&gt;Dancer を作った sukria のポスト。
+&lt;a href=&#34;http://blog.sukria.net/2015/10/22/perl-dancer-2015-report&#34;&gt;perl-dancer-2015-report&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;最近の開発状況の話。&lt;/p&gt;
+
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/UbU5R-SHbDE&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+
+
+&lt;p&gt;（Dancer2::XS ってあって、すごいってなった）&lt;/p&gt;
+
+&lt;p&gt;もう少し、Dancer2 の特徴を触れて、記事を終わりにしたいと思います。
+（と言っても、ほぼ、&lt;a href=&#34;http://advent.perldancer.org/2014&#34;&gt;2014 年の dancer advent calendar&lt;/a&gt; ((SawyerX の一人アドベントカレンダー。つよい。)) からの抜粋です。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://advent.perldancer.org/2014/5&#34;&gt;http://advent.perldancer.org/2014/5&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;fatpack、つまり一枚スクリプトにするのをサポートしています。
+（なので、XSモジュールは、recommend 扱いです）&lt;/p&gt;
+
+&lt;p&gt;ポータビリティを考えると良い選択になるかもしれません。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://advent.perldancer.org/2014/16&#34;&gt;http://advent.perldancer.org/2014/16&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;コマンドラインで利用も考慮されています。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-perl&#34;&gt;use Dancer2;
+
+warn config-&amp;gt;{environment}; # =&amp;gt; development
+warn dancer_version;        # =&amp;gt; 0.165000
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://advent.perldancer.org/2014/10&#34;&gt;http://advent.perldancer.org/2014/10&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;複数のアプリケーションの同居が考慮されています。
+Dancer2 に appname を渡すことで、config やdbh などが、appname ごとに管理されます。&lt;/p&gt;
+
+&lt;p&gt;以下の例だと、
+MyApp::Foo1, Foo2 で、一つの Dancer2::Core::App obj が作られ、
+Bar にもう一つの Dancer2::Core::App obj が作られます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-perl&#34;&gt;package MyApp::Foo1 {
+  use Dancer2 appname =&amp;gt; &#39;foo&#39;;
+  get &#39;/&#39; =&amp;gt; sub { ... }
+}
+
+package MyApp::Foo2 {
+  use Dancer2 appname =&amp;gt; &#39;foo&#39;;
+  get &#39;/&#39; =&amp;gt; sub { ... }
+}
+
+package MyApp::Bar {
+  use Dancer2;
+  get &#39;/&#39; =&amp;gt; sub { ... }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;まとめ:d5fa33a926e58371ddf4a9e076d3305f&#34;&gt;まとめ&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;なんだか Dancer2 楽しそうだぞ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;明日は、&lt;a href=&#34;https://twitter.com/akihiro_0228&#34;&gt;akihiro_0228&lt;/a&gt; さんです。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
