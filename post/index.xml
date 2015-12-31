@@ -71,7 +71,11 @@ my $app = MyApp-&amp;gt;psgi_app;
 &lt;p&gt;ここまでが、LTの抜粋です。&lt;/p&gt;
 
 &lt;p&gt;Dancer2 は、元々、Ruby のSinatra を Perl に port した Dancer の次バージョンです。
-Dancer の DSL はほぼそのままに、設計面での調整が大幅に入っています((&lt;a href=&#34;http://advent.perldancer.org/2014/2)&#34;&gt;http://advent.perldancer.org/2014/2)&lt;/a&gt;)&lt;/p&gt;
+Dancer の DSL はほぼそのままに、設計面での調整が大幅に入っています&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://advent.perldancer.org/2014/2&#34;&gt;http://advent.perldancer.org/2014/2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;例えば、以下のような対応が行われています。&lt;/p&gt;
 
@@ -82,14 +86,17 @@ Dancer の DSL はほぼそのままに、設計面での調整が大幅に入�
 &lt;li&gt;デザインパターンの調整（デメテルの法則&amp;hellip;）&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;この対応に関して、2011 年の Dancer Advent Calendar にて、（超訳ですが）「全部書き換えるぞい」という記事があります。
-&amp;gt; [&lt;a href=&#34;http://advent.perldancer.org/2011/8:title&#34;&gt;http://advent.perldancer.org/2011/8:title&lt;/a&gt;]&lt;/p&gt;
+&lt;p&gt;この対応に関して、2011 年の Dancer Advent Calendar にて、（超訳ですが）「全部書き換えるぞい」という記事があります。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://advent.perldancer.org/2011/8&#34;&gt;http://advent.perldancer.org/2011/8&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;利用者が多数のプロダクトにおいて、こういった完全な書き換えは、個人的な興味をそそりました。
 今現在も活発に開発され、Dancer という名前を冠するPerl &lt;a href=&#34;https://www.perl.dance/&#34;&gt;カンファレンス&lt;/a&gt;も開かれています。&lt;/p&gt;
 
 &lt;p&gt;Dancer を作った sukria のポスト。
-[&lt;a href=&#34;http://blog.sukria.net/2015/10/22/perl-dancer-2015-report:embed:cite&#34;&gt;http://blog.sukria.net/2015/10/22/perl-dancer-2015-report:embed:cite&lt;/a&gt;]&lt;/p&gt;
+&lt;a href=&#34;http://blog.sukria.net/2015/10/22/perl-dancer-2015-report&#34;&gt;perl-dancer-2015-report&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;最近の開発状況の話。&lt;/p&gt;
 
@@ -104,18 +111,18 @@ Dancer の DSL はほぼそのままに、設計面での調整が大幅に入�
 &lt;p&gt;もう少し、Dancer2 の特徴を触れて、記事を終わりにしたいと思います。
 （と言っても、ほぼ、&lt;a href=&#34;http://advent.perldancer.org/2014&#34;&gt;2014 年の dancer advent calendar&lt;/a&gt; ((SawyerX の一人アドベントカレンダー。つよい。)) からの抜粋です。&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;[&lt;a href=&#34;http://advent.perldancer.org/2014/5:title&#34;&gt;http://advent.perldancer.org/2014/5:title&lt;/a&gt;]&lt;/li&gt;
-&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://advent.perldancer.org/2014/5&#34;&gt;http://advent.perldancer.org/2014/5&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;fatpack、つまり一枚スクリプトにするのをサポートしています。
 （なので、XSモジュールは、recommend 扱いです）&lt;/p&gt;
 
 &lt;p&gt;ポータビリティを考えると良い選択になるかもしれません。&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;[&lt;a href=&#34;http://advent.perldancer.org/2014/16:title&#34;&gt;http://advent.perldancer.org/2014/16:title&lt;/a&gt;]&lt;/li&gt;
-&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://advent.perldancer.org/2014/16&#34;&gt;http://advent.perldancer.org/2014/16&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;コマンドラインで利用も考慮されています。&lt;/p&gt;
 
@@ -125,9 +132,9 @@ warn config-&amp;gt;{environment}; # =&amp;gt; development
 warn dancer_version;        # =&amp;gt; 0.165000
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;ul&gt;
-&lt;li&gt;[&lt;a href=&#34;http://advent.perldancer.org/2014/10:title&#34;&gt;http://advent.perldancer.org/2014/10:title&lt;/a&gt;]&lt;/li&gt;
-&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;http://advent.perldancer.org/2014/10&#34;&gt;http://advent.perldancer.org/2014/10&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;複数のアプリケーションの同居が考慮されています。
 Dancer2 に appname を渡すことで、config やdbh などが、appname ごとに管理されます。&lt;/p&gt;
