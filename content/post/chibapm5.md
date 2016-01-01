@@ -1,0 +1,21 @@
+---
+author: "kfly8"
+date:   "2014-10-11 19:25:28+09:00"
+linktitle: "#chibapm 5で好き放題ランダウ記号の話をしてきた"
+title: "#chibapm 5で好き放題ランダウ記号の話をしてきた"
+tags: ["perl", "math"]
+description: |
+  数学の話を息抜きにしてきた。
+  グラフが、写真なあたりまさに息抜き←手抜き
+---
+
+数学の話を息抜きにしてきた。
+グラフが、写真なあたりまさに息抜き←手抜き
+
+<iframe src="//slides.com/kfly8/landau_symbol/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+
+インデックス構造によって計算オーダーが変わったりするので、
+云々かんぬんで久しぶりに数学に触れられて、楽しかった。
+
+#chibapmの懐の深さに感謝！
