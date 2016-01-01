@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Math on kobaken&#39;s blog</title>
+    <link>http://kfly8.github.io/tags/math/</link>
+    <description>Recent content in Math on kobaken&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sat, 11 Oct 2014 19:25:28 +0900</lastBuildDate>
+    <atom:link href="http://kfly8.github.io/tags/math/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>#chibapm 5で好き放題ランダウ記号の話をしてきた</title>
+      <link>http://kfly8.github.io/post/chibapm5/</link>
+      <pubDate>Sat, 11 Oct 2014 19:25:28 +0900</pubDate>
+      
+      <guid>http://kfly8.github.io/post/chibapm5/</guid>
+      <description>&lt;p&gt;数学の話を息抜きにしてきた。
+グラフが、写真なあたりまさに息抜き←手抜き&lt;/p&gt;
+
+&lt;iframe src=&#34;//slides.com/kfly8/landau_symbol/embed&#34; width=&#34;576&#34; height=&#34;420&#34; scrolling=&#34;no&#34; frameborder=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;インデックス構造によって計算オーダーが変わったりするので、
+云々かんぬんで久しぶりに数学に触れられて、楽しかった。&lt;/p&gt;
+
+&lt;p&gt;#chibapmの懐の深さに感謝！&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

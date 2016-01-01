@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>isucon に負けて悔しいので、問題を速く解決するためのパターンを考えてみた &middot; kobaken&#39;s blog</title>
+    <meta name="author" content="kobaken">
+    <meta name="description" content="Programming, Tech And Math">
+    <meta name="generator" content="Hugo 0.16-DEV" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link rel="shortcut icon" href="http://kfly8.github.io/img/favicon.ico">
+    <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.2/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="http://kfly8.github.io/css/screen.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css">
+    <link rel="stylesheet" href="http://kfly8.github.io/css/solarized-light.css">
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #3498db;}
+    .pagination a {color: #3498db;}
+    .gist .gist-file .gist-meta a:visited {color: #3498db !important;}
+    a:focus, a:hover {color: #2079b4;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #2079b4;}
+    .older-posts:hover, .newer-posts:hover {color: #2079b4;}
+</style>
+</head>
+
+<body class="post-template">
+
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="http://kfly8.github.io/">kobaken&rsquo;s blog</a></h1>
+	
+	
+	<h1 class="blog-subtitle">Programming, Tech and Math</h1>
+	
+</header>
+    
+
+    <main class="content" role="main">
+	    <article class="post">
+	        <header>
+	        <h1 class="post-title">isucon に負けて悔しいので、問題を速く解決するためのパターンを考えてみた</h1>
+	        <div class="post-meta">
+            <time datetime="30 November 2013">30 November 2013</time>
+            <span class="post-meta tags">
+<i class="fa fa-fw fa-tag"></i>
+
+<a href="http://kfly8.github.io/tags/isucon">isucon </a>
+
+</span>
+
+          </div>
+	        </header>
+
+	        <section class="post-content">
+	            
+
+<p>isucon決勝からもうだいぶ日が経ってしまいました、、その間、負けて、id:karupanerura先生に、げきおこされる夢も見ました。</p>
+
+<p>振り返ります。</p>
+
+<p><a href="http://isucon.net/">isucon</a>でスコアを残しているチームは技術力もさることながら、
+問題解決能力が高いと思うのです。もの凄く。</p>
+
+<p>近づくにはどうすればいいんだろうと、頭の整理のために、
+自分が普段感じている問題解決のパターンを書いてみました。
+特にisuconの反省なので、与えられた問題を良い感じに速くするための解決方法寄りだと思います。</p>
+
+<h1 id="パターン:6bd210cb6ce0dfbbe8ac0198724aefdc">パターン</h1>
+
+<hr />
+
+<ul>
+<li>処理((仕事に置き換えても面白いかも？))しない</li>
+<li>処理したらメモしておく</li>
+<li>処理の下準備をする</li>
+<li>処理をまとめる</li>
+<li>処理を少なくする</li>
+</ul>
+
+<hr />
+
+<ul>
+<li>処理を外にお願いする</li>
+<li>必要な分だけ、処理する</li>
+<li>処理を得意な人にお願いする</li>
+<li>処理関係者を減らす</li>
+</ul>
+
+<hr />
+
+<ul>
+<li>処理するヒトを増やす</li>
+<li>処理できるヒトを良くする</li>
+</ul>
+
+<hr />
+
+<ul>
+<li>仕様を仕様を削る</li>
+</ul>
+
+<hr />
+
+<p>「isucon知識足りなくて、負けたわー、じゃー、ほげほげ勉強しよう！」っていうんじゃ、
+思考停止だと思っています。</p>
+
+<p>また知らない技術領域が出て来ても、
+どうにかこうにか対応できるようになりたいなーと思った感じです
+（知識不足は、ちゃんと補完しなきゃですが、、）</p>
+
+<p>箇条書きで終わりもアレなので、
+良い例かは分からないですが、パッと思いつく例を書いてみます。</p>
+
+<h3 id="処理しない:6bd210cb6ce0dfbbe8ac0198724aefdc">処理しない</h3>
+
+<p>一番、大事なことだと思います。処理しないで、済むなら、処理しない。
+やらないですむなら、やらない。</p>
+
+<pre><code>1 + 1
+</code></pre>
+
+<p>たたきこみ</p>
+
+<h3 id="処理したらメモしておく:6bd210cb6ce0dfbbe8ac0198724aefdc">処理したらメモしておく</h3>
+
+<p>今回のisucon決勝なら、画像投稿時、ないし、初回呼び出し時などで、キャッシュをするなど。</p>
+
+<p>どこでキャッシュするか、いつキャッシュするか、メモしたものをどう更新するかは色々ですが、やったことは、またやりたくないというのは（領域が許せば）良い。</p>
+
+<h3 id="処理の下準備をする:6bd210cb6ce0dfbbe8ac0198724aefdc">処理の下準備をする</h3>
+
+<p>indexや、辞書作りなどの学習</p>
+
+<h3 id="処理をまとめる:6bd210cb6ce0dfbbe8ac0198724aefdc">処理をまとめる</h3>
+
+<p>都度の処理呼び出しコストを減らす。
+描画処理を減らすために、DOMに書き出さないなど。</p>
+
+<h3 id="処理を少なくする:6bd210cb6ce0dfbbe8ac0198724aefdc">処理を少なくする</h3>
+
+<p>処理を無くせはしないけど、少なくすることはできるっていうのはある。
+処理内容が減れば、大小あれど、一応嬉しい。</p>
+
+<pre><code># あるある
+$dbh-&gt;query() for 1..100
+</code></pre>
+
+<hr />
+
+<p>ここから、ちょっと、トレードオフが大きくなりそうな、パターン。</p>
+
+<h3 id="処理を外にお願いする:6bd210cb6ce0dfbbe8ac0198724aefdc">処理を外にお願いする</h3>
+
+<p>処理が完了するまで、次の処理が出来ないのはもったいない
+なので、他の人にお願いしたくなったりすることもある</p>
+
+<h3 id="必要な分だけ処理する:6bd210cb6ce0dfbbe8ac0198724aefdc">必要な分だけ処理する</h3>
+
+<p>重い処理の割には、意外と使われなくて、事前準備してなくて構わないというのはあるなと。
+そしたら、必要になったときに、処理すればよい。</p>
+
+<h3 id="処理を得意な人にお願いする:6bd210cb6ce0dfbbe8ac0198724aefdc">処理を得意な人にお願いする</h3>
+
+<p>言語レベルか、機械レベルか、ソフトウェアか、、など。
+これで良さそうな判断ができるかどうかは知識量に凄い左右されると思っている。</p>
+
+<p>それでも得意な人にお願いしたいというのは変わらないはず。
+使いこなせる武器が多いのは、視点が高くなる。</p>
+
+<h3 id="処理関係者を減らす:6bd210cb6ce0dfbbe8ac0198724aefdc">処理関係者を減らす</h3>
+
+<p>全てを一番ベストな人にお願いしても、１０００箇所で処理が行われるとしたら、
+その処理の受け渡しのコストが目につくかもしれない。</p>
+
+<h3 id="処理するヒトを増やす:6bd210cb6ce0dfbbe8ac0198724aefdc">処理するヒトを増やす</h3>
+
+<ul>
+<li>1人でやるより、2人で処理出来る方が捗ることもある。</li>
+<li>スケールアウト</li>
+</ul>
+
+<h3 id="処理できるヒトを良くする:6bd210cb6ce0dfbbe8ac0198724aefdc">処理できるヒトを良くする</h3>
+
+<ul>
+<li>スケールアップ</li>
+</ul>
+
+<h3 id="仕様を削る:6bd210cb6ce0dfbbe8ac0198724aefdc">仕様を削る</h3>
+
+<ul>
+<li>その仕様、、、、その仕様、、い、、るかも、、いや、いら、らないかも、、　っていうのは、バッサバッサ切れればいいね。</li>
+<li>難しい処理の方がお金になったりすることもあるから、難しいね。でも無駄なのもあるよね。</li>
+<li>エンジニアから、一歩踏み出すのも、問題解決する為の一つの手段。</li>
+</ul>
+
+<h1 id="最後に:6bd210cb6ce0dfbbe8ac0198724aefdc">最後に</h1>
+
+<p>id:karupanerura先生、id:masasuz先生、牡蠣鍋打ち上げしましょう&gt; &lt;</p>
+
+<p>KAYACさん、LINEさん、isuconありがとうございました！！！！！</p>
+
+<p><a href="http://instagram.com/p/gvFRWwIDIR/"><img src="http://instagram.com/p/gvFRWwIDIR/media/?size=l" alt="" /></a></p>
+
+	        </section>
+
+	        <section class="share">
+	            <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> </a></p>
+	            <p class="info prompt"></p>
+	            <a href="http://twitter.com/share?text=isucon%20%e3%81%ab%e8%b2%a0%e3%81%91%e3%81%a6%e6%82%94%e3%81%97%e3%81%84%e3%81%ae%e3%81%a7%e3%80%81%e5%95%8f%e9%a1%8c%e3%82%92%e9%80%9f%e3%81%8f%e8%a7%a3%e6%b1%ba%e3%81%99%e3%82%8b%e3%81%9f%e3%82%81%e3%81%ae%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3%e3%82%92%e8%80%83%e3%81%88%e3%81%a6%e3%81%bf%e3%81%9f&url=http%3a%2f%2fkfly8.github.io%2fpost%2fisucon2013%2f" title="Share on Twitter"
+	                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+	                <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
+	            </a>
+	            <a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkfly8.github.io%2fpost%2fisucon2013%2f" title="Share on Facebook"
+	                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+	                <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
+	            </a>
+	            <a href="https://plus.google.com/share?url=http%3a%2f%2fkfly8.github.io%2fpost%2fisucon2013%2f" title="Share on Google+"
+	               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+	                <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
+	            </a>
+              <a href="http://b.hatena.ne.jp/entry/http://kfly8.github.io/post/isucon2013/" class="hatena-bookmark-button" data-hatena-bookmark-title="isucon に負けて悔しいので、問題を速く解決するためのパターンを考えてみた" data-hatena-bookmark-layout="simple" title="このエントリーをはてなブックマークに追加">
+	              <i class="fa fa-2x fa-fw fa-hatena" style="margin-left: -8px"></i> <span class="hidden">B!</span>
+              </a>
+	        </section>
+
+			
+	        	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'kfly8';
+    var disqus_identifier = 'http:\/\/kfly8.github.io\/post\/isucon2013\/';
+    var disqus_title = 'isucon に負けて悔しいので、問題を速く解決するためのパターンを考えてみた';
+    var disqus_url = 'http:\/\/kfly8.github.io\/post\/isucon2013\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	        
+
+			
+
+	    </article>
+	</main>
+
+    <footer class="site-footer">
+
+	<section class="author">
+    <div class="authorimage" style="background: url(http://kfly8.github.io/img/avatar.jpg)"></div>
+    <h4>kobaken</h4>
+    <p class="bio">Hello World!</p>
+    <p class="meta">
+      <i class="fa fa-fw fa-map-marker"></i> Tokyo
+      <a href="//twitter.com/kfly8" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp; 
+      <a href="//github.com/kfly8" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      <a href="" target="_blank" title="RSS"><i class="fa fa-2x fa-fw fa-rss"></i> <span class="hidden">RSS</span></a>
+    </p>
+</section>
+
+	<section class="copyright">&copy; 2016 <a href="http://kfly8.github.io/">kobaken</a>. </section>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://kfly8.github.io/js/index.js"></script>
+<script src="http://kfly8.github.io/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<!-- Google Analytics -->
+<script>
+  var _gaq=[['_setAccount','UA-71885424-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+</body>
+</html>

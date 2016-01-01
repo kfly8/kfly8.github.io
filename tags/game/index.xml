@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Game on kobaken&#39;s blog</title>
+    <link>http://kfly8.github.io/tags/game/</link>
+    <description>Recent content in Game on kobaken&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Wed, 13 Nov 2013 01:25:14 +0900</lastBuildDate>
+    <atom:link href="http://kfly8.github.io/tags/game/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>#techhills #7にいってきたー</title>
+      <link>http://kfly8.github.io/post/techhills7/</link>
+      <pubDate>Wed, 13 Nov 2013 01:25:14 +0900</pubDate>
+      
+      <guid>http://kfly8.github.io/post/techhills7/</guid>
+      <description>
+
+&lt;p&gt;CROOZさん主催のtechhillsに初めて参加させてもらった。
+いろんなゲームエンジンの話で興味深く聞かせてもらいました！
+ありがとうございました！&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.techhills.net/&#34;&gt;http://www.techhills.net/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://atnd.org/events/44622&#34;&gt;http://atnd.org/events/44622&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/search?q=%23techhills&amp;amp;src=hash&#34;&gt;https://twitter.com/search?q=%23techhills&amp;amp;src=hash&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;かんたんなメモ!!資料はあげてもらえたら随時更新で。&lt;/p&gt;
+
+&lt;h1 id=&#34;unity2d-new-unity-gui-ugui:72e8a2ca080ba2749f9030ce8a70c4e3&#34;&gt;Unity2D/New Unity GUI(uGUI)&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;物理エンジンにBox2Dを使っている&lt;/li&gt;
+&lt;li&gt;Spriteが主にゲーム用に用意されている&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/kyusyukeigo/status/400264293565755392&#34;&gt;https://twitter.com/kyusyukeigo/status/400264293565755392&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;aiming-unity:72e8a2ca080ba2749f9030ce8a70c4e3&#34;&gt;Aiming/Unity&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.slideshare.net/KatsutoshiMakino/aiming&#34;&gt;http://www.slideshare.net/KatsutoshiMakino/aiming&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;MMORPGげんとうせんきグリフォンを作ったときの話
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://griffon.sega-aiming.com/&#34;&gt;http://griffon.sega-aiming.com/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;メモリ使用量
+
+&lt;ul&gt;
+&lt;li&gt;gcでうわーってなるのは、リソースを大量に切り替えた時やアンロードしたとき&lt;/li&gt;
+&lt;li&gt;addClipしたのを使い回しして、節約&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;UI
+
+&lt;ul&gt;
+&lt;li&gt;NGUIを使用&lt;/li&gt;
+&lt;li&gt;日本語の為に、ビットマップフォントを使用&lt;/li&gt;
+&lt;li&gt;ダイナミックフォントにしたいそう&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;リソースのダウンロード
+
+&lt;ul&gt;
+&lt;li&gt;asset bundle&lt;/li&gt;
+&lt;li&gt;LoadFromCacheOrDownload&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;cocos2d-x:72e8a2ca080ba2749f9030ce8a70c4e3&#34;&gt;cocos2d-x&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;C++,Lua,jsなどをサポートするOSSゲームフレームワーク&lt;/li&gt;
+&lt;li&gt;CocosBuilder/SpriteBuilderなどのUIエディタを使うといいんじゃないか&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;enchant-js:72e8a2ca080ba2749f9030ce8a70c4e3&#34;&gt;enchant.js&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;コードたのしいよ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;playground-klab:72e8a2ca080ba2749f9030ce8a70c4e3&#34;&gt;Playground KLab&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/KLab/PlaygroundOSS&#34;&gt;https://github.com/KLab/PlaygroundOSS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;playground-描画周りの内部の仕組み:72e8a2ca080ba2749f9030ce8a70c4e3&#34;&gt;Playground : 描画周りの内部の仕組み&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.slideshare.net/RomainPiquois/playground-28101668&#34;&gt;http://www.slideshare.net/RomainPiquois/playground-28101668&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;いろいろ難しいところをいい感じにやってくれている？そう。&lt;/li&gt;
+&lt;li&gt;カメラに映ってないものは、描画しない（カリング）&lt;/li&gt;
+&lt;li&gt;ピクセルの書き換えを減らす
+
+&lt;ul&gt;
+&lt;li&gt;透明でない要素の並びを、近くから遠くに並び替える(重なっている部分の書き換えは最前面だけということだろう）&lt;/li&gt;
+&lt;li&gt;透明な要素の並びを、遠くから近くに並び替える&lt;/li&gt;
+&lt;li&gt;シェダー？でソート&lt;/li&gt;
+&lt;li&gt;モバイル2D環境だと、シェダーは変わらないゲームが多く、透明でない要素は少ないのが特徴&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;描画コールを減らす
+
+&lt;ul&gt;
+&lt;li&gt;処理をまとめる/状態が同じものでバッチ処理&lt;/li&gt;
+&lt;li&gt;状態に関するツリー構造のようなのを管理し？、変わった所だけ変更を行うようにする&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;playground-音ゲーのandroid対応の話:72e8a2ca080ba2749f9030ce8a70c4e3&#34;&gt;Playground : 音ゲーのAndroid対応の話&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/KeiNakazawa/playgroundandroid-pfandroid&#34;&gt;http://www.slideshare.net/KeiNakazawa/playgroundandroid-pfandroid&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;ゲームエンジンの比較の話:72e8a2ca080ba2749f9030ce8a70c4e3&#34;&gt;ゲームエンジンの比較の話&lt;/h1&gt;
+
+&lt;p&gt;XXX ベンチ公開されるといいなー&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://instagram.com/p/gnj367IDL0/&#34;&gt;&lt;img src=&#34;http://instagram.com/p/gnj367IDL0/media/?size=l&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://instagram.com/p/gnj367IDL0/&#34;&gt;わーきれいだなー(棒
+ゲームエンジン勉強会たのしかった！&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

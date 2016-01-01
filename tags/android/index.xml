@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android on kobaken&#39;s blog</title>
+    <link>http://kfly8.github.io/tags/android/</link>
+    <description>Recent content in Android on kobaken&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 20 Jan 2014 22:52:40 +0900</lastBuildDate>
+    <atom:link href="http://kfly8.github.io/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Hello Android</title>
+      <link>http://kfly8.github.io/post/hello-android/</link>
+      <pubDate>Mon, 20 Jan 2014 22:52:40 +0900</pubDate>
+      
+      <guid>http://kfly8.github.io/post/hello-android/</guid>
+      <description>
+
+&lt;p&gt;いまさら、、あんどろいどにはろーわーるどしました（え&lt;/p&gt;
+
+&lt;p&gt;備忘録です。
+MyFirstAppを作成するところまでは手順通りだった。それだけなのにつかれる事態になってしまった＞＜&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://developer.android.com/training/basics/firstapp/creating-project.html&#34;&gt;http://developer.android.com/training/basics/firstapp/creating-project.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://developer.android.com/training/basics/firstapp/running-app.html&#34;&gt;http://developer.android.com/training/basics/firstapp/running-app.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;ant-debugでまずはまった:c514a214a968f397327dc15c76174bb7&#34;&gt;ant debugでまずはまった&lt;/h1&gt;
+
+&lt;h2 id=&#34;まず-ant-がないと怒られる-次で解決:c514a214a968f397327dc15c76174bb7&#34;&gt;まず、ant がないと怒られる。次で解決&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;brew update
+brew install ant
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://superuser.com/questions/610157/how-do-i-install-ant-on-os-x-mavericks&#34;&gt;http://superuser.com/questions/610157/how-do-i-install-ant-on-os-x-mavericks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;ほんとはbrew updateも諸処とおらず、brew doctorでPATH変更したりごにょごにょした&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;build-xmlがなくて-buildできない:c514a214a968f397327dc15c76174bb7&#34;&gt;build.xmlがなくて、buildできない&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;android update で解決
+&lt;code&gt;sh
+android update project --name MyFirstApp --target android-19 --path ~/android/workspace/MyFirstApp
+&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/questions/5572304/building-android-sample-project-using-ant&#34;&gt;http://stackoverflow.com/questions/5572304/building-android-sample-project-using-ant&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;targetは、MyFirstApp/local.properticesから参照した&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;apkを端末にインストールできなくてはまった:c514a214a968f397327dc15c76174bb7&#34;&gt;apkを端末にインストールできなくてはまった&lt;/h1&gt;
+
+&lt;h2 id=&#34;error-device-offline:c514a214a968f397327dc15c76174bb7&#34;&gt;error: device offline&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;adb devicesしてもでてこない。端末外して、次をしてから、接続し直して解決。
+&lt;code&gt;sh
+adb kill-server
+adb start-server
+&lt;/code&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/questions/10680417/error-device-offline&#34;&gt;http://stackoverflow.com/questions/10680417/error-device-offline&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;error-more-than-one-device-and-emulator:c514a214a968f397327dc15c76174bb7&#34;&gt;error: more than one device and emulator&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;端末を指定して解決
+&lt;code&gt;sh
+% adb devices
+List of devices attached
+emulator-5554   offline
+XXX      device
+% adb -s XXX  install bin/MyFirstApp-debug.apk
+&lt;/code&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://yktmnb.b.sourceforge.jp/?p=20&#34;&gt;http://yktmnb.b.sourceforge.jp/?p=20&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;とりあえず、はろーあんどろいど&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
