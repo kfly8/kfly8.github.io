@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Isucon on kobaken&#39;s blog</title>
+    <link>http://kfly8.github.io/tags/isucon/</link>
+    <description>Recent content in Isucon on kobaken&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Tue, 07 Oct 2014 16:28:16 +0900</lastBuildDate>
+    <atom:link href="http://kfly8.github.io/tags/isucon/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>isuconの予選で失格してきた</title>
+      <link>http://kfly8.github.io/post/isucon2014/</link>
+      <pubDate>Tue, 07 Oct 2014 16:28:16 +0900</pubDate>
+      
+      <guid>http://kfly8.github.io/post/isucon2014/</guid>
+      <description>
+
+&lt;p&gt;牡蠣途中&lt;/p&gt;
+
+&lt;p&gt;運営の方々、楽しいイベントをありがとうございました！！
+kuraチームのid:karupanerura, id:masasuz ありがとうございました！&lt;/p&gt;
+
+&lt;p&gt;isucon中にやったこと&lt;/p&gt;
+
+&lt;h2 id=&#34;サマリーテーブルを使って-ログインの成否を判定するようにした:ed9626afbad87fbe8fc7fd7c2dc6dee8&#34;&gt;サマリーテーブルを使って、ログインの成否を判定するようにした&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/karupanerura/isucon2014-elimination/commit/b81dcd38b7201c838ab49501a0a91984b13361b4&#34;&gt;https://github.com/karupanerura/isucon2014-elimination/commit/b81dcd38b7201c838ab49501a0a91984b13361b4&lt;/a&gt;
+&lt;a href=&#34;https://github.com/karupanerura/isucon2014-elimination/commit/2daf40a936fc541841cc50fcb2c408fee7530444&#34;&gt;https://github.com/karupanerura/isucon2014-elimination/commit/2daf40a936fc541841cc50fcb2c408fee7530444&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;サマリーテーブルを使って-集計を出すようにした:ed9626afbad87fbe8fc7fd7c2dc6dee8&#34;&gt;サマリーテーブルを使って、集計を出すようにした&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/karupanerura/isucon2014-elimination/commit/f4bd9e12c1d17ef1dab601b745c82daed134e504&#34;&gt;https://github.com/karupanerura/isucon2014-elimination/commit/f4bd9e12c1d17ef1dab601b745c82daed134e504&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;紆余曲折があり、本戦中にちゃんとやり切れなかった。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;競技終了直前に気づいた不具合&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/karupanerura/isucon2014-elimination/commit/f4bd9e12c1d17ef1dab601b745c82daed134e504#diff-4f430011a6a953bf6b408bc9906c5478L171&#34;&gt;https://github.com/karupanerura/isucon2014-elimination/commit/f4bd9e12c1d17ef1dab601b745c82daed134e504#diff-4f430011a6a953bf6b408bc9906c5478L171&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-perl&#34;&gt;push @user_ids =&amp;gt; $row-&amp;gt;{login};
+
+
+$row-&amp;gt;{login}...
+
+
+＿人人人人人人人人人＿
+＞　idじゃない！！　＜
+￣Y^Y^Y^Y^Y^Y^Y^Y￣
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;TODO&lt;/p&gt;
+
+&lt;h2 id=&#34;userデータをオンメモリーにした:ed9626afbad87fbe8fc7fd7c2dc6dee8&#34;&gt;userデータをオンメモリーにした&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/karupanerura/isucon2014-elimination/commit/2ee1d266ea6f076556e578f17ed6bf4c6b8c60b1&#34;&gt;https://github.com/karupanerura/isucon2014-elimination/commit/2ee1d266ea6f076556e578f17ed6bf4c6b8c60b1&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;evalとか男前な実装になってすごいテンパっているなってなった&lt;/li&gt;
+&lt;li&gt;せめてこう一発で書きたかった。。
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/karupanerura/isucon2014-elimination/commit/7c6e6d2a1df780f6cfaa2d0c66f8797a85cb9ad2&#34;&gt;https://github.com/karupanerura/isucon2014-elimination/commit/7c6e6d2a1df780f6cfaa2d0c66f8797a85cb9ad2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;TODO&lt;/p&gt;
+
+&lt;h2 id=&#34;slack:ed9626afbad87fbe8fc7fd7c2dc6dee8&#34;&gt;slack&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/karupanerura/isucon2014-elimination/issues/5&#34;&gt;https://github.com/karupanerura/isucon2014-elimination/issues/5&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;捗った&lt;/p&gt;
+
+&lt;p&gt;TODO&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>isucon に負けて悔しいので、問題を速く解決するためのパターンを考えてみた</title>
+      <link>http://kfly8.github.io/post/isucon2013/</link>
+      <pubDate>Sat, 30 Nov 2013 20:03:31 +0900</pubDate>
+      
+      <guid>http://kfly8.github.io/post/isucon2013/</guid>
+      <description>
+
+&lt;p&gt;isucon決勝からもうだいぶ日が経ってしまいました、、その間、負けて、id:karupanerura先生に、げきおこされる夢も見ました。&lt;/p&gt;
+
+&lt;p&gt;振り返ります。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://isucon.net/&#34;&gt;isucon&lt;/a&gt;でスコアを残しているチームは技術力もさることながら、
+問題解決能力が高いと思うのです。もの凄く。&lt;/p&gt;
+
+&lt;p&gt;近づくにはどうすればいいんだろうと、頭の整理のために、
+自分が普段感じている問題解決のパターンを書いてみました。
+特にisuconの反省なので、与えられた問題を良い感じに速くするための解決方法寄りだと思います。&lt;/p&gt;
+
+&lt;h1 id=&#34;パターン:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;パターン&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;処理((仕事に置き換えても面白いかも？))しない&lt;/li&gt;
+&lt;li&gt;処理したらメモしておく&lt;/li&gt;
+&lt;li&gt;処理の下準備をする&lt;/li&gt;
+&lt;li&gt;処理をまとめる&lt;/li&gt;
+&lt;li&gt;処理を少なくする&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;処理を外にお願いする&lt;/li&gt;
+&lt;li&gt;必要な分だけ、処理する&lt;/li&gt;
+&lt;li&gt;処理を得意な人にお願いする&lt;/li&gt;
+&lt;li&gt;処理関係者を減らす&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;処理するヒトを増やす&lt;/li&gt;
+&lt;li&gt;処理できるヒトを良くする&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;仕様を仕様を削る&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;「isucon知識足りなくて、負けたわー、じゃー、ほげほげ勉強しよう！」っていうんじゃ、
+思考停止だと思っています。&lt;/p&gt;
+
+&lt;p&gt;また知らない技術領域が出て来ても、
+どうにかこうにか対応できるようになりたいなーと思った感じです
+（知識不足は、ちゃんと補完しなきゃですが、、）&lt;/p&gt;
+
+&lt;p&gt;箇条書きで終わりもアレなので、
+良い例かは分からないですが、パッと思いつく例を書いてみます。&lt;/p&gt;
+
+&lt;h3 id=&#34;処理しない:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理しない&lt;/h3&gt;
+
+&lt;p&gt;一番、大事なことだと思います。処理しないで、済むなら、処理しない。
+やらないですむなら、やらない。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;1 + 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;たたきこみ&lt;/p&gt;
+
+&lt;h3 id=&#34;処理したらメモしておく:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理したらメモしておく&lt;/h3&gt;
+
+&lt;p&gt;今回のisucon決勝なら、画像投稿時、ないし、初回呼び出し時などで、キャッシュをするなど。&lt;/p&gt;
+
+&lt;p&gt;どこでキャッシュするか、いつキャッシュするか、メモしたものをどう更新するかは色々ですが、やったことは、またやりたくないというのは（領域が許せば）良い。&lt;/p&gt;
+
+&lt;h3 id=&#34;処理の下準備をする:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理の下準備をする&lt;/h3&gt;
+
+&lt;p&gt;indexや、辞書作りなどの学習&lt;/p&gt;
+
+&lt;h3 id=&#34;処理をまとめる:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理をまとめる&lt;/h3&gt;
+
+&lt;p&gt;都度の処理呼び出しコストを減らす。
+描画処理を減らすために、DOMに書き出さないなど。&lt;/p&gt;
+
+&lt;h3 id=&#34;処理を少なくする:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理を少なくする&lt;/h3&gt;
+
+&lt;p&gt;処理を無くせはしないけど、少なくすることはできるっていうのはある。
+処理内容が減れば、大小あれど、一応嬉しい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# あるある
+$dbh-&amp;gt;query() for 1..100
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;ここから、ちょっと、トレードオフが大きくなりそうな、パターン。&lt;/p&gt;
+
+&lt;h3 id=&#34;処理を外にお願いする:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理を外にお願いする&lt;/h3&gt;
+
+&lt;p&gt;処理が完了するまで、次の処理が出来ないのはもったいない
+なので、他の人にお願いしたくなったりすることもある&lt;/p&gt;
+
+&lt;h3 id=&#34;必要な分だけ処理する:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;必要な分だけ処理する&lt;/h3&gt;
+
+&lt;p&gt;重い処理の割には、意外と使われなくて、事前準備してなくて構わないというのはあるなと。
+そしたら、必要になったときに、処理すればよい。&lt;/p&gt;
+
+&lt;h3 id=&#34;処理を得意な人にお願いする:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理を得意な人にお願いする&lt;/h3&gt;
+
+&lt;p&gt;言語レベルか、機械レベルか、ソフトウェアか、、など。
+これで良さそうな判断ができるかどうかは知識量に凄い左右されると思っている。&lt;/p&gt;
+
+&lt;p&gt;それでも得意な人にお願いしたいというのは変わらないはず。
+使いこなせる武器が多いのは、視点が高くなる。&lt;/p&gt;
+
+&lt;h3 id=&#34;処理関係者を減らす:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理関係者を減らす&lt;/h3&gt;
+
+&lt;p&gt;全てを一番ベストな人にお願いしても、１０００箇所で処理が行われるとしたら、
+その処理の受け渡しのコストが目につくかもしれない。&lt;/p&gt;
+
+&lt;h3 id=&#34;処理するヒトを増やす:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理するヒトを増やす&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1人でやるより、2人で処理出来る方が捗ることもある。&lt;/li&gt;
+&lt;li&gt;スケールアウト&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;処理できるヒトを良くする:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理できるヒトを良くする&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;スケールアップ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;仕様を削る:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;仕様を削る&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;その仕様、、、、その仕様、、い、、るかも、、いや、いら、らないかも、、　っていうのは、バッサバッサ切れればいいね。&lt;/li&gt;
+&lt;li&gt;難しい処理の方がお金になったりすることもあるから、難しいね。でも無駄なのもあるよね。&lt;/li&gt;
+&lt;li&gt;エンジニアから、一歩踏み出すのも、問題解決する為の一つの手段。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;最後に:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;最後に&lt;/h1&gt;
+
+&lt;p&gt;id:karupanerura先生、id:masasuz先生、牡蠣鍋打ち上げしましょう&amp;gt; &amp;lt;&lt;/p&gt;
+
+&lt;p&gt;KAYACさん、LINEさん、isuconありがとうございました！！！！！&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://instagram.com/p/gvFRWwIDIR/&#34;&gt;&lt;img src=&#34;http://instagram.com/p/gvFRWwIDIR/media/?size=l&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>#isucon 予選、暫定で生き残れたよう。</title>
+      <link>http://kfly8.github.io/post/isucon2013-q/</link>
+      <pubDate>Mon, 07 Oct 2013 20:52:26 +0900</pubDate>
+      
+      <guid>http://kfly8.github.io/post/isucon2013-q/</guid>
+      <description>
+
+&lt;p&gt;初めて&lt;a href=&#34;https://isucon2013.kayac.com/&#34;&gt;isucon&lt;/a&gt;に参加させてもらいました。
+すごい楽しませてもらっています！
+坂パスタチーム( &lt;a href=&#34;https://github.com/karupanerura/isucon2013-yosen&#34;&gt;code&lt;/a&gt;  )は１日目６位で、幸い本戦にも参加出来そうです。
+またよろしくお願いします!!&lt;/p&gt;
+
+&lt;p&gt;運営の方々、ほんとにありがとうございます＞＜&lt;/p&gt;
+
+&lt;h1 id=&#34;予選が終わってみて思うこと:c55a4818de30e5e16e6b23b656d7834a&#34;&gt;予選が終わってみて思うこと&lt;/h1&gt;
+
+&lt;p&gt;偏見に満ちていますが、isuconは、
+インフラ周りをやっている人が強い印象です。&lt;/p&gt;
+
+&lt;p&gt;普段自分がやっていることはアプリケーションが中心です。
+もっと言えば、ゲームのイベントや機能を作ったり、
+フロント寄りなアニメを作ったりしています。&lt;/p&gt;
+
+&lt;p&gt;きっと俺は無惨に殺されるんだろうと思っていました。&lt;/p&gt;
+
+&lt;p&gt;やはりダメージを受けましたが、予選をどうにか、、生き延びれたようで、&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;チームメンバーに感謝！&lt;/strong&gt;
+
+&lt;ul&gt;
+&lt;li&gt;id:karupanerura と id:masasuz がいい感じにしてくれるという安心感があったので開発に集中できた！&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;devだけだって、、、できることはある！&lt;/strong&gt;
+
+&lt;ul&gt;
+&lt;li&gt;（もっと頑張らなきゃだけど&amp;hellip;）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そんなことを思いました。&lt;/p&gt;
+
+&lt;h1 id=&#34;予選でやったこと:c55a4818de30e5e16e6b23b656d7834a&#34;&gt;予選でやったこと&lt;/h1&gt;
+
+&lt;h2 id=&#34;下準備-2hours:c55a4818de30e5e16e6b23b656d7834a&#34;&gt;下準備(2hours)&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;karupaneruraがdeployツールなど足回りを作ってくれる&lt;/li&gt;
+&lt;li&gt;masasuzさんがパフォーマンス計測用のツールやconfなどを把握&lt;/li&gt;
+&lt;li&gt;自分は、アプリの仕様を把握する
+
+&lt;ul&gt;
+&lt;li&gt;コードをいじれる範囲を大きくしたかったので、丁寧に読む&lt;/li&gt;
+&lt;li&gt;コードを読むだけじゃなく、benchmarkによるアクセス傾向とレギュレーションを見て、
+硬くいえば、どこまで成果物ができていれば良いかの線引きを把握。&lt;/li&gt;
+&lt;li&gt;冗長だけど、こんなの書いた。 &lt;a href=&#34;https://github.com/karupanerura/isucon2013-yosen/blob/master/memo.md&#34;&gt;https://github.com/karupanerura/isucon2013-yosen/blob/master/memo.md&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;アプリでなんかあれだなーと思った点:c55a4818de30e5e16e6b23b656d7834a&#34;&gt;アプリでなんかあれだなーと思った点&lt;/h3&gt;
+
+&lt;p&gt;下準備を経て、手を入れたいと思ったところ。結構数が挙ってしまった。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;トップページ( / )や最近追加されたメモページ( /recent/:page ) で、共通して使われていた「メモ抜粋」の項目をまとめる&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参照される回数が多かったので、メモ抜粋のデータを取り出すやすくするのは、まずカジュアルだなーと思う&lt;/li&gt;
+&lt;li&gt;usernameをmemosに突っ込もう
+
+&lt;ul&gt;
+&lt;li&gt;実際にアプリとして、運用するならcacheに入れる方が管理しやすいけど、コード書く量多くなるし、キャッシュ層挟んでベンチマークこけるとかはまるのを恐れ、避ける&lt;/li&gt;
+&lt;li&gt;100件のIN句でRelation作るっていうのもあるけど、usernameの更新機能は無かったので、そこ頑張る必要ないと却下。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;memos.contentの1行目をmemosにsummaryとして突っ込もう
+
+&lt;ul&gt;
+&lt;li&gt;TEXT型だったので、でっかいテキスト持ってくるのやだなーと思った&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;公開されているメモの件数を表示している&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;素直な全件COUNT文. やめよう&lt;/li&gt;
+&lt;li&gt;cacheしても良かったけど、まずは、考えることは少ない方がいいので、counter table.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;メモの詳細ページで、登録されたメモの前後のメモのidを取り出す処理が大げさだった&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;memosを全部取り出していた。おそろしい&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;最近追加されたメモページのページング処理で、でっかい OFFSET へのアクセスあって、やだなー&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;markdownの処理が、やだなー&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;no index no life&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;memos にINDEXがない。かなしい&lt;/li&gt;
+&lt;li&gt;いい感じの張ってもらいたいなーとmasasuzさんをちらちらする&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;link stylesheet href=&#34;http://kfly8.github.io/&#34;&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;アクセス元を把握するために、テンプレを眺め回ってたら発見。わらた。&lt;/li&gt;
+&lt;li&gt;他にもないかと、chrome dev toolsのネットワーク見て、変なリクエストないか、見る&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;/signinへのアクセスはない。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;benchmarkツールのアクセスを見てて発見。わらた。&lt;/li&gt;
+&lt;li&gt;このページのコードをいじる必要はない&lt;/li&gt;
+&lt;li&gt;user,passwdが20文字制限だったので、アプリがリリースした時点から長さが変わっていなければ、VARCHAR(255)は小さくできるなーと思う&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;usernameが存在するかどうかのチェックにusername VARCHAR(255)で検索している。かなしい&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;とりあえず、usernameにhashをかけたカラムを用意しよう&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;全ページで、user情報がstashされていた。ぬーん。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;（過去分のメモの詳細をキャッシュに突っ込もうという話があったけど、userデータの扱いを失念していたので、無駄にはまる所だった。あぶない。テンプレ分割すればいいんだけどさ）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;飯を食いつつ方針周り話す-1hour:c55a4818de30e5e16e6b23b656d7834a&#34;&gt;飯を食いつつ方針周り話す( 1hour )&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;まずは予選を突破できればいいねと話す&lt;/li&gt;
+&lt;li&gt;アプリではcache層挟んだりせず、素直に駄目なところを改善させてと話す。&lt;/li&gt;
+&lt;li&gt;15:30過ぎくらいに後半周りのスコアを見て、考えようと後回し&lt;/li&gt;
+&lt;li&gt;つまり消極作戦。&lt;/li&gt;
+&lt;li&gt;frontの置き換えだったり、confのいいかんじの設定をお任せせ＞＜&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;もくもく-最後まで:c55a4818de30e5e16e6b23b656d7834a&#34;&gt;もくもく( 最後まで )&lt;/h2&gt;
+
+&lt;p&gt;ほとんど午前中に気づいたことを書くことで終わる
+途中色々詰まって、邪魔をする.. orz&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;アプリ側の問題点は結構挙っていたので、実装が間に合わないと嫌だったので、火を見るより明らかな所を直す。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;どの変更でパフォーマンスが上がったか下がったか分からないと困るので、大人しくbranch切って書き書き。&lt;/li&gt;
+&lt;li&gt;都度ベンチをお願いする。&lt;/li&gt;
+&lt;li&gt;完了したら、ローカルのブランチを削除して、branchをtodoリストっぽく扱うw&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;benchmark時に走らせるスクリプトが、うまく動かない、、他の２人にも聞き、結局俺は実装を優先させてもらい、karupaneruraにパス＞＜ すいません&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;結局、~での指定が悪く、rootユーザでの実行を想定してなかったせいだった、すいませんすいません&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;また自分の変更で、benchmarkこける..焦る、今度は、masasuzさんにいろいろ見てもらう、、すいません&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;refererを教えてもらって、原因を特定、、すいませんすいません。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;書いてて、凹んできたw
+もっとoptsの力があれば、チームの方々の時間を奪わずに済んだろう&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;５割くらいは実装できたから、、いいんだ、、本戦頑張る!!&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p&gt;&lt;a href=&#34;https://twitter.com/karupanerura&#34;&gt;@karupanerura&lt;/a&gt; 先出てきてすまん&amp;gt; &amp;lt; おつかれさまです。もし次があるなら、+10000点分の働きしますm(_ _)m&lt;/p&gt;&amp;mdash; kobaken (@kfly8) &lt;a href=&#34;https://twitter.com/kfly8/statuses/386468945131094017&#34;&gt;October 5, 2013&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;//platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;多分本戦であかんかったら、karupaneruraに埋められる。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;たられば-よもやま:c55a4818de30e5e16e6b23b656d7834a&#34;&gt;たられば、よもやま&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ユーザが登録したメモの前後関係を取るなら、どんなデータを残すのがいいかなーと考える
+
+&lt;ul&gt;
+&lt;li&gt;ユーザ毎にメモの登録順序を持つような実装進める&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;疑似コードはっつけ。&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/kfly8/1aa85b90f1cbd3751062.js&#34;&gt;&lt;/script&gt;
+
+&lt;h1 id=&#34;まとめ:c55a4818de30e5e16e6b23b656d7834a&#34;&gt;まとめ&lt;/h1&gt;
+
+&lt;p&gt;もっと点数を伸ばす為には、ドラスティックな変更できる筋力欲しいと思うも、
+単純なことを単純にやれる力があることが確かめられて、少し自信になった。
+チームでいいお酒飲めるように本戦もがんばろー。&lt;/p&gt;
+
+&lt;h1 id=&#34;蛇足:c55a4818de30e5e16e6b23b656d7834a&#34;&gt;蛇足&lt;/h1&gt;
+
+&lt;p&gt;早速、坂のパスタ屋に行って来た。うまし!!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://instagram.com/p/fKaz7NIDDe/&#34;&gt;&lt;img src=&#34;http://instagram.com/p/fKaz7NIDDe/media/?size=l&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

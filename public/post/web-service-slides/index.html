@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>slides.comを使ってみた &middot; kobaken&#39;s blog</title>
+    <meta name="author" content="kobaken">
+    <meta name="description" content="Programming, Tech And Math">
+    <meta name="generator" content="Hugo 0.16-DEV" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link rel="shortcut icon" href="http://kfly8.github.io/img/favicon.ico">
+    <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.2/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="http://kfly8.github.io/css/screen.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css">
+    <link rel="stylesheet" href="http://kfly8.github.io/css/solarized-light.css">
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #3498db;}
+    .pagination a {color: #3498db;}
+    .gist .gist-file .gist-meta a:visited {color: #3498db !important;}
+    a:focus, a:hover {color: #2079b4;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #2079b4;}
+    .older-posts:hover, .newer-posts:hover {color: #2079b4;}
+</style>
+</head>
+
+<body class="post-template">
+
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="http://kfly8.github.io/">kobaken&rsquo;s blog</a></h1>
+	
+	
+	<h1 class="blog-subtitle">Programming, Tech and Math</h1>
+	
+</header>
+    
+
+    <main class="content" role="main">
+	    <article class="post">
+	        <header>
+	        <h1 class="post-title">slides.comを使ってみた</h1>
+	        <div class="post-meta">
+            <time datetime="24 September 2014">24 September 2014</time>
+            <span class="post-meta tags">
+<i class="fa fa-fw fa-tag"></i>
+
+</span>
+
+          </div>
+	        </header>
+
+	        <section class="post-content">
+	            
+
+<p><a href="http://search.cpan.org/~yusukebe/App-revealup-0.08/lib/App/revealup.pm">App::revealup</a>で作成したslideを公開する時、
+今までgithub.ioを使っていたのですが、
+<a href="https://github.com/hakimel/reveal.js/#online-editor">reveal.js</a>で紹介されている<a href="http://slides.com/">slides.com</a>を使ってみました。</p>
+
+<h1 id="結論:9304ad3432364e053c0046abfe33f1c5">結論</h1>
+
+<p>markdownを作ってスライド作るワークフローはほとんど（後述）変えずに
+簡単にスライドが用意できて、さらに以下のようなメリットがあったので、
+個人的にはもっとslides.com 使いたいなーと思いました！</p>
+
+<p>（スライドの内容はともかく）試しに作成した結果
+<iframe src="//slides.com/kfly8/isucon_ttp/embed?style=light" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></p>
+
+<p>元々はこんな感じ。-&gt;
+<a href="http://kfly8.github.io/doc/2014-09-17_gotandapm/">slide</a> /
+<a href="https://github.com/kfly8/doc/tree/gh-pages/2014-09-17_gotandapm">github</a></p>
+
+<h1 id="メリット:9304ad3432364e053c0046abfe33f1c5">メリット</h1>
+
+<ul>
+<li><a href="http://help.slides.com/knowledgebase/articles/254996-embedding-decks">embedらくちんにできる！</a></li>
+<li>プレゼン機能が充実してる！
+
+<ul>
+<li><a href="http://help.slides.com/knowledgebase/articles/333923">スピーカーノート用意できて、スピーカー用のビューが用意されてる！</a></li>
+<li><a href="http://help.slides.com/knowledgebase/articles/333925-remote-control">リモートコントロールできる！</a></li>
+<li><a href="http://help.slides.com/knowledgebase/articles/333924-live-streaming">live streaming 機能ある！</a> かっこいい！</li>
+</ul></li>
+<li>Social 機能ある！
+
+<ul>
+<li>twitterとかのsocial mediaボタン！</li>
+<li><a href="http://help.slides.com/knowledgebase/articles/255205-comments">コメント機能！</a></li>
+</ul></li>
+<li>スライドが、HTMLなのでモバイル端末で見た時に見やすい（見やすくできる）
+
+<ul>
+<li><a href="http://help.slides.com/knowledgebase/articles/405697-custom-html">やろうと思えばhtmlをだいたい直接修正できる</a></li>
+</ul></li>
+<li>スライドを公開した後に修正できる（良くも悪くも）</li>
+<li>revealjsの機能をより最大限に活かしやすい
+
+<ul>
+<li>iframeでビデオを再生したりできる。</li>
+</ul></li>
+<li>exportされるhtmlが、1 file
+
+<ul>
+<li>(revealjsとかの読み込みとかlibファイルのこと考えなくていい）</li>
+<li>有料オプションでpdfへのexportやDropboxへのsyncなどもできる</li>
+<li>さらに、<a href="http://help.slides.com/forums/175819-general/suggestions/3173469-github-integration">sync先にgithubにするようなissueもあがっている</a>ようなので、期待age</li>
+</ul></li>
+</ul>
+
+<p><a href="http://help.slides.com/knowledgebase">ヘルプ一覧</a>にはもっと他の機能についての紹介が
+簡潔に書いてあって、わかりやすい！</p>
+
+<h1 id="やること:9304ad3432364e053c0046abfe33f1c5">やること</h1>
+
+<p>markdownで作ったスライドを、slides.comにあげる為にやることは、
+大きく一つだけ。</p>
+
+<p>markdownから適当なHTMLファイルを用意してimportするだけ。
+importについては<a href="http://help.slides.com/knowledgebase/articles/271213-import-from-reveal-js">コチラ</a>を参照</p>
+
+<h2 id="importするhtmlの用意:9304ad3432364e053c0046abfe33f1c5">importするHTMLの用意</h2>
+
+<ul>
+<li>App::revealupで立ち上げたスライド(0.0.0.0:5000を想定)を、Chrome経由で保存（Cmd+S）((外部ファイルのmarkdownをhtml tagに展開した物が欲しいのでこんなことやってる。展開済みのhtmlを用意できればなんでもいい。展開するときに、画像パスとdata-markdown属性だけ気をつける))</li>
+<li>画像のパスを絶対パスに変えてあげる</li>
+<li>data-markdown=&ldquo;&rdquo; 属性を消す</li>
+</ul>
+
+<p>雑だけど、つまりこんな感じ</p>
+
+<pre><code>Cmd+S
+vim 0.0.0.0.html
+:%s;./0.0.0.0_files;https://dl.dropboxusercontent.com/u/XXX/img/YYY;gc
+:%s;data-markdown=&quot;&quot;;;g
+:cat % | pbcopy
+# -&gt; slides.comの編集画面からimport
+</code></pre>
+
+<p>これを自動化できればもっと楽そう。((slides.comがmarkdownのimportに対応すればもっと楽ではある、、))</p>
+
+<h1 id="まとめ:9304ad3432364e053c0046abfe33f1c5">まとめ</h1>
+
+<p>slides.comを使えば、markdownでスライド作るワークフローは殆ど変えずに、
+プレゼン面、ソーシャルメディアの面で多くのメリットが得られて、幸せ！</p>
+
+	        </section>
+
+	        <section class="share">
+	            <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> </a></p>
+	            <p class="info prompt"></p>
+	            <a href="http://twitter.com/share?text=slides.com%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%a6%e3%81%bf%e3%81%9f&url=http%3a%2f%2fkfly8.github.io%2fpost%2fweb-service-slides%2f" title="Share on Twitter"
+	                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+	                <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
+	            </a>
+	            <a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkfly8.github.io%2fpost%2fweb-service-slides%2f" title="Share on Facebook"
+	                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+	                <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
+	            </a>
+	            <a href="https://plus.google.com/share?url=http%3a%2f%2fkfly8.github.io%2fpost%2fweb-service-slides%2f" title="Share on Google+"
+	               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+	                <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
+	            </a>
+              <a href="http://b.hatena.ne.jp/entry/http://kfly8.github.io/post/web-service-slides/" class="hatena-bookmark-button" data-hatena-bookmark-title="slides.comを使ってみた" data-hatena-bookmark-layout="simple" title="このエントリーをはてなブックマークに追加">
+	              <i class="fa fa-2x fa-fw fa-hatena" style="margin-left: -8px"></i> <span class="hidden">B!</span>
+              </a>
+	        </section>
+
+			
+	        	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'kfly8';
+    var disqus_identifier = 'http:\/\/kfly8.github.io\/post\/web-service-slides\/';
+    var disqus_title = 'slides.comを使ってみた';
+    var disqus_url = 'http:\/\/kfly8.github.io\/post\/web-service-slides\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	        
+
+			
+
+	    </article>
+	</main>
+
+    <footer class="site-footer">
+
+	<section class="author">
+    <div class="authorimage" style="background: url(http://kfly8.github.io/img/avatar.jpg)"></div>
+    <h4>kobaken</h4>
+    <p class="bio">Hello World!</p>
+    <p class="meta">
+      <i class="fa fa-fw fa-map-marker"></i> Tokyo
+      <a href="//twitter.com/kfly8" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp; 
+      <a href="//github.com/kfly8" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      <a href="" target="_blank" title="RSS"><i class="fa fa-2x fa-fw fa-rss"></i> <span class="hidden">RSS</span></a>
+    </p>
+</section>
+
+	<section class="copyright">&copy; 2016 <a href="http://kfly8.github.io/">kobaken</a>. </section>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://kfly8.github.io/js/index.js"></script>
+<script src="http://kfly8.github.io/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<!-- Google Analytics -->
+<script>
+  var _gaq=[['_setAccount','UA-71885424-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+</body>
+</html>
