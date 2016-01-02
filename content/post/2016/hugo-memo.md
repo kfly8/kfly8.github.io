@@ -22,7 +22,7 @@ description: |
 
 ```shell
 $ brew install hugo
-$ hugo server -w --bind=0.0.0.0 #
+$ hugo server -w --bind=0.0.0.0
 ```
 
 # [themes](http://themes.gohugo.io/)
