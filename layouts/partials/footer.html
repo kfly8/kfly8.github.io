@@ -1,5 +1,4 @@
 <footer class="site-footer">
-
-	{{ partial "author" . }}
-	<section class="copyright">&copy; {{.Now.Format "2006"}} <a href="{{ .Site.BaseURL }}">{{ .Site.Params.name }}</a>. {{ .Site.Params.copyright | markdownify }}</section>
+  {{ partial "author" . }}
+  <section class="copyright">&copy; {{.Now.Format "2006"}} <a href="{{ .Site.BaseURL }}">{{ .Site.Params.name }}</a>. {{ .Site.Params.copyright | markdownify }} Powered by <a href="https://gohugo.io/">HUGO</a></section>
 </footer>
