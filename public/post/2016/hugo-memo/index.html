@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>HUGO MEMO &middot; kobaken&#39;s blog</title>
+    <meta name="author" content="kobaken">
+    <meta name="description" content="Programming, Tech And Math">
+    <meta name="generator" content="Hugo 0.16-DEV" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link rel="shortcut icon" href="http://kfly8.github.io/img/favicon.ico">
+    <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.2/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="http://kfly8.github.io/css/screen.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css">
+    <link rel="stylesheet" href="http://kfly8.github.io/css/solarized-light.css">
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #3498db;}
+    .pagination a {color: #3498db;}
+    .gist .gist-file .gist-meta a:visited {color: #3498db !important;}
+    a:focus, a:hover {color: #2079b4;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #2079b4;}
+    .older-posts:hover, .newer-posts:hover {color: #2079b4;}
+</style>
+</head>
+
+<body class="post-template">
+
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="http://kfly8.github.io/">kobaken&rsquo;s blog</a></h1>
+	
+	
+	<h1 class="blog-subtitle">Programming, Tech and Math</h1>
+	
+</header>
+    
+
+    <main class="content" role="main">
+	    <article class="post">
+	        <header>
+	        <h1 class="post-title">HUGO MEMO</h1>
+	        <div class="post-meta">
+            <time datetime="03 January 2016">03 January 2016</time>
+            <span class="post-meta tags">
+<i class="fa fa-fw fa-tag"></i>
+
+<a href="http://kfly8.github.io/tags/HUGO">HUGO </a>
+
+</span>
+
+          </div>
+	        </header>
+
+	        <section class="post-content">
+	            
+
+<p>はてなブログからHUGO + Github Pages にした。
+最低限のメモを以下に記す。</p>
+
+<p><a href="https://gohugo.io/"><img src="/img/post/2016/hugo-logo.png" alt="HUGO" /></a></p>
+
+<h1 id="導入記事:13e641743651635a6778bb60f5fc24ec">導入記事</h1>
+
+<ul>
+<li><a href="http://deeeet.com/writing/2014/12/25/hugo/">http://deeeet.com/writing/2014/12/25/hugo/</a></li>
+<li><a href="https://blog.riywo.com/2015/09/migrate-to-huge-and-s3/">https://blog.riywo.com/2015/09/migrate-to-huge-and-s3/</a></li>
+<li>etc</li>
+</ul>
+
+<h1 id="commands:13e641743651635a6778bb60f5fc24ec">commands</h1>
+
+<pre><code class="language-shell">$ brew install hugo
+$ hugo server -w --bind=0.0.0.0 #
+</code></pre>
+
+<h1 id="themes-http-themes-gohugo-io:13e641743651635a6778bb60f5fc24ec"><a href="http://themes.gohugo.io/">themes</a></h1>
+
+<p>このブログは、<a href="http://themes.gohugo.io/steam/">steam</a> を元にスマホで見やすいようにデザイン調整したつもり。</p>
+
+<h1 id="shortcodes-https-gohugo-io-extras-shortcodes:13e641743651635a6778bb60f5fc24ec"><a href="https://gohugo.io/extras/shortcodes/">shortcodes</a></h1>
+
+<p>コードスニペットを簡単に呼び出しできる。</p>
+
+<p>例えば、はてなブログの埋め込みをしたい場合、
+以下のようなコードスニペットを用意してあげれば、
+記事内で呼び出すと勝手に展開をしてくれる。</p>
+
+<pre><code class="language-html">#./layouts/shortcodes/hatenablog.html
+&lt;iframe src=&quot;{{ .Get 0 }}&quot;
+ class=&quot;embed-card embed-blogcard&quot;
+ scrolling=&quot;no&quot;
+ frameborder=&quot;0&quot;
+ style=&quot;display: block; width: 100%; height: 190px; max-width: 500px; margin: 10px 0px;&quot;
+&gt;&lt;/iframe&gt;
+</code></pre>
+
+<pre><code>{\{% hatenablog &quot;//techblog.karupas.org/embed/20111117/1321542949&quot; %\}}
+</code></pre>
+
+<iframe src="//techblog.karupas.org/embed/20111117/1321542949"
+ class="embed-card embed-blogcard"
+ scrolling="no"
+ frameborder="0"
+ style="display: block; width: 100%; height: 190px; max-width: 500px; margin: 10px 0px;"
+></iframe>
+
+
+<p>一例に過ぎないけど、はてなは embed便利だったなーと思う。
+私の場合は、そこまで embed する機会が少ないので、様子見。
+<a href="http://riteshkr.com/embed.js/">embed.js</a> なるもので、統一的なI/Fで embed できるようなので、試してみてもいいかもしれない。</p>
+
+	        </section>
+
+	        <section class="share">
+	            <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> </a></p>
+	            <p class="info prompt"></p>
+	            <a href="http://twitter.com/share?text=HUGO%20MEMO&url=http%3a%2f%2fkfly8.github.io%2fpost%2f2016%2fhugo-memo%2f" title="Share on Twitter"
+	                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+	                <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
+	            </a>
+	            <a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkfly8.github.io%2fpost%2f2016%2fhugo-memo%2f" title="Share on Facebook"
+	                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+	                <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
+	            </a>
+	            <a href="https://plus.google.com/share?url=http%3a%2f%2fkfly8.github.io%2fpost%2f2016%2fhugo-memo%2f" title="Share on Google+"
+	               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+	                <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
+	            </a>
+              <a href="http://b.hatena.ne.jp/entry/http://kfly8.github.io/post/2016/hugo-memo/" class="hatena-bookmark-button" data-hatena-bookmark-title="HUGO MEMO" data-hatena-bookmark-layout="simple" title="このエントリーをはてなブックマークに追加">
+	              <i class="fa fa-2x fa-fw fa-hatena" style="margin-left: -8px"></i> <span class="hidden">B!</span>
+              </a>
+	        </section>
+
+			
+	        	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'kfly8';
+    var disqus_identifier = 'http:\/\/kfly8.github.io\/post\/2016\/hugo-memo\/';
+    var disqus_title = 'HUGO MEMO';
+    var disqus_url = 'http:\/\/kfly8.github.io\/post\/2016\/hugo-memo\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	        
+
+			
+
+      <script>
+  (function() {
+    var cx = '018021510789573224316:hxz-kvt2ixg';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="google-search">
+  <gcse:search></gcse:search>
+</div>
+
+	    </article>
+	</main>
+
+    <footer class="site-footer">
+  <section class="author">
+    <div class="authorimage" style="background: url(http://kfly8.github.io/img/avatar.jpg)"></div>
+    <h4>kobaken</h4>
+    <p class="bio">Hello World!</p>
+    <p class="meta">
+      <i class="fa fa-fw fa-map-marker"></i> Tokyo
+      <a href="//twitter.com/kfly8" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp; 
+      <a href="//github.com/kfly8" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      <a href="" target="_blank" title="RSS"><i class="fa fa-2x fa-fw fa-rss"></i> <span class="hidden">RSS</span></a>
+    </p>
+</section>
+
+  <section class="copyright">&copy; 2016 <a href="http://kfly8.github.io/">kobaken</a>.  Powered by <a href="https://gohugo.io/">HUGO</a></section>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://kfly8.github.io/js/index.js"></script>
+<script src="http://kfly8.github.io/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<!-- Google Analytics -->
+<script>
+  var _gaq=[['_setAccount','UA-71885424-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+</body>
+</html>

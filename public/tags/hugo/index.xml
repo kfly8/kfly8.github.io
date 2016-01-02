@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on kobaken&#39;s blog</title>
+    <link>http://kfly8.github.io/tags/hugo/</link>
+    <description>Recent content in Hugo on kobaken&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Sun, 03 Jan 2016 00:53:00 +0900</lastBuildDate>
+    <atom:link href="http://kfly8.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HUGO MEMO</title>
+      <link>http://kfly8.github.io/post/2016/hugo-memo/</link>
+      <pubDate>Sun, 03 Jan 2016 00:53:00 +0900</pubDate>
+      
+      <guid>http://kfly8.github.io/post/2016/hugo-memo/</guid>
+      <description>
+
+&lt;p&gt;はてなブログからHUGO + Github Pages にした。
+最低限のメモを以下に記す。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;&lt;img src=&#34;http://kfly8.github.io/img/post/2016/hugo-logo.png&#34; alt=&#34;HUGO&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;導入記事:13e641743651635a6778bb60f5fc24ec&#34;&gt;導入記事&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://deeeet.com/writing/2014/12/25/hugo/&#34;&gt;http://deeeet.com/writing/2014/12/25/hugo/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.riywo.com/2015/09/migrate-to-huge-and-s3/&#34;&gt;https://blog.riywo.com/2015/09/migrate-to-huge-and-s3/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;etc&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;commands:13e641743651635a6778bb60f5fc24ec&#34;&gt;commands&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ brew install hugo
+$ hugo server -w --bind=0.0.0.0 #
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;themes-http-themes-gohugo-io:13e641743651635a6778bb60f5fc24ec&#34;&gt;&lt;a href=&#34;http://themes.gohugo.io/&#34;&gt;themes&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;このブログは、&lt;a href=&#34;http://themes.gohugo.io/steam/&#34;&gt;steam&lt;/a&gt; を元にスマホで見やすいようにデザイン調整したつもり。&lt;/p&gt;
+
+&lt;h1 id=&#34;shortcodes-https-gohugo-io-extras-shortcodes:13e641743651635a6778bb60f5fc24ec&#34;&gt;&lt;a href=&#34;https://gohugo.io/extras/shortcodes/&#34;&gt;shortcodes&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;コードスニペットを簡単に呼び出しできる。&lt;/p&gt;
+
+&lt;p&gt;例えば、はてなブログの埋め込みをしたい場合、
+以下のようなコードスニペットを用意してあげれば、
+記事内で呼び出すと勝手に展開をしてくれる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;#./layouts/shortcodes/hatenablog.html
+&amp;lt;iframe src=&amp;quot;{{ .Get 0 }}&amp;quot;
+ class=&amp;quot;embed-card embed-blogcard&amp;quot;
+ scrolling=&amp;quot;no&amp;quot;
+ frameborder=&amp;quot;0&amp;quot;
+ style=&amp;quot;display: block; width: 100%; height: 190px; max-width: 500px; margin: 10px 0px;&amp;quot;
+&amp;gt;&amp;lt;/iframe&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;{\{% hatenablog &amp;quot;//techblog.karupas.org/embed/20111117/1321542949&amp;quot; %\}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;iframe src=&#34;//techblog.karupas.org/embed/20111117/1321542949&#34;
+ class=&#34;embed-card embed-blogcard&#34;
+ scrolling=&#34;no&#34;
+ frameborder=&#34;0&#34;
+ style=&#34;display: block; width: 100%; height: 190px; max-width: 500px; margin: 10px 0px;&#34;
+&gt;&lt;/iframe&gt;
+
+
+&lt;p&gt;一例に過ぎないけど、はてなは embed便利だったなーと思う。
+私の場合は、そこまで embed する機会が少ないので、様子見。
+&lt;a href=&#34;http://riteshkr.com/embed.js/&#34;&gt;embed.js&lt;/a&gt; なるもので、統一的なI/Fで embed できるようなので、試してみてもいいかもしれない。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
