@@ -11,10 +11,10 @@
     
     <item>
       <title>About Dancer2(ja)</title>
-      <link>http://kfly8.github.io/post/about-dancer2/</link>
+      <link>http://kfly8.github.io/post/2015/about-dancer2/</link>
       <pubDate>Sun, 20 Dec 2015 20:43:25 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/about-dancer2/</guid>
+      <guid>http://kfly8.github.io/post/2015/about-dancer2/</guid>
       <description>
 
 &lt;p&gt;この記事は、&lt;a href=&#34;http://qiita.com/advent-calendar/2015/perl5&#34;&gt;Perl5 Advent Calendar 2015&lt;/a&gt; の20日目の記事です。&lt;/p&gt;
@@ -179,10 +179,10 @@ package MyApp::Bar {
     
     <item>
       <title>設定とFixture</title>
-      <link>http://kfly8.github.io/post/setting-and-fixture/</link>
+      <link>http://kfly8.github.io/post/2015/setting-and-fixture/</link>
       <pubDate>Wed, 02 Dec 2015 18:53:37 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/setting-and-fixture/</guid>
+      <guid>http://kfly8.github.io/post/2015/setting-and-fixture/</guid>
       <description>
 
 &lt;p&gt;&lt;strong&gt;この記事は、&lt;a href=&#34;http://qiita.com/advent-calendar/2015/mobilefactory&#34;&gt;モバイルファクトリー Advent Calendar 2015&lt;/a&gt; 2日目の記事です&lt;/strong&gt;&lt;/p&gt;
@@ -365,10 +365,10 @@ sub try_load {
     
     <item>
       <title>Hello, Crystal</title>
-      <link>http://kfly8.github.io/post/hello-crystal/</link>
+      <link>http://kfly8.github.io/post/2015/hello-crystal/</link>
       <pubDate>Wed, 02 Dec 2015 18:39:52 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/hello-crystal/</guid>
+      <guid>http://kfly8.github.io/post/2015/hello-crystal/</guid>
       <description>
 
 &lt;p&gt;&lt;strong&gt;この記事は &lt;a href=&#34;http://www.adventar.org/calendars/800&#34;&gt;Crystal Advent Calendar 2015&lt;/a&gt; の 2 日目の記事です&lt;/strong&gt;&lt;/p&gt;
@@ -514,10 +514,10 @@ To https://git.heroku.com/arcane-harbor-8307.git
     
     <item>
       <title>DBIx::Schema::DSL::Dumper というのを書きました</title>
-      <link>http://kfly8.github.io/post/dbix-schema-dsl-dumper/</link>
+      <link>http://kfly8.github.io/post/2015/dbix-schema-dsl-dumper/</link>
       <pubDate>Wed, 04 Feb 2015 21:00:12 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/dbix-schema-dsl-dumper/</guid>
+      <guid>http://kfly8.github.io/post/2015/dbix-schema-dsl-dumper/</guid>
       <description>&lt;p&gt;songmuさんの書いた&lt;a href=&#34;https://github.com/Songmu/p5-DBIx-Schema-DSL&#34;&gt;DBIx::Schema::DSL&lt;/a&gt;
 を使いたい状況が出て来て、
 すでに結構もりもり書かれてたDDLを移行する為に書いてみました。&lt;/p&gt;
@@ -544,10 +544,10 @@ print DBIx::Schema::DSL::Dumper-&amp;gt;dump(
     
     <item>
       <title>間接オブジェクト記法のアンチパターン</title>
-      <link>http://kfly8.github.io/post/indirect-object-notation/</link>
+      <link>http://kfly8.github.io/post/2014/indirect-object-notation/</link>
       <pubDate>Wed, 17 Dec 2014 12:54:09 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/indirect-object-notation/</guid>
+      <guid>http://kfly8.github.io/post/2014/indirect-object-notation/</guid>
       <description>
 
 &lt;p&gt;この記事は &lt;a href=&#34;http://qiita.com/advent-calendar/2014/perl&#34;&gt;Perl Advent Calendar 2014&lt;/a&gt; の 17日目 の記事です。&lt;/p&gt;
@@ -1167,10 +1167,10 @@ done_testing();
     
     <item>
       <title>#Perl入学式 のお手伝いさせてもらってきた</title>
-      <link>http://kfly8.github.io/post/supported-perl-entrance/</link>
+      <link>http://kfly8.github.io/post/2014/supported-perl-entrance/</link>
       <pubDate>Sun, 30 Nov 2014 19:02:59 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/supported-perl-entrance/</guid>
+      <guid>http://kfly8.github.io/post/2014/supported-perl-entrance/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;http://www.perl-entrance.org/&#34;&gt;Perl入学式&lt;/a&gt; に参加するのは初めてだったのですが、
@@ -1303,10 +1303,10 @@ done_testing;
     
     <item>
       <title>#chibapm 5で好き放題ランダウ記号の話をしてきた</title>
-      <link>http://kfly8.github.io/post/chibapm5/</link>
+      <link>http://kfly8.github.io/post/2014/chibapm5/</link>
       <pubDate>Sat, 11 Oct 2014 19:25:28 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/chibapm5/</guid>
+      <guid>http://kfly8.github.io/post/2014/chibapm5/</guid>
       <description>&lt;p&gt;数学の話を息抜きにしてきた。
 グラフが、写真なあたりまさに息抜き←手抜き&lt;/p&gt;
 
@@ -1329,10 +1329,10 @@ done_testing;
     
     <item>
       <title>isuconの予選で失格してきた</title>
-      <link>http://kfly8.github.io/post/isucon2014/</link>
+      <link>http://kfly8.github.io/post/2014/isucon/</link>
       <pubDate>Tue, 07 Oct 2014 16:28:16 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/isucon2014/</guid>
+      <guid>http://kfly8.github.io/post/2014/isucon/</guid>
       <description>
 
 &lt;p&gt;牡蠣途中&lt;/p&gt;
@@ -1342,12 +1342,12 @@ kuraチームのid:karupanerura, id:masasuz ありがとうございました！
 
 &lt;p&gt;isucon中にやったこと&lt;/p&gt;
 
-&lt;h2 id=&#34;サマリーテーブルを使って-ログインの成否を判定するようにした:ed9626afbad87fbe8fc7fd7c2dc6dee8&#34;&gt;サマリーテーブルを使って、ログインの成否を判定するようにした&lt;/h2&gt;
+&lt;h2 id=&#34;サマリーテーブルを使って-ログインの成否を判定するようにした:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;サマリーテーブルを使って、ログインの成否を判定するようにした&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/karupanerura/isucon2014-elimination/commit/b81dcd38b7201c838ab49501a0a91984b13361b4&#34;&gt;https://github.com/karupanerura/isucon2014-elimination/commit/b81dcd38b7201c838ab49501a0a91984b13361b4&lt;/a&gt;
 &lt;a href=&#34;https://github.com/karupanerura/isucon2014-elimination/commit/2daf40a936fc541841cc50fcb2c408fee7530444&#34;&gt;https://github.com/karupanerura/isucon2014-elimination/commit/2daf40a936fc541841cc50fcb2c408fee7530444&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;サマリーテーブルを使って-集計を出すようにした:ed9626afbad87fbe8fc7fd7c2dc6dee8&#34;&gt;サマリーテーブルを使って、集計を出すようにした&lt;/h2&gt;
+&lt;h2 id=&#34;サマリーテーブルを使って-集計を出すようにした:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;サマリーテーブルを使って、集計を出すようにした&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/karupanerura/isucon2014-elimination/commit/f4bd9e12c1d17ef1dab601b745c82daed134e504&#34;&gt;https://github.com/karupanerura/isucon2014-elimination/commit/f4bd9e12c1d17ef1dab601b745c82daed134e504&lt;/a&gt;&lt;/p&gt;
 
@@ -1372,7 +1372,7 @@ $row-&amp;gt;{login}...
 
 &lt;p&gt;TODO&lt;/p&gt;
 
-&lt;h2 id=&#34;userデータをオンメモリーにした:ed9626afbad87fbe8fc7fd7c2dc6dee8&#34;&gt;userデータをオンメモリーにした&lt;/h2&gt;
+&lt;h2 id=&#34;userデータをオンメモリーにした:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;userデータをオンメモリーにした&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/karupanerura/isucon2014-elimination/commit/2ee1d266ea6f076556e578f17ed6bf4c6b8c60b1&#34;&gt;https://github.com/karupanerura/isucon2014-elimination/commit/2ee1d266ea6f076556e578f17ed6bf4c6b8c60b1&lt;/a&gt;&lt;/p&gt;
 
@@ -1387,7 +1387,7 @@ $row-&amp;gt;{login}...
 
 &lt;p&gt;TODO&lt;/p&gt;
 
-&lt;h2 id=&#34;slack:ed9626afbad87fbe8fc7fd7c2dc6dee8&#34;&gt;slack&lt;/h2&gt;
+&lt;h2 id=&#34;slack:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;slack&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/karupanerura/isucon2014-elimination/issues/5&#34;&gt;https://github.com/karupanerura/isucon2014-elimination/issues/5&lt;/a&gt;&lt;/p&gt;
 
@@ -1399,10 +1399,10 @@ $row-&amp;gt;{login}...
     
     <item>
       <title>slides.comを使ってみた</title>
-      <link>http://kfly8.github.io/post/web-service-slides/</link>
+      <link>http://kfly8.github.io/post/2014/web-service-slides/</link>
       <pubDate>Wed, 24 Sep 2014 00:52:11 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/web-service-slides/</guid>
+      <guid>http://kfly8.github.io/post/2014/web-service-slides/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;http://search.cpan.org/~yusukebe/App-revealup-0.08/lib/App/revealup.pm&#34;&gt;App::revealup&lt;/a&gt;で作成したslideを公開する時、
@@ -1507,10 +1507,10 @@ vim 0.0.0.0.html
     
     <item>
       <title>#gotandapm たのしんできた</title>
-      <link>http://kfly8.github.io/post/gotandapm2/</link>
+      <link>http://kfly8.github.io/post/2014/gotandapm2/</link>
       <pubDate>Fri, 19 Sep 2014 13:22:07 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/gotandapm2/</guid>
+      <guid>http://kfly8.github.io/post/2014/gotandapm2/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://gotanda-pm.connpass.com/event/8404/&#34;&gt;Gotanda.pm #2&lt;/a&gt;で
 飲んだり発表したり話を聞いたり飲んだりしてきました１
 主催のid:karupaneruraありがとうございました！！！！！&lt;/p&gt;
@@ -1535,10 +1535,10 @@ vim 0.0.0.0.html
     
     <item>
       <title>ほんとにあったスキーマの話「ソーシャルゲーム」と題して、YAPCのトーク応募してみた</title>
-      <link>http://kfly8.github.io/post/apply-yapcasia2014/</link>
+      <link>http://kfly8.github.io/post/2014/apply-yapcasia/</link>
       <pubDate>Fri, 04 Jul 2014 16:08:19 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/apply-yapcasia2014/</guid>
+      <guid>http://kfly8.github.io/post/2014/apply-yapcasia/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://yapcasia.org/2014/talk/list&#34;&gt;YAPC::Asiaのトーク&lt;/a&gt;の応募数が尋常じゃないので、駆け込みブログです&amp;gt;&amp;lt;
 (YAPC終わった後に、yet another yapcをするしかないんじゃないか？！)&lt;/p&gt;
 
@@ -1555,10 +1555,10 @@ vim 0.0.0.0.html
     
     <item>
       <title>Hello Android</title>
-      <link>http://kfly8.github.io/post/hello-android/</link>
+      <link>http://kfly8.github.io/post/2014/hello-android/</link>
       <pubDate>Mon, 20 Jan 2014 22:52:40 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/hello-android/</guid>
+      <guid>http://kfly8.github.io/post/2014/hello-android/</guid>
       <description>
 
 &lt;p&gt;いまさら、、あんどろいどにはろーわーるどしました（え&lt;/p&gt;
@@ -1637,10 +1637,10 @@ XXX      device
     
     <item>
       <title>isucon に負けて悔しいので、問題を速く解決するためのパターンを考えてみた</title>
-      <link>http://kfly8.github.io/post/isucon2013/</link>
+      <link>http://kfly8.github.io/post/2013/isucon/</link>
       <pubDate>Sat, 30 Nov 2013 20:03:31 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/isucon2013/</guid>
+      <guid>http://kfly8.github.io/post/2013/isucon/</guid>
       <description>
 
 &lt;p&gt;isucon決勝からもうだいぶ日が経ってしまいました、、その間、負けて、id:karupanerura先生に、げきおこされる夢も見ました。&lt;/p&gt;
@@ -1654,7 +1654,7 @@ XXX      device
 自分が普段感じている問題解決のパターンを書いてみました。
 特にisuconの反省なので、与えられた問題を良い感じに速くするための解決方法寄りだと思います。&lt;/p&gt;
 
-&lt;h1 id=&#34;パターン:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;パターン&lt;/h1&gt;
+&lt;h1 id=&#34;パターン:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;パターン&lt;/h1&gt;
 
 &lt;hr /&gt;
 
@@ -1700,7 +1700,7 @@ XXX      device
 &lt;p&gt;箇条書きで終わりもアレなので、
 良い例かは分からないですが、パッと思いつく例を書いてみます。&lt;/p&gt;
 
-&lt;h3 id=&#34;処理しない:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理しない&lt;/h3&gt;
+&lt;h3 id=&#34;処理しない:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理しない&lt;/h3&gt;
 
 &lt;p&gt;一番、大事なことだと思います。処理しないで、済むなら、処理しない。
 やらないですむなら、やらない。&lt;/p&gt;
@@ -1710,22 +1710,22 @@ XXX      device
 
 &lt;p&gt;たたきこみ&lt;/p&gt;
 
-&lt;h3 id=&#34;処理したらメモしておく:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理したらメモしておく&lt;/h3&gt;
+&lt;h3 id=&#34;処理したらメモしておく:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理したらメモしておく&lt;/h3&gt;
 
 &lt;p&gt;今回のisucon決勝なら、画像投稿時、ないし、初回呼び出し時などで、キャッシュをするなど。&lt;/p&gt;
 
 &lt;p&gt;どこでキャッシュするか、いつキャッシュするか、メモしたものをどう更新するかは色々ですが、やったことは、またやりたくないというのは（領域が許せば）良い。&lt;/p&gt;
 
-&lt;h3 id=&#34;処理の下準備をする:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理の下準備をする&lt;/h3&gt;
+&lt;h3 id=&#34;処理の下準備をする:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理の下準備をする&lt;/h3&gt;
 
 &lt;p&gt;indexや、辞書作りなどの学習&lt;/p&gt;
 
-&lt;h3 id=&#34;処理をまとめる:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理をまとめる&lt;/h3&gt;
+&lt;h3 id=&#34;処理をまとめる:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理をまとめる&lt;/h3&gt;
 
 &lt;p&gt;都度の処理呼び出しコストを減らす。
 描画処理を減らすために、DOMに書き出さないなど。&lt;/p&gt;
 
-&lt;h3 id=&#34;処理を少なくする:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理を少なくする&lt;/h3&gt;
+&lt;h3 id=&#34;処理を少なくする:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理を少なくする&lt;/h3&gt;
 
 &lt;p&gt;処理を無くせはしないけど、少なくすることはできるっていうのはある。
 処理内容が減れば、大小あれど、一応嬉しい。&lt;/p&gt;
@@ -1738,17 +1738,17 @@ $dbh-&amp;gt;query() for 1..100
 
 &lt;p&gt;ここから、ちょっと、トレードオフが大きくなりそうな、パターン。&lt;/p&gt;
 
-&lt;h3 id=&#34;処理を外にお願いする:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理を外にお願いする&lt;/h3&gt;
+&lt;h3 id=&#34;処理を外にお願いする:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理を外にお願いする&lt;/h3&gt;
 
 &lt;p&gt;処理が完了するまで、次の処理が出来ないのはもったいない
 なので、他の人にお願いしたくなったりすることもある&lt;/p&gt;
 
-&lt;h3 id=&#34;必要な分だけ処理する:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;必要な分だけ処理する&lt;/h3&gt;
+&lt;h3 id=&#34;必要な分だけ処理する:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;必要な分だけ処理する&lt;/h3&gt;
 
 &lt;p&gt;重い処理の割には、意外と使われなくて、事前準備してなくて構わないというのはあるなと。
 そしたら、必要になったときに、処理すればよい。&lt;/p&gt;
 
-&lt;h3 id=&#34;処理を得意な人にお願いする:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理を得意な人にお願いする&lt;/h3&gt;
+&lt;h3 id=&#34;処理を得意な人にお願いする:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理を得意な人にお願いする&lt;/h3&gt;
 
 &lt;p&gt;言語レベルか、機械レベルか、ソフトウェアか、、など。
 これで良さそうな判断ができるかどうかは知識量に凄い左右されると思っている。&lt;/p&gt;
@@ -1756,25 +1756,25 @@ $dbh-&amp;gt;query() for 1..100
 &lt;p&gt;それでも得意な人にお願いしたいというのは変わらないはず。
 使いこなせる武器が多いのは、視点が高くなる。&lt;/p&gt;
 
-&lt;h3 id=&#34;処理関係者を減らす:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理関係者を減らす&lt;/h3&gt;
+&lt;h3 id=&#34;処理関係者を減らす:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理関係者を減らす&lt;/h3&gt;
 
 &lt;p&gt;全てを一番ベストな人にお願いしても、１０００箇所で処理が行われるとしたら、
 その処理の受け渡しのコストが目につくかもしれない。&lt;/p&gt;
 
-&lt;h3 id=&#34;処理するヒトを増やす:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理するヒトを増やす&lt;/h3&gt;
+&lt;h3 id=&#34;処理するヒトを増やす:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理するヒトを増やす&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;1人でやるより、2人で処理出来る方が捗ることもある。&lt;/li&gt;
 &lt;li&gt;スケールアウト&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;処理できるヒトを良くする:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理できるヒトを良くする&lt;/h3&gt;
+&lt;h3 id=&#34;処理できるヒトを良くする:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理できるヒトを良くする&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;スケールアップ&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;仕様を削る:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;仕様を削る&lt;/h3&gt;
+&lt;h3 id=&#34;仕様を削る:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;仕様を削る&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;その仕様、、、、その仕様、、い、、るかも、、いや、いら、らないかも、、　っていうのは、バッサバッサ切れればいいね。&lt;/li&gt;
@@ -1782,7 +1782,7 @@ $dbh-&amp;gt;query() for 1..100
 &lt;li&gt;エンジニアから、一歩踏み出すのも、問題解決する為の一つの手段。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&#34;最後に:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;最後に&lt;/h1&gt;
+&lt;h1 id=&#34;最後に:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;最後に&lt;/h1&gt;
 
 &lt;p&gt;id:karupanerura先生、id:masasuz先生、牡蠣鍋打ち上げしましょう&amp;gt; &amp;lt;&lt;/p&gt;
 
@@ -1794,10 +1794,10 @@ $dbh-&amp;gt;query() for 1..100
     
     <item>
       <title>TypeScriptさわるぞー #TODO</title>
-      <link>http://kfly8.github.io/post/hello-typescript/</link>
+      <link>http://kfly8.github.io/post/2013/hello-typescript/</link>
       <pubDate>Sat, 16 Nov 2013 18:18:56 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/hello-typescript/</guid>
+      <guid>http://kfly8.github.io/post/2013/hello-typescript/</guid>
       <description>
 
 &lt;p&gt;jsを大きな規模でもちゃんと動くようにしたいと、のたまったので、
@@ -1989,10 +1989,10 @@ var p2 = Pt.origin;
     
     <item>
       <title>大規模なjsってどうして書きにくい？</title>
-      <link>http://kfly8.github.io/post/why-difficult-to-write-js/</link>
+      <link>http://kfly8.github.io/post/2013/why-difficult-to-write-js/</link>
       <pubDate>Sat, 16 Nov 2013 00:53:40 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/why-difficult-to-write-js/</guid>
+      <guid>http://kfly8.github.io/post/2013/why-difficult-to-write-js/</guid>
       <description>
 
 &lt;p&gt;フロントサイドでの話です。&lt;/p&gt;

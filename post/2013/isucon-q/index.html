@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>#isucon 予選、暫定で生き残れたよう。 &middot; kobaken&#39;s blog</title>
+    <meta name="author" content="kobaken">
+    <meta name="description" content="Programming, Tech And Math">
+    <meta name="generator" content="Hugo 0.16-DEV" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link rel="shortcut icon" href="http://kfly8.github.io/img/favicon.ico">
+    <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.2/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="http://kfly8.github.io/css/screen.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css">
+    <link rel="stylesheet" href="http://kfly8.github.io/css/solarized-light.css">
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #3498db;}
+    .pagination a {color: #3498db;}
+    .gist .gist-file .gist-meta a:visited {color: #3498db !important;}
+    a:focus, a:hover {color: #2079b4;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #2079b4;}
+    .older-posts:hover, .newer-posts:hover {color: #2079b4;}
+</style>
+</head>
+
+<body class="post-template">
+
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="http://kfly8.github.io/">kobaken&rsquo;s blog</a></h1>
+	
+	
+	<h1 class="blog-subtitle">Programming, Tech and Math</h1>
+	
+</header>
+    
+
+    <main class="content" role="main">
+	    <article class="post">
+	        <header>
+	        <h1 class="post-title">#isucon 予選、暫定で生き残れたよう。</h1>
+	        <div class="post-meta">
+            <time datetime="07 October 2013">07 October 2013</time>
+            <span class="post-meta tags">
+<i class="fa fa-fw fa-tag"></i>
+
+<a href="http://kfly8.github.io/tags/isucon">isucon </a>
+
+</span>
+
+          </div>
+	        </header>
+
+	        <section class="post-content">
+	            
+
+<p>初めて<a href="https://isucon2013.kayac.com/">isucon</a>に参加させてもらいました。
+すごい楽しませてもらっています！
+坂パスタチーム( <a href="https://github.com/karupanerura/isucon2013-yosen">code</a>  )は１日目６位で、幸い本戦にも参加出来そうです。
+またよろしくお願いします!!</p>
+
+<p>運営の方々、ほんとにありがとうございます＞＜</p>
+
+<h1 id="予選が終わってみて思うこと:0ff9f1f040446a99f83bf27a457562bf">予選が終わってみて思うこと</h1>
+
+<p>偏見に満ちていますが、isuconは、
+インフラ周りをやっている人が強い印象です。</p>
+
+<p>普段自分がやっていることはアプリケーションが中心です。
+もっと言えば、ゲームのイベントや機能を作ったり、
+フロント寄りなアニメを作ったりしています。</p>
+
+<p>きっと俺は無惨に殺されるんだろうと思っていました。</p>
+
+<p>やはりダメージを受けましたが、予選をどうにか、、生き延びれたようで、</p>
+
+<ul>
+<li><strong>チームメンバーに感謝！</strong>
+
+<ul>
+<li>id:karupanerura と id:masasuz がいい感じにしてくれるという安心感があったので開発に集中できた！</li>
+</ul></li>
+<li><strong>devだけだって、、、できることはある！</strong>
+
+<ul>
+<li>（もっと頑張らなきゃだけど&hellip;）</li>
+</ul></li>
+</ul>
+
+<p>そんなことを思いました。</p>
+
+<h1 id="予選でやったこと:0ff9f1f040446a99f83bf27a457562bf">予選でやったこと</h1>
+
+<h2 id="下準備-2hours:0ff9f1f040446a99f83bf27a457562bf">下準備(2hours)</h2>
+
+<ul>
+<li>karupaneruraがdeployツールなど足回りを作ってくれる</li>
+<li>masasuzさんがパフォーマンス計測用のツールやconfなどを把握</li>
+<li>自分は、アプリの仕様を把握する
+
+<ul>
+<li>コードをいじれる範囲を大きくしたかったので、丁寧に読む</li>
+<li>コードを読むだけじゃなく、benchmarkによるアクセス傾向とレギュレーションを見て、
+硬くいえば、どこまで成果物ができていれば良いかの線引きを把握。</li>
+<li>冗長だけど、こんなの書いた。 <a href="https://github.com/karupanerura/isucon2013-yosen/blob/master/memo.md">https://github.com/karupanerura/isucon2013-yosen/blob/master/memo.md</a></li>
+</ul></li>
+</ul>
+
+<h3 id="アプリでなんかあれだなーと思った点:0ff9f1f040446a99f83bf27a457562bf">アプリでなんかあれだなーと思った点</h3>
+
+<p>下準備を経て、手を入れたいと思ったところ。結構数が挙ってしまった。</p>
+
+<ul>
+<li><p>トップページ( / )や最近追加されたメモページ( /recent/:page ) で、共通して使われていた「メモ抜粋」の項目をまとめる</p>
+
+<ul>
+<li>参照される回数が多かったので、メモ抜粋のデータを取り出すやすくするのは、まずカジュアルだなーと思う</li>
+<li>usernameをmemosに突っ込もう
+
+<ul>
+<li>実際にアプリとして、運用するならcacheに入れる方が管理しやすいけど、コード書く量多くなるし、キャッシュ層挟んでベンチマークこけるとかはまるのを恐れ、避ける</li>
+<li>100件のIN句でRelation作るっていうのもあるけど、usernameの更新機能は無かったので、そこ頑張る必要ないと却下。</li>
+</ul></li>
+<li>memos.contentの1行目をmemosにsummaryとして突っ込もう
+
+<ul>
+<li>TEXT型だったので、でっかいテキスト持ってくるのやだなーと思った</li>
+</ul></li>
+</ul></li>
+
+<li><p>公開されているメモの件数を表示している</p>
+
+<ul>
+<li>素直な全件COUNT文. やめよう</li>
+<li>cacheしても良かったけど、まずは、考えることは少ない方がいいので、counter table.</li>
+</ul></li>
+
+<li><p>メモの詳細ページで、登録されたメモの前後のメモのidを取り出す処理が大げさだった</p>
+
+<ul>
+<li>memosを全部取り出していた。おそろしい</li>
+</ul></li>
+
+<li><p>最近追加されたメモページのページング処理で、でっかい OFFSET へのアクセスあって、やだなー</p></li>
+
+<li><p>markdownの処理が、やだなー</p></li>
+
+<li><p>no index no life</p>
+
+<ul>
+<li>memos にINDEXがない。かなしい</li>
+<li>いい感じの張ってもらいたいなーとmasasuzさんをちらちらする</li>
+</ul></li>
+
+<li><p><link stylesheet href="/"></p>
+
+<ul>
+<li>アクセス元を把握するために、テンプレを眺め回ってたら発見。わらた。</li>
+<li>他にもないかと、chrome dev toolsのネットワーク見て、変なリクエストないか、見る</li>
+</ul></li>
+
+<li><p>/signinへのアクセスはない。</p>
+
+<ul>
+<li>benchmarkツールのアクセスを見てて発見。わらた。</li>
+<li>このページのコードをいじる必要はない</li>
+<li>user,passwdが20文字制限だったので、アプリがリリースした時点から長さが変わっていなければ、VARCHAR(255)は小さくできるなーと思う</li>
+</ul></li>
+
+<li><p>usernameが存在するかどうかのチェックにusername VARCHAR(255)で検索している。かなしい</p>
+
+<ul>
+<li>とりあえず、usernameにhashをかけたカラムを用意しよう</li>
+</ul></li>
+
+<li><p>全ページで、user情報がstashされていた。ぬーん。</p>
+
+<ul>
+<li>（過去分のメモの詳細をキャッシュに突っ込もうという話があったけど、userデータの扱いを失念していたので、無駄にはまる所だった。あぶない。テンプレ分割すればいいんだけどさ）</li>
+</ul></li>
+</ul>
+
+<h2 id="飯を食いつつ方針周り話す-1hour:0ff9f1f040446a99f83bf27a457562bf">飯を食いつつ方針周り話す( 1hour )</h2>
+
+<ul>
+<li>まずは予選を突破できればいいねと話す</li>
+<li>アプリではcache層挟んだりせず、素直に駄目なところを改善させてと話す。</li>
+<li>15:30過ぎくらいに後半周りのスコアを見て、考えようと後回し</li>
+<li>つまり消極作戦。</li>
+<li>frontの置き換えだったり、confのいいかんじの設定をお任せせ＞＜</li>
+</ul>
+
+<h2 id="もくもく-最後まで:0ff9f1f040446a99f83bf27a457562bf">もくもく( 最後まで )</h2>
+
+<p>ほとんど午前中に気づいたことを書くことで終わる
+途中色々詰まって、邪魔をする.. orz</p>
+
+<ul>
+<li><p>アプリ側の問題点は結構挙っていたので、実装が間に合わないと嫌だったので、火を見るより明らかな所を直す。</p>
+
+<ul>
+<li>どの変更でパフォーマンスが上がったか下がったか分からないと困るので、大人しくbranch切って書き書き。</li>
+<li>都度ベンチをお願いする。</li>
+<li>完了したら、ローカルのブランチを削除して、branchをtodoリストっぽく扱うw</li>
+</ul></li>
+
+<li><p>benchmark時に走らせるスクリプトが、うまく動かない、、他の２人にも聞き、結局俺は実装を優先させてもらい、karupaneruraにパス＞＜ すいません</p>
+
+<ul>
+<li>結局、~での指定が悪く、rootユーザでの実行を想定してなかったせいだった、すいませんすいません</li>
+</ul></li>
+
+<li><p>また自分の変更で、benchmarkこける..焦る、今度は、masasuzさんにいろいろ見てもらう、、すいません</p>
+
+<ul>
+<li>refererを教えてもらって、原因を特定、、すいませんすいません。</li>
+</ul></li>
+</ul>
+
+<p>書いてて、凹んできたw
+もっとoptsの力があれば、チームの方々の時間を奪わずに済んだろう&hellip;</p>
+
+<p>５割くらいは実装できたから、、いいんだ、、本戦頑張る!!</p>
+
+<p><blockquote class="twitter-tweet"><p><a href="https://twitter.com/karupanerura">@karupanerura</a> 先出てきてすまん&gt; &lt; おつかれさまです。もし次があるなら、+10000点分の働きしますm(_ _)m</p>&mdash; kobaken (@kfly8) <a href="https://twitter.com/kfly8/statuses/386468945131094017">October 5, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p><strong>多分本戦であかんかったら、karupaneruraに埋められる。</strong></p>
+
+<h2 id="たられば-よもやま:0ff9f1f040446a99f83bf27a457562bf">たられば、よもやま</h2>
+
+<ul>
+<li>ユーザが登録したメモの前後関係を取るなら、どんなデータを残すのがいいかなーと考える
+
+<ul>
+<li>ユーザ毎にメモの登録順序を持つような実装進める</li>
+</ul></li>
+</ul>
+
+<p>疑似コードはっつけ。</p>
+
+<script src="https://gist.github.com/kfly8/1aa85b90f1cbd3751062.js"></script>
+
+<h1 id="まとめ:0ff9f1f040446a99f83bf27a457562bf">まとめ</h1>
+
+<p>もっと点数を伸ばす為には、ドラスティックな変更できる筋力欲しいと思うも、
+単純なことを単純にやれる力があることが確かめられて、少し自信になった。
+チームでいいお酒飲めるように本戦もがんばろー。</p>
+
+<h1 id="蛇足:0ff9f1f040446a99f83bf27a457562bf">蛇足</h1>
+
+<p>早速、坂のパスタ屋に行って来た。うまし!!</p>
+
+<p><a href="http://instagram.com/p/fKaz7NIDDe/"><img src="http://instagram.com/p/fKaz7NIDDe/media/?size=l" alt="" /></a></p>
+
+	        </section>
+
+	        <section class="share">
+	            <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> </a></p>
+	            <p class="info prompt"></p>
+	            <a href="http://twitter.com/share?text=%23isucon%20%e4%ba%88%e9%81%b8%e3%80%81%e6%9a%ab%e5%ae%9a%e3%81%a7%e7%94%9f%e3%81%8d%e6%ae%8b%e3%82%8c%e3%81%9f%e3%82%88%e3%81%86%e3%80%82&url=http%3a%2f%2fkfly8.github.io%2fpost%2f2013%2fisucon-q%2f" title="Share on Twitter"
+	                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+	                <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
+	            </a>
+	            <a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkfly8.github.io%2fpost%2f2013%2fisucon-q%2f" title="Share on Facebook"
+	                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+	                <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
+	            </a>
+	            <a href="https://plus.google.com/share?url=http%3a%2f%2fkfly8.github.io%2fpost%2f2013%2fisucon-q%2f" title="Share on Google+"
+	               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+	                <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
+	            </a>
+              <a href="http://b.hatena.ne.jp/entry/http://kfly8.github.io/post/2013/isucon-q/" class="hatena-bookmark-button" data-hatena-bookmark-title="#isucon 予選、暫定で生き残れたよう。" data-hatena-bookmark-layout="simple" title="このエントリーをはてなブックマークに追加">
+	              <i class="fa fa-2x fa-fw fa-hatena" style="margin-left: -8px"></i> <span class="hidden">B!</span>
+              </a>
+	        </section>
+
+			
+	        	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'kfly8';
+    var disqus_identifier = 'http:\/\/kfly8.github.io\/post\/2013\/isucon-q\/';
+    var disqus_title = '#isucon 予選、暫定で生き残れたよう。';
+    var disqus_url = 'http:\/\/kfly8.github.io\/post\/2013\/isucon-q\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	        
+
+			
+
+	    </article>
+	</main>
+
+    <footer class="site-footer">
+
+	<section class="author">
+    <div class="authorimage" style="background: url(http://kfly8.github.io/img/avatar.jpg)"></div>
+    <h4>kobaken</h4>
+    <p class="bio">Hello World!</p>
+    <p class="meta">
+      <i class="fa fa-fw fa-map-marker"></i> Tokyo
+      <a href="//twitter.com/kfly8" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp; 
+      <a href="//github.com/kfly8" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      <a href="" target="_blank" title="RSS"><i class="fa fa-2x fa-fw fa-rss"></i> <span class="hidden">RSS</span></a>
+    </p>
+</section>
+
+	<section class="copyright">&copy; 2016 <a href="http://kfly8.github.io/">kobaken</a>. </section>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://kfly8.github.io/js/index.js"></script>
+<script src="http://kfly8.github.io/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<!-- Google Analytics -->
+<script>
+  var _gaq=[['_setAccount','UA-71885424-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+</body>
+</html>
