@@ -6,8 +6,73 @@
     <description>Recent content on kobaken&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 02 Jan 2016 22:12:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 03 Jan 2016 00:53:00 +0900</lastBuildDate>
     <atom:link href="http://kfly8.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>HUGO MEMO</title>
+      <link>http://kfly8.github.io/post/2016/hugo-memo/</link>
+      <pubDate>Sun, 03 Jan 2016 00:53:00 +0900</pubDate>
+      
+      <guid>http://kfly8.github.io/post/2016/hugo-memo/</guid>
+      <description>
+
+&lt;p&gt;はてなブログからHUGO + Github Pages にした。
+最低限のメモを以下に記す。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;&lt;img src=&#34;http://kfly8.github.io/img/post/2016/hugo-logo.png&#34; alt=&#34;HUGO&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;導入記事:13e641743651635a6778bb60f5fc24ec&#34;&gt;導入記事&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://deeeet.com/writing/2014/12/25/hugo/&#34;&gt;http://deeeet.com/writing/2014/12/25/hugo/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.riywo.com/2015/09/migrate-to-huge-and-s3/&#34;&gt;https://blog.riywo.com/2015/09/migrate-to-huge-and-s3/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;etc&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;commands:13e641743651635a6778bb60f5fc24ec&#34;&gt;commands&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ brew install hugo
+$ hugo server -w --bind=0.0.0.0 #
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;themes-http-themes-gohugo-io:13e641743651635a6778bb60f5fc24ec&#34;&gt;&lt;a href=&#34;http://themes.gohugo.io/&#34;&gt;themes&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;このブログは、&lt;a href=&#34;http://themes.gohugo.io/steam/&#34;&gt;steam&lt;/a&gt; を元にスマホで見やすいようにデザイン調整したつもり。&lt;/p&gt;
+
+&lt;h1 id=&#34;shortcodes-https-gohugo-io-extras-shortcodes:13e641743651635a6778bb60f5fc24ec&#34;&gt;&lt;a href=&#34;https://gohugo.io/extras/shortcodes/&#34;&gt;shortcodes&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;コードスニペットを簡単に呼び出しできる。&lt;/p&gt;
+
+&lt;p&gt;例えば、はてなブログの埋め込みをしたい場合、
+以下のようなコードスニペットを用意してあげれば、
+記事内で呼び出すと勝手に展開をしてくれる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;#./layouts/shortcodes/hatenablog.html
+&amp;lt;iframe src=&amp;quot;{{ .Get 0 }}&amp;quot;
+ class=&amp;quot;embed-card embed-blogcard&amp;quot;
+ scrolling=&amp;quot;no&amp;quot;
+ frameborder=&amp;quot;0&amp;quot;
+ style=&amp;quot;display: block; width: 100%; height: 190px; max-width: 500px; margin: 10px 0px;&amp;quot;
+&amp;gt;&amp;lt;/iframe&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;{\{% hatenablog &amp;quot;//techblog.karupas.org/embed/20111117/1321542949&amp;quot; %\}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;iframe src=&#34;//techblog.karupas.org/embed/20111117/1321542949&#34;
+ class=&#34;embed-card embed-blogcard&#34;
+ scrolling=&#34;no&#34;
+ frameborder=&#34;0&#34;
+ style=&#34;display: block; width: 100%; height: 190px; max-width: 500px; margin: 10px 0px;&#34;
+&gt;&lt;/iframe&gt;
+
+
+&lt;p&gt;一例に過ぎないけど、はてなは embed便利だったなーと思う。
+私の場合は、そこまで embed する機会が少ないので、様子見。
+&lt;a href=&#34;http://riteshkr.com/embed.js/&#34;&gt;embed.js&lt;/a&gt; なるもので、統一的なI/Fで embed できるようなので、試してみてもいいかもしれない。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2016年の抱負</title>
@@ -1784,163 +1849,6 @@ XXX      device
 &lt;/ul&gt;
 
 &lt;p&gt;とりあえず、はろーあんどろいど&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>isucon に負けて悔しいので、問題を速く解決するためのパターンを考えてみた</title>
-      <link>http://kfly8.github.io/post/2013/isucon/</link>
-      <pubDate>Sat, 30 Nov 2013 20:03:31 +0900</pubDate>
-      
-      <guid>http://kfly8.github.io/post/2013/isucon/</guid>
-      <description>
-
-&lt;p&gt;isucon決勝からもうだいぶ日が経ってしまいました、、その間、負けて、id:karupanerura先生に、げきおこされる夢も見ました。&lt;/p&gt;
-
-&lt;p&gt;振り返ります。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://isucon.net/&#34;&gt;isucon&lt;/a&gt;でスコアを残しているチームは技術力もさることながら、
-問題解決能力が高いと思うのです。もの凄く。&lt;/p&gt;
-
-&lt;p&gt;近づくにはどうすればいいんだろうと、頭の整理のために、
-自分が普段感じている問題解決のパターンを書いてみました。
-特にisuconの反省なので、与えられた問題を良い感じに速くするための解決方法寄りだと思います。&lt;/p&gt;
-
-&lt;h1 id=&#34;パターン:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;パターン&lt;/h1&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-&lt;li&gt;処理((仕事に置き換えても面白いかも？))しない&lt;/li&gt;
-&lt;li&gt;処理したらメモしておく&lt;/li&gt;
-&lt;li&gt;処理の下準備をする&lt;/li&gt;
-&lt;li&gt;処理をまとめる&lt;/li&gt;
-&lt;li&gt;処理を少なくする&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-&lt;li&gt;処理を外にお願いする&lt;/li&gt;
-&lt;li&gt;必要な分だけ、処理する&lt;/li&gt;
-&lt;li&gt;処理を得意な人にお願いする&lt;/li&gt;
-&lt;li&gt;処理関係者を減らす&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-&lt;li&gt;処理するヒトを増やす&lt;/li&gt;
-&lt;li&gt;処理できるヒトを良くする&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;ul&gt;
-&lt;li&gt;仕様を仕様を削る&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;「isucon知識足りなくて、負けたわー、じゃー、ほげほげ勉強しよう！」っていうんじゃ、
-思考停止だと思っています。&lt;/p&gt;
-
-&lt;p&gt;また知らない技術領域が出て来ても、
-どうにかこうにか対応できるようになりたいなーと思った感じです
-（知識不足は、ちゃんと補完しなきゃですが、、）&lt;/p&gt;
-
-&lt;p&gt;箇条書きで終わりもアレなので、
-良い例かは分からないですが、パッと思いつく例を書いてみます。&lt;/p&gt;
-
-&lt;h3 id=&#34;処理しない:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理しない&lt;/h3&gt;
-
-&lt;p&gt;一番、大事なことだと思います。処理しないで、済むなら、処理しない。
-やらないですむなら、やらない。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;1 + 1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;たたきこみ&lt;/p&gt;
-
-&lt;h3 id=&#34;処理したらメモしておく:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理したらメモしておく&lt;/h3&gt;
-
-&lt;p&gt;今回のisucon決勝なら、画像投稿時、ないし、初回呼び出し時などで、キャッシュをするなど。&lt;/p&gt;
-
-&lt;p&gt;どこでキャッシュするか、いつキャッシュするか、メモしたものをどう更新するかは色々ですが、やったことは、またやりたくないというのは（領域が許せば）良い。&lt;/p&gt;
-
-&lt;h3 id=&#34;処理の下準備をする:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理の下準備をする&lt;/h3&gt;
-
-&lt;p&gt;indexや、辞書作りなどの学習&lt;/p&gt;
-
-&lt;h3 id=&#34;処理をまとめる:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理をまとめる&lt;/h3&gt;
-
-&lt;p&gt;都度の処理呼び出しコストを減らす。
-描画処理を減らすために、DOMに書き出さないなど。&lt;/p&gt;
-
-&lt;h3 id=&#34;処理を少なくする:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理を少なくする&lt;/h3&gt;
-
-&lt;p&gt;処理を無くせはしないけど、少なくすることはできるっていうのはある。
-処理内容が減れば、大小あれど、一応嬉しい。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# あるある
-$dbh-&amp;gt;query() for 1..100
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;ここから、ちょっと、トレードオフが大きくなりそうな、パターン。&lt;/p&gt;
-
-&lt;h3 id=&#34;処理を外にお願いする:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理を外にお願いする&lt;/h3&gt;
-
-&lt;p&gt;処理が完了するまで、次の処理が出来ないのはもったいない
-なので、他の人にお願いしたくなったりすることもある&lt;/p&gt;
-
-&lt;h3 id=&#34;必要な分だけ処理する:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;必要な分だけ処理する&lt;/h3&gt;
-
-&lt;p&gt;重い処理の割には、意外と使われなくて、事前準備してなくて構わないというのはあるなと。
-そしたら、必要になったときに、処理すればよい。&lt;/p&gt;
-
-&lt;h3 id=&#34;処理を得意な人にお願いする:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理を得意な人にお願いする&lt;/h3&gt;
-
-&lt;p&gt;言語レベルか、機械レベルか、ソフトウェアか、、など。
-これで良さそうな判断ができるかどうかは知識量に凄い左右されると思っている。&lt;/p&gt;
-
-&lt;p&gt;それでも得意な人にお願いしたいというのは変わらないはず。
-使いこなせる武器が多いのは、視点が高くなる。&lt;/p&gt;
-
-&lt;h3 id=&#34;処理関係者を減らす:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理関係者を減らす&lt;/h3&gt;
-
-&lt;p&gt;全てを一番ベストな人にお願いしても、１０００箇所で処理が行われるとしたら、
-その処理の受け渡しのコストが目につくかもしれない。&lt;/p&gt;
-
-&lt;h3 id=&#34;処理するヒトを増やす:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理するヒトを増やす&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;1人でやるより、2人で処理出来る方が捗ることもある。&lt;/li&gt;
-&lt;li&gt;スケールアウト&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;処理できるヒトを良くする:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理できるヒトを良くする&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;スケールアップ&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;仕様を削る:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;仕様を削る&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;その仕様、、、、その仕様、、い、、るかも、、いや、いら、らないかも、、　っていうのは、バッサバッサ切れればいいね。&lt;/li&gt;
-&lt;li&gt;難しい処理の方がお金になったりすることもあるから、難しいね。でも無駄なのもあるよね。&lt;/li&gt;
-&lt;li&gt;エンジニアから、一歩踏み出すのも、問題解決する為の一つの手段。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;最後に:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;最後に&lt;/h1&gt;
-
-&lt;p&gt;id:karupanerura先生、id:masasuz先生、牡蠣鍋打ち上げしましょう&amp;gt; &amp;lt;&lt;/p&gt;
-
-&lt;p&gt;KAYACさん、LINEさん、isuconありがとうございました！！！！！&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://instagram.com/p/gvFRWwIDIR/&#34;&gt;&lt;img src=&#34;http://instagram.com/p/gvFRWwIDIR/media/?size=l&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
