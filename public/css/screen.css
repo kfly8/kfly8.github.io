@@ -487,7 +487,6 @@ table {
   width: 100%;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
   border-collapse: collapse;
-  margin: 1em 0 3em;
 }
 table td {
   padding: .5em;
@@ -676,4 +675,9 @@ h1.posts-tagged {
   font-family: Verdana;
   font-weight: bold;
   letter-spacing: -2px;
+}
+
+div.google-search {
+  max-width: 600px;
+  margin: 0 auto;
 }
