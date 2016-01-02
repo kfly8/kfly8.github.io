@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>TypeScriptさわるぞー #TODO &middot; kobaken&#39;s blog</title>
+    <meta name="author" content="kobaken">
+    <meta name="description" content="Programming, Tech And Math">
+    <meta name="generator" content="Hugo 0.16-DEV" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link rel="shortcut icon" href="http://kfly8.github.io/img/favicon.ico">
+    <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.2/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="http://kfly8.github.io/css/screen.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css">
+    <link rel="stylesheet" href="http://kfly8.github.io/css/solarized-light.css">
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #3498db;}
+    .pagination a {color: #3498db;}
+    .gist .gist-file .gist-meta a:visited {color: #3498db !important;}
+    a:focus, a:hover {color: #2079b4;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #2079b4;}
+    .older-posts:hover, .newer-posts:hover {color: #2079b4;}
+</style>
+</head>
+
+<body class="post-template">
+
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="http://kfly8.github.io/">kobaken&rsquo;s blog</a></h1>
+	
+	
+	<h1 class="blog-subtitle">Programming, Tech and Math</h1>
+	
+</header>
+    
+
+    <main class="content" role="main">
+	    <article class="post">
+	        <header>
+	        <h1 class="post-title">TypeScriptさわるぞー #TODO</h1>
+	        <div class="post-meta">
+            <time datetime="16 November 2013">16 November 2013</time>
+            <span class="post-meta tags">
+<i class="fa fa-fw fa-tag"></i>
+
+<a href="http://kfly8.github.io/tags/javascript">javascript </a>
+
+</span>
+
+          </div>
+	        </header>
+
+	        <section class="post-content">
+	            
+
+<p>jsを大きな規模でもちゃんと動くようにしたいと、のたまったので、
+偉い人たちが作ったaltjsを勉強させてもらいます　ref <a href="http://kfly8.hatenablog.com/entry/2013/11/16/005340">http://kfly8.hatenablog.com/entry/2013/11/16/005340</a></p>
+
+<p><a href="https://twitter.com/search?q=%23%E7%99%BA%E7%81%AB%E6%9D%91&amp;src=hash">#発火村</a> 中、id:gfx 先生におすすめしてもらった<a href="http://www.typescriptlang.org/">TypeScript</a>を見てみます＞＜</p>
+
+<p>ぱっと見: # TODO</p>
+
+<ul>
+<li>jsのsuperset</li>
+<li>見た目はほとんど一緒</li>
+<li>I/Fに型を添えて分かりやすくしている</li>
+</ul>
+
+<h1 id="導入:16f5c50449091024254daf50b90fa107">導入</h1>
+
+<pre><code class="language-sh">% npm install -g typescript
+% cat &gt; hello.ts
+function hello(s: string) {
+  return 'hello ' + s;
+}
+console.log(hello('typescript'));
+^D
+% tsc hello.ts
+% node hello.ts
+</code></pre>
+
+<h1 id="grunt-typescrpt:16f5c50449091024254daf50b90fa107">grunt-typescrpt</h1>
+
+<pre><code class="language-sh">npm install grunt-typescript
+https://github.com/kfly8/ts-sample
+</code></pre>
+
+<h1 id="typescriptのドキュメントのメモ:16f5c50449091024254daf50b90fa107">TypeScriptのドキュメントのメモ</h1>
+
+<ul>
+<li><a href="http://www.typescriptlang.org/Content/TypeScript%20Language%20Specification.pdf">http://www.typescriptlang.org/Content/TypeScript%20Language%20Specification.pdf</a></li>
+<li><b>TODO あとで読みやすくして、検証する、、、ほとんどこぴぺだよ、やばいよやばいよ</b></li>
+</ul>
+
+<h2 id="types:16f5c50449091024254daf50b90fa107">Types</h2>
+
+<pre><code class="language-javascript">// primitive type. ( number, boolean, string, void, null and undefined and user defined enum types)
+function hello(str: string) {
+    return 'hello' + str;
+}
+
+// function type
+function hoge(callback: (result: string) =&gt; any ) {
+    ...
+}
+
+hoge(function(result: string) {
+    ...
+});
+
+// object type
+
+// * object type literal ( ObjectType,ArrayType,FunctionType and ConstructorType  )
+var aaa: () =&gt; {
+    x: number; y: number;
+};
+
+// * object type interface // PerlのMouseTypeみたい
+interface Friend {
+    name: string;
+    birthday?: string; # optional field
+}
+
+function add(friend: Friend) {
+    var name = friend.name;
+}
+
+add({ name: 'taro' });
+add({ birthday: '20130101' }); # error, name required
+add({ name: 'hanako', birthday: '20130201' });
+
+
+// Structial Subtypes
+
+interface Point {
+    x: number;
+    y: nubmer;
+}
+
+function getX(p: Point) {
+}
+
+Class CPoint {
+    x: number;
+    y: number;
+    constructor(x: number, y: number) {
+        this.x = x;
+        this.y = y;
+    }
+}
+
+getX(new CPoint(0,0)); // ok!!
+getX({ x: 1, y: 2: z: 3); // ok!! Extra fields ok
+getX({ x: 1 ); // ng!! supplied parameter's not Point
+
+</code></pre>
+
+<h2 id="class-module:16f5c50449091024254daf50b90fa107">Class &amp;&amp; Module</h2>
+
+<pre><code class="language-javascript">class Animal {
+    constructor(public age: number) {
+    }
+    addAge(amount: number) {
+        this.age += amount;
+        return this.age;
+    }
+}
+</code></pre>
+
+<pre><code class="language-javascript">var Animal = (function () {
+    function Animal() {
+        this.age = 0;
+    }
+    Animal.prototype.addAge = function(amount) {
+        this.age += amount;
+        return this.age;
+    };
+    return Animal;
+})();
+</code></pre>
+
+<pre><code class="language-javascript">module Hoge {
+    var s = &quot;hello&quot;;
+    export function f() {
+        return s;
+    }
+}
+
+Hoge.f();
+Hoge.s; // Error, s is not exported // variable 's' is private
+</code></pre>
+
+<pre><code class="language-javascript">var Hoge;
+(function(exports) {
+    var s = &quot;hello&quot;;
+    function f() {
+        return s;
+    }
+    exports.f = f;
+})(Hoge||(Hoge={}));
+</code></pre>
+
+<h2 id="declare:16f5c50449091024254daf50b90fa107">declare</h2>
+
+<pre><code class="language-javascript">declare var document;
+document.title = &quot;Hello&quot;;
+</code></pre>
+
+<h2 id="外部モジュール:16f5c50449091024254daf50b90fa107">外部モジュール</h2>
+
+<pre><code class="language-javascript"># File main.ts:
+import log = require(&quot;log&quot;);
+log.message(&quot;hello&quot;);
+
+# File log.ts:
+export function message(s: string) {
+    console.log(s);
+}
+</code></pre>
+
+<pre><code class="language-javascript">
+# point.ts
+export = Point;
+class Point {
+    constructor(public x: number, public y: number) { }
+    static origin = new Point(0, 0);
+}
+
+# use
+import Pt = require(&quot;point&quot;);
+var p1 = new Pt(10, 20);
+var p2 = Pt.origin;
+</code></pre>
+
+<p><a href="http://atnd.org/events/43858">温泉発火村</a>なう</p>
+
+<p><a href="http://instagram.com/p/gw7VF5IDPl/"><img src="http://instagram.com/p/gw7VF5IDPl/media/?size=l" alt="" /></a></p>
+
+<p><a href="http://instagram.com/p/gw7VF5IDPl/">#発火村 ！！！！！！！！！！！</a></p>
+
+	        </section>
+
+	        <section class="share">
+	            <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> </a></p>
+	            <p class="info prompt"></p>
+	            <a href="http://twitter.com/share?text=TypeScript%e3%81%95%e3%82%8f%e3%82%8b%e3%81%9e%e3%83%bc%20%23TODO&url=http%3a%2f%2fkfly8.github.io%2fpost%2f2013%2fhello-typescript%2f" title="Share on Twitter"
+	                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+	                <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
+	            </a>
+	            <a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkfly8.github.io%2fpost%2f2013%2fhello-typescript%2f" title="Share on Facebook"
+	                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+	                <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
+	            </a>
+	            <a href="https://plus.google.com/share?url=http%3a%2f%2fkfly8.github.io%2fpost%2f2013%2fhello-typescript%2f" title="Share on Google+"
+	               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+	                <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
+	            </a>
+              <a href="http://b.hatena.ne.jp/entry/http://kfly8.github.io/post/2013/hello-typescript/" class="hatena-bookmark-button" data-hatena-bookmark-title="TypeScriptさわるぞー #TODO" data-hatena-bookmark-layout="simple" title="このエントリーをはてなブックマークに追加">
+	              <i class="fa fa-2x fa-fw fa-hatena" style="margin-left: -8px"></i> <span class="hidden">B!</span>
+              </a>
+	        </section>
+
+			
+	        	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'kfly8';
+    var disqus_identifier = 'http:\/\/kfly8.github.io\/post\/2013\/hello-typescript\/';
+    var disqus_title = 'TypeScriptさわるぞー #TODO';
+    var disqus_url = 'http:\/\/kfly8.github.io\/post\/2013\/hello-typescript\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	        
+
+			
+
+	    </article>
+	</main>
+
+    <footer class="site-footer">
+
+	<section class="author">
+    <div class="authorimage" style="background: url(http://kfly8.github.io/img/avatar.jpg)"></div>
+    <h4>kobaken</h4>
+    <p class="bio">Hello World!</p>
+    <p class="meta">
+      <i class="fa fa-fw fa-map-marker"></i> Tokyo
+      <a href="//twitter.com/kfly8" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp; 
+      <a href="//github.com/kfly8" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      <a href="" target="_blank" title="RSS"><i class="fa fa-2x fa-fw fa-rss"></i> <span class="hidden">RSS</span></a>
+    </p>
+</section>
+
+	<section class="copyright">&copy; 2016 <a href="http://kfly8.github.io/">kobaken</a>. </section>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://kfly8.github.io/js/index.js"></script>
+<script src="http://kfly8.github.io/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<!-- Google Analytics -->
+<script>
+  var _gaq=[['_setAccount','UA-71885424-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+</body>
+</html>

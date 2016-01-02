@@ -11,10 +11,10 @@
     
     <item>
       <title>isuconの予選で失格してきた</title>
-      <link>http://kfly8.github.io/post/isucon2014/</link>
+      <link>http://kfly8.github.io/post/2014/isucon/</link>
       <pubDate>Tue, 07 Oct 2014 16:28:16 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/isucon2014/</guid>
+      <guid>http://kfly8.github.io/post/2014/isucon/</guid>
       <description>
 
 &lt;p&gt;牡蠣途中&lt;/p&gt;
@@ -24,12 +24,12 @@ kuraチームのid:karupanerura, id:masasuz ありがとうございました！
 
 &lt;p&gt;isucon中にやったこと&lt;/p&gt;
 
-&lt;h2 id=&#34;サマリーテーブルを使って-ログインの成否を判定するようにした:ed9626afbad87fbe8fc7fd7c2dc6dee8&#34;&gt;サマリーテーブルを使って、ログインの成否を判定するようにした&lt;/h2&gt;
+&lt;h2 id=&#34;サマリーテーブルを使って-ログインの成否を判定するようにした:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;サマリーテーブルを使って、ログインの成否を判定するようにした&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/karupanerura/isucon2014-elimination/commit/b81dcd38b7201c838ab49501a0a91984b13361b4&#34;&gt;https://github.com/karupanerura/isucon2014-elimination/commit/b81dcd38b7201c838ab49501a0a91984b13361b4&lt;/a&gt;
 &lt;a href=&#34;https://github.com/karupanerura/isucon2014-elimination/commit/2daf40a936fc541841cc50fcb2c408fee7530444&#34;&gt;https://github.com/karupanerura/isucon2014-elimination/commit/2daf40a936fc541841cc50fcb2c408fee7530444&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;サマリーテーブルを使って-集計を出すようにした:ed9626afbad87fbe8fc7fd7c2dc6dee8&#34;&gt;サマリーテーブルを使って、集計を出すようにした&lt;/h2&gt;
+&lt;h2 id=&#34;サマリーテーブルを使って-集計を出すようにした:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;サマリーテーブルを使って、集計を出すようにした&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/karupanerura/isucon2014-elimination/commit/f4bd9e12c1d17ef1dab601b745c82daed134e504&#34;&gt;https://github.com/karupanerura/isucon2014-elimination/commit/f4bd9e12c1d17ef1dab601b745c82daed134e504&lt;/a&gt;&lt;/p&gt;
 
@@ -54,7 +54,7 @@ $row-&amp;gt;{login}...
 
 &lt;p&gt;TODO&lt;/p&gt;
 
-&lt;h2 id=&#34;userデータをオンメモリーにした:ed9626afbad87fbe8fc7fd7c2dc6dee8&#34;&gt;userデータをオンメモリーにした&lt;/h2&gt;
+&lt;h2 id=&#34;userデータをオンメモリーにした:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;userデータをオンメモリーにした&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/karupanerura/isucon2014-elimination/commit/2ee1d266ea6f076556e578f17ed6bf4c6b8c60b1&#34;&gt;https://github.com/karupanerura/isucon2014-elimination/commit/2ee1d266ea6f076556e578f17ed6bf4c6b8c60b1&lt;/a&gt;&lt;/p&gt;
 
@@ -69,7 +69,7 @@ $row-&amp;gt;{login}...
 
 &lt;p&gt;TODO&lt;/p&gt;
 
-&lt;h2 id=&#34;slack:ed9626afbad87fbe8fc7fd7c2dc6dee8&#34;&gt;slack&lt;/h2&gt;
+&lt;h2 id=&#34;slack:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;slack&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/karupanerura/isucon2014-elimination/issues/5&#34;&gt;https://github.com/karupanerura/isucon2014-elimination/issues/5&lt;/a&gt;&lt;/p&gt;
 
@@ -81,10 +81,10 @@ $row-&amp;gt;{login}...
     
     <item>
       <title>isucon に負けて悔しいので、問題を速く解決するためのパターンを考えてみた</title>
-      <link>http://kfly8.github.io/post/isucon2013/</link>
+      <link>http://kfly8.github.io/post/2013/isucon/</link>
       <pubDate>Sat, 30 Nov 2013 20:03:31 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/isucon2013/</guid>
+      <guid>http://kfly8.github.io/post/2013/isucon/</guid>
       <description>
 
 &lt;p&gt;isucon決勝からもうだいぶ日が経ってしまいました、、その間、負けて、id:karupanerura先生に、げきおこされる夢も見ました。&lt;/p&gt;
@@ -98,7 +98,7 @@ $row-&amp;gt;{login}...
 自分が普段感じている問題解決のパターンを書いてみました。
 特にisuconの反省なので、与えられた問題を良い感じに速くするための解決方法寄りだと思います。&lt;/p&gt;
 
-&lt;h1 id=&#34;パターン:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;パターン&lt;/h1&gt;
+&lt;h1 id=&#34;パターン:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;パターン&lt;/h1&gt;
 
 &lt;hr /&gt;
 
@@ -144,7 +144,7 @@ $row-&amp;gt;{login}...
 &lt;p&gt;箇条書きで終わりもアレなので、
 良い例かは分からないですが、パッと思いつく例を書いてみます。&lt;/p&gt;
 
-&lt;h3 id=&#34;処理しない:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理しない&lt;/h3&gt;
+&lt;h3 id=&#34;処理しない:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理しない&lt;/h3&gt;
 
 &lt;p&gt;一番、大事なことだと思います。処理しないで、済むなら、処理しない。
 やらないですむなら、やらない。&lt;/p&gt;
@@ -154,22 +154,22 @@ $row-&amp;gt;{login}...
 
 &lt;p&gt;たたきこみ&lt;/p&gt;
 
-&lt;h3 id=&#34;処理したらメモしておく:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理したらメモしておく&lt;/h3&gt;
+&lt;h3 id=&#34;処理したらメモしておく:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理したらメモしておく&lt;/h3&gt;
 
 &lt;p&gt;今回のisucon決勝なら、画像投稿時、ないし、初回呼び出し時などで、キャッシュをするなど。&lt;/p&gt;
 
 &lt;p&gt;どこでキャッシュするか、いつキャッシュするか、メモしたものをどう更新するかは色々ですが、やったことは、またやりたくないというのは（領域が許せば）良い。&lt;/p&gt;
 
-&lt;h3 id=&#34;処理の下準備をする:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理の下準備をする&lt;/h3&gt;
+&lt;h3 id=&#34;処理の下準備をする:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理の下準備をする&lt;/h3&gt;
 
 &lt;p&gt;indexや、辞書作りなどの学習&lt;/p&gt;
 
-&lt;h3 id=&#34;処理をまとめる:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理をまとめる&lt;/h3&gt;
+&lt;h3 id=&#34;処理をまとめる:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理をまとめる&lt;/h3&gt;
 
 &lt;p&gt;都度の処理呼び出しコストを減らす。
 描画処理を減らすために、DOMに書き出さないなど。&lt;/p&gt;
 
-&lt;h3 id=&#34;処理を少なくする:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理を少なくする&lt;/h3&gt;
+&lt;h3 id=&#34;処理を少なくする:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理を少なくする&lt;/h3&gt;
 
 &lt;p&gt;処理を無くせはしないけど、少なくすることはできるっていうのはある。
 処理内容が減れば、大小あれど、一応嬉しい。&lt;/p&gt;
@@ -182,17 +182,17 @@ $dbh-&amp;gt;query() for 1..100
 
 &lt;p&gt;ここから、ちょっと、トレードオフが大きくなりそうな、パターン。&lt;/p&gt;
 
-&lt;h3 id=&#34;処理を外にお願いする:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理を外にお願いする&lt;/h3&gt;
+&lt;h3 id=&#34;処理を外にお願いする:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理を外にお願いする&lt;/h3&gt;
 
 &lt;p&gt;処理が完了するまで、次の処理が出来ないのはもったいない
 なので、他の人にお願いしたくなったりすることもある&lt;/p&gt;
 
-&lt;h3 id=&#34;必要な分だけ処理する:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;必要な分だけ処理する&lt;/h3&gt;
+&lt;h3 id=&#34;必要な分だけ処理する:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;必要な分だけ処理する&lt;/h3&gt;
 
 &lt;p&gt;重い処理の割には、意外と使われなくて、事前準備してなくて構わないというのはあるなと。
 そしたら、必要になったときに、処理すればよい。&lt;/p&gt;
 
-&lt;h3 id=&#34;処理を得意な人にお願いする:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理を得意な人にお願いする&lt;/h3&gt;
+&lt;h3 id=&#34;処理を得意な人にお願いする:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理を得意な人にお願いする&lt;/h3&gt;
 
 &lt;p&gt;言語レベルか、機械レベルか、ソフトウェアか、、など。
 これで良さそうな判断ができるかどうかは知識量に凄い左右されると思っている。&lt;/p&gt;
@@ -200,25 +200,25 @@ $dbh-&amp;gt;query() for 1..100
 &lt;p&gt;それでも得意な人にお願いしたいというのは変わらないはず。
 使いこなせる武器が多いのは、視点が高くなる。&lt;/p&gt;
 
-&lt;h3 id=&#34;処理関係者を減らす:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理関係者を減らす&lt;/h3&gt;
+&lt;h3 id=&#34;処理関係者を減らす:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理関係者を減らす&lt;/h3&gt;
 
 &lt;p&gt;全てを一番ベストな人にお願いしても、１０００箇所で処理が行われるとしたら、
 その処理の受け渡しのコストが目につくかもしれない。&lt;/p&gt;
 
-&lt;h3 id=&#34;処理するヒトを増やす:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理するヒトを増やす&lt;/h3&gt;
+&lt;h3 id=&#34;処理するヒトを増やす:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理するヒトを増やす&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;1人でやるより、2人で処理出来る方が捗ることもある。&lt;/li&gt;
 &lt;li&gt;スケールアウト&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;処理できるヒトを良くする:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;処理できるヒトを良くする&lt;/h3&gt;
+&lt;h3 id=&#34;処理できるヒトを良くする:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;処理できるヒトを良くする&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;スケールアップ&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;仕様を削る:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;仕様を削る&lt;/h3&gt;
+&lt;h3 id=&#34;仕様を削る:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;仕様を削る&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;その仕様、、、、その仕様、、い、、るかも、、いや、いら、らないかも、、　っていうのは、バッサバッサ切れればいいね。&lt;/li&gt;
@@ -226,7 +226,7 @@ $dbh-&amp;gt;query() for 1..100
 &lt;li&gt;エンジニアから、一歩踏み出すのも、問題解決する為の一つの手段。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&#34;最後に:6bd210cb6ce0dfbbe8ac0198724aefdc&#34;&gt;最後に&lt;/h1&gt;
+&lt;h1 id=&#34;最後に:3f2ec1c9f97249697a48ad51c2282ef7&#34;&gt;最後に&lt;/h1&gt;
 
 &lt;p&gt;id:karupanerura先生、id:masasuz先生、牡蠣鍋打ち上げしましょう&amp;gt; &amp;lt;&lt;/p&gt;
 
@@ -238,10 +238,10 @@ $dbh-&amp;gt;query() for 1..100
     
     <item>
       <title>#isucon 予選、暫定で生き残れたよう。</title>
-      <link>http://kfly8.github.io/post/isucon2013-q/</link>
+      <link>http://kfly8.github.io/post/2013/isucon-q/</link>
       <pubDate>Mon, 07 Oct 2013 20:52:26 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/isucon2013-q/</guid>
+      <guid>http://kfly8.github.io/post/2013/isucon-q/</guid>
       <description>
 
 &lt;p&gt;初めて&lt;a href=&#34;https://isucon2013.kayac.com/&#34;&gt;isucon&lt;/a&gt;に参加させてもらいました。
@@ -251,7 +251,7 @@ $dbh-&amp;gt;query() for 1..100
 
 &lt;p&gt;運営の方々、ほんとにありがとうございます＞＜&lt;/p&gt;
 
-&lt;h1 id=&#34;予選が終わってみて思うこと:c55a4818de30e5e16e6b23b656d7834a&#34;&gt;予選が終わってみて思うこと&lt;/h1&gt;
+&lt;h1 id=&#34;予選が終わってみて思うこと:0ff9f1f040446a99f83bf27a457562bf&#34;&gt;予選が終わってみて思うこと&lt;/h1&gt;
 
 &lt;p&gt;偏見に満ちていますが、isuconは、
 インフラ周りをやっている人が強い印象です。&lt;/p&gt;
@@ -279,9 +279,9 @@ $dbh-&amp;gt;query() for 1..100
 
 &lt;p&gt;そんなことを思いました。&lt;/p&gt;
 
-&lt;h1 id=&#34;予選でやったこと:c55a4818de30e5e16e6b23b656d7834a&#34;&gt;予選でやったこと&lt;/h1&gt;
+&lt;h1 id=&#34;予選でやったこと:0ff9f1f040446a99f83bf27a457562bf&#34;&gt;予選でやったこと&lt;/h1&gt;
 
-&lt;h2 id=&#34;下準備-2hours:c55a4818de30e5e16e6b23b656d7834a&#34;&gt;下準備(2hours)&lt;/h2&gt;
+&lt;h2 id=&#34;下準備-2hours:0ff9f1f040446a99f83bf27a457562bf&#34;&gt;下準備(2hours)&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;karupaneruraがdeployツールなど足回りを作ってくれる&lt;/li&gt;
@@ -296,7 +296,7 @@ $dbh-&amp;gt;query() for 1..100
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;アプリでなんかあれだなーと思った点:c55a4818de30e5e16e6b23b656d7834a&#34;&gt;アプリでなんかあれだなーと思った点&lt;/h3&gt;
+&lt;h3 id=&#34;アプリでなんかあれだなーと思った点:0ff9f1f040446a99f83bf27a457562bf&#34;&gt;アプリでなんかあれだなーと思った点&lt;/h3&gt;
 
 &lt;p&gt;下準備を経て、手を入れたいと思ったところ。結構数が挙ってしまった。&lt;/p&gt;
 
@@ -370,7 +370,7 @@ $dbh-&amp;gt;query() for 1..100
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;飯を食いつつ方針周り話す-1hour:c55a4818de30e5e16e6b23b656d7834a&#34;&gt;飯を食いつつ方針周り話す( 1hour )&lt;/h2&gt;
+&lt;h2 id=&#34;飯を食いつつ方針周り話す-1hour:0ff9f1f040446a99f83bf27a457562bf&#34;&gt;飯を食いつつ方針周り話す( 1hour )&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;まずは予選を突破できればいいねと話す&lt;/li&gt;
@@ -380,7 +380,7 @@ $dbh-&amp;gt;query() for 1..100
 &lt;li&gt;frontの置き換えだったり、confのいいかんじの設定をお任せせ＞＜&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;もくもく-最後まで:c55a4818de30e5e16e6b23b656d7834a&#34;&gt;もくもく( 最後まで )&lt;/h2&gt;
+&lt;h2 id=&#34;もくもく-最後まで:0ff9f1f040446a99f83bf27a457562bf&#34;&gt;もくもく( 最後まで )&lt;/h2&gt;
 
 &lt;p&gt;ほとんど午前中に気づいたことを書くことで終わる
 途中色々詰まって、邪魔をする.. orz&lt;/p&gt;
@@ -417,7 +417,7 @@ $dbh-&amp;gt;query() for 1..100
 
 &lt;p&gt;&lt;strong&gt;多分本戦であかんかったら、karupaneruraに埋められる。&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;たられば-よもやま:c55a4818de30e5e16e6b23b656d7834a&#34;&gt;たられば、よもやま&lt;/h2&gt;
+&lt;h2 id=&#34;たられば-よもやま:0ff9f1f040446a99f83bf27a457562bf&#34;&gt;たられば、よもやま&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;ユーザが登録したメモの前後関係を取るなら、どんなデータを残すのがいいかなーと考える
@@ -431,13 +431,13 @@ $dbh-&amp;gt;query() for 1..100
 
 &lt;script src=&#34;https://gist.github.com/kfly8/1aa85b90f1cbd3751062.js&#34;&gt;&lt;/script&gt;
 
-&lt;h1 id=&#34;まとめ:c55a4818de30e5e16e6b23b656d7834a&#34;&gt;まとめ&lt;/h1&gt;
+&lt;h1 id=&#34;まとめ:0ff9f1f040446a99f83bf27a457562bf&#34;&gt;まとめ&lt;/h1&gt;
 
 &lt;p&gt;もっと点数を伸ばす為には、ドラスティックな変更できる筋力欲しいと思うも、
 単純なことを単純にやれる力があることが確かめられて、少し自信になった。
 チームでいいお酒飲めるように本戦もがんばろー。&lt;/p&gt;
 
-&lt;h1 id=&#34;蛇足:c55a4818de30e5e16e6b23b656d7834a&#34;&gt;蛇足&lt;/h1&gt;
+&lt;h1 id=&#34;蛇足:0ff9f1f040446a99f83bf27a457562bf&#34;&gt;蛇足&lt;/h1&gt;
 
 &lt;p&gt;早速、坂のパスタ屋に行って来た。うまし!!&lt;/p&gt;
 

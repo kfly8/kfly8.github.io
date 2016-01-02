@@ -6,19 +6,22 @@
 
     <title>間接オブジェクト記法のアンチパターン &middot; kobaken&#39;s blog</title>
     <meta name="author" content="kobaken">
-    <meta name="description" content="Your description of the blog">
+    <meta name="description" content="Programming, Tech And Math">
     <meta name="generator" content="Hugo 0.16-DEV" />
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-    <link rel="shortcut icon" href="https://kfly8.github.io/img/favicon.ico">
+    <link rel="shortcut icon" href="http://kfly8.github.io/img/favicon.ico">
+    <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.2/normalize.min.css">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="https://kfly8.github.io/css/screen.css">
+    <link rel="stylesheet" href="http://kfly8.github.io/css/screen.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css">
-    <link rel="stylesheet" href="https://kfly8.github.io/css/monokai-sublime.css">
+    <link rel="stylesheet" href="http://kfly8.github.io/css/solarized-light.css">
 
     <!-- Stylesheet for theme color -->
     <style type="text/css">
@@ -35,7 +38,7 @@
 
     <header id="site-head">
 	
-	<h1 class="blog-title"><a href="https://kfly8.github.io/">kobaken&rsquo;s blog</a></h1>
+	<h1 class="blog-title"><a href="http://kfly8.github.io/">kobaken&rsquo;s blog</a></h1>
 	
 	
 	<h1 class="blog-subtitle">Programming, Tech and Math</h1>
@@ -47,7 +50,16 @@
 	    <article class="post">
 	        <header>
 	        <h1 class="post-title">間接オブジェクト記法のアンチパターン</h1>
-	        <div class="post-meta"><time datetime="17 December 2014">17 December 2014</time></div>
+	        <div class="post-meta">
+            <time datetime="17 December 2014">17 December 2014</time>
+            <span class="post-meta tags">
+<i class="fa fa-fw fa-tag"></i>
+
+<a href="http://kfly8.github.io/tags/perl">perl </a>
+
+</span>
+
+          </div>
 	        </header>
 
 	        <section class="post-content">
@@ -57,7 +69,7 @@
 
 <p>16日目の記事は <a href="http://qiita.com/magnolia_k_">magnolia<em>k</em></a> さんの <a href="http://qiita.com/magnolia_k_/items/b0a14e29c8090568f5b3">perlの関数を第一級オブジェクトとして扱う話</a> でした</p>
 
-<h1 id="目次:31588a77e3c575ef340ce5f76e59c59c">目次</h1>
+<h1 id="目次:ed130a5c49b36845906533f63e9cb3a3">目次</h1>
 
 <ul>
 <li><a href="#section1">はじめに</a></li>
@@ -71,15 +83,21 @@
 <li><a href="#section9">明日</a></li>
 </ul>
 
-<h1 id="a-name-section1-はじめに-a:31588a77e3c575ef340ce5f76e59c59c"><a name="section1">はじめに</a></h1>
+<h1 id="a-name-section1-はじめに-a:ed130a5c49b36845906533f63e9cb3a3"><a name="section1">はじめに</a></h1>
 
 <p>15日目の記事の id:akihiro0228 さんの記事を読んで、
-[<a href="http://akihiro0228.hatenablog.com/entry/2014/12/15/221806:embed">http://akihiro0228.hatenablog.com/entry/2014/12/15/221806:embed</a>]</p>
+<iframe src="//akihiro0228.hatenablog.com/embed/2014/12/15/221806"
+ class="embed-card embed-blogcard"
+ scrolling="no"
+ frameborder="0"
+ style="display: block; width: 100%; height: 190px; max-width: 500px; margin: 10px 0px;"
+></iframe>
+</p>
 
 <p>自分がよくハマってしまう<a href="http://perldoc.jp/docs/perl/5.8.8/perlobj.pod#Indirect32Object32Syntax">間接オブジェクト記法</a>について紹介したいと思います。
 <b>便乗です！</b></p>
 
-<h1 id="a-name-section2-間接オブジェクト記法ってそもそも何-a:31588a77e3c575ef340ce5f76e59c59c"><a name="section2">間接オブジェクト記法ってそもそも何？</a></h1>
+<h1 id="a-name-section2-間接オブジェクト記法ってそもそも何-a:ed130a5c49b36845906533f63e9cb3a3"><a name="section2">間接オブジェクト記法ってそもそも何？</a></h1>
 
 <p>メソッドを呼び出しの別表現です</p>
 
@@ -97,7 +115,7 @@ method $obj $a, $b;   # 間接オブジェクト記法
 ですが、意図せず間接オブジェクト記法な呼び出しにしてしまったり、
 この表現の方が簡潔に書ける例もあったりするので紹介してみたいと思います</p>
 
-<h1 id="a-name-section3-間接オブジェクト記法が活きる例-a:31588a77e3c575ef340ce5f76e59c59c"><a name="section3">間接オブジェクト記法が活きる例</a></h1>
+<h1 id="a-name-section3-間接オブジェクト記法が活きる例-a:ed130a5c49b36845906533f63e9cb3a3"><a name="section3">間接オブジェクト記法が活きる例</a></h1>
 
 <p>定数を扱う時に便利なconstantプラグマを使ってみます
 普段使う時は、以下のような感じで使うと思います</p>
@@ -140,11 +158,17 @@ say FOO; # =&gt; foofoofoofoo
 
 <p>逆に今度は、よくあるハマる例を書いてみます</p>
 
-<h1 id="a-name-section4-ハマる例1-try-tiny-のuse-漏れ-a:31588a77e3c575ef340ce5f76e59c59c"><a name="section4">ハマる例1 Try::Tiny のuse 漏れ</a></h1>
+<h1 id="a-name-section4-ハマる例1-try-tiny-のuse-漏れ-a:ed130a5c49b36845906533f63e9cb3a3"><a name="section4">ハマる例1 Try::Tiny のuse 漏れ</a></h1>
 
 <p>ずばり、 id:karupanerura 先生の話を例を取ってみます。</p>
 
-<p>[<a href="http://techblog.karupas.org/entry/20111117/1321542949:embed">http://techblog.karupas.org/entry/20111117/1321542949:embed</a>]</p>
+<iframe src="//techblog.karupas.org/embed/20111117/1321542949"
+ class="embed-card embed-blogcard"
+ scrolling="no"
+ frameborder="0"
+ style="display: block; width: 100%; height: 190px; max-width: 500px; margin: 10px 0px;"
+></iframe>
+
 
 <pre><code class="language-perl">use strict;
 use warnings;
@@ -167,9 +191,21 @@ try {
 <p>このエラーだとよくわからないので、
 7日目の id:papix さんと11日目の id:hisaichi5518 さんが紹介しているB::Deparseを使います</p>
 
-<p>[<a href="http://papix.hatenablog.com/entry/2014/12/07/150335:embed">http://papix.hatenablog.com/entry/2014/12/07/150335:embed</a>]</p>
+<iframe src="//papix.hatenablog.com/embed/2014/12/07/150335"
+ class="embed-card embed-blogcard"
+ scrolling="no"
+ frameborder="0"
+ style="display: block; width: 100%; height: 190px; max-width: 500px; margin: 10px 0px;"
+></iframe>
 
-<p>[<a href="http://hisaichi5518.hatenablog.jp/entry/2014/12/11/222358:embed">http://hisaichi5518.hatenablog.jp/entry/2014/12/11/222358:embed</a>]</p>
+
+<iframe src="//hisaichi5518.hatenablog.jp/embed/2014/12/11/222358"
+ class="embed-card embed-blogcard"
+ scrolling="no"
+ frameborder="0"
+ style="display: block; width: 100%; height: 190px; max-width: 500px; margin: 10px 0px;"
+></iframe>
+
 
 <pre><code class="language-perl"># perl -MO=Deparse %
 
@@ -256,7 +292,7 @@ try sub {
 
 <p>Deparse したコードを見ると、try に coderef が渡されていることが分かると思います</p>
 
-<h1 id="a-name-section5-余談-code-block-a:31588a77e3c575ef340ce5f76e59c59c"><a name="section5">余談 code block</a></h1>
+<h1 id="a-name-section5-余談-code-block-a:ed130a5c49b36845906533f63e9cb3a3"><a name="section5">余談 code block</a></h1>
 
 <p><a href="https://metacpan.org/source/DOY/Try-Tiny-0.22/lib/Try/Tiny.pm#L24">Try::Tiny の try のコード</a>
 を見ると、次のようにサブルーチン名に<code>(&amp;;@)</code>といった指定がされています</p>
@@ -270,7 +306,7 @@ try sub {
 <p>これにより、blockで、coderef を表現できるので、より簡潔な記法ができます
 try 以外にも、grep, mapなどが身近な例だと思います</p>
 
-<h3 id="coderef-を実行しながら-sumを取る関数を実装してみます:31588a77e3c575ef340ce5f76e59c59c">coderef を実行しながら、sumを取る関数を実装してみます</h3>
+<h3 id="coderef-を実行しながら-sumを取る関数を実装してみます:ed130a5c49b36845906533f63e9cb3a3">coderef を実行しながら、sumを取る関数を実装してみます</h3>
 
 <p>まずは、prototypeを使わない例</p>
 
@@ -377,7 +413,7 @@ subtest 'critic' =&gt; sub {
 done_testing;
 </code></pre>
 
-<h1 id="a-name-section6-ハマる例2-universal-a:31588a77e3c575ef340ce5f76e59c59c"><a name="section6">ハマる例2? UNIVERSAL</a></h1>
+<h1 id="a-name-section6-ハマる例2-universal-a:ed130a5c49b36845906533f63e9cb3a3"><a name="section6">ハマる例2? UNIVERSAL</a></h1>
 
 <p>間接オブジェクトわざとらしく使ってみたいと思います
 <code>can</code>を使っているのがわざとらしいです！</p>
@@ -530,7 +566,7 @@ subtest 'methods count' =&gt; sub {
 done_testing;
 </code></pre>
 
-<h1 id="a-name-section7-ハマる例3-テストにて-a:31588a77e3c575ef340ce5f76e59c59c"><a name="section7">ハマる例3 テストにて</a></h1>
+<h1 id="a-name-section7-ハマる例3-テストにて-a:ed130a5c49b36845906533f63e9cb3a3"><a name="section7">ハマる例3 テストにて</a></h1>
 
 <p>生々しいですが、例2のClass::Inspector を使っていて、今、ミスった例です。</p>
 
@@ -620,7 +656,7 @@ done_testing();
 <pre><code class="language-perl">is_deeply(Class::Inspector-&gt;methods('Dog'), ['new']);
 </code></pre>
 
-<h1 id="a-name-section8-まとめ-a:31588a77e3c575ef340ce5f76e59c59c"><a name="section8">まとめ</a></h1>
+<h1 id="a-name-section8-まとめ-a:ed130a5c49b36845906533f63e9cb3a3"><a name="section8">まとめ</a></h1>
 
 <ul>
 <li>Perl には、method を呼び出す方法に、method $obj LIST のような呼び出し方もあり、それを間接オブジェクト記法という</li>
@@ -638,30 +674,39 @@ done_testing();
 </ul></li>
 </ul>
 
-<h2 id="補足-この記事のコードは-gistでも見れますー:31588a77e3c575ef340ce5f76e59c59c">補足 この記事のコードは、gistでも見れますー。</h2>
-
-<p>[<a href="https://gist.github.com/kfly8/254fd149f7a07924ef63#file-constant-pl:title">https://gist.github.com/kfly8/254fd149f7a07924ef63#file-constant-pl:title</a>]</p>
-
-<h1 id="a-name-section9-明日-a:31588a77e3c575ef340ce5f76e59c59c"><a name="section9">明日</a></h1>
+<h1 id="a-name-section9-明日-a:ed130a5c49b36845906533f63e9cb3a3"><a name="section9">明日</a></h1>
 
 <p>18日目は、<a href="http://qiita.com/waniji">wanji</a> さんです！</p>
 
 	        </section>
 
-	        <section class="post-tags" style="padding-bottom:60px;">
-	            <div class="post-meta tags">
-	            <i class="fa fa-fw fa-tag"></i>
-	            
-	            </div>
+	        <section class="share">
+	            <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> </a></p>
+	            <p class="info prompt"></p>
+	            <a href="http://twitter.com/share?text=%e9%96%93%e6%8e%a5%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e8%a8%98%e6%b3%95%e3%81%ae%e3%82%a2%e3%83%b3%e3%83%81%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3&url=http%3a%2f%2fkfly8.github.io%2fpost%2f2014%2findirect-object-notation%2f" title="Share on Twitter"
+	                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+	                <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
+	            </a>
+	            <a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkfly8.github.io%2fpost%2f2014%2findirect-object-notation%2f" title="Share on Facebook"
+	                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+	                <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
+	            </a>
+	            <a href="https://plus.google.com/share?url=http%3a%2f%2fkfly8.github.io%2fpost%2f2014%2findirect-object-notation%2f" title="Share on Google+"
+	               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+	                <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
+	            </a>
+              <a href="http://b.hatena.ne.jp/entry/http://kfly8.github.io/post/2014/indirect-object-notation/" class="hatena-bookmark-button" data-hatena-bookmark-title="間接オブジェクト記法のアンチパターン" data-hatena-bookmark-layout="simple" title="このエントリーをはてなブックマークに追加">
+	              <i class="fa fa-2x fa-fw fa-hatena" style="margin-left: -8px"></i> <span class="hidden">B!</span>
+              </a>
 	        </section>
-			
+
 			
 	        	<div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'kfly8';
-    var disqus_identifier = 'https:\/\/kfly8.github.io\/post\/perl5-indirect-object-notation\/';
+    var disqus_identifier = 'http:\/\/kfly8.github.io\/post\/2014\/indirect-object-notation\/';
     var disqus_title = '間接オブジェクト記法のアンチパターン';
-    var disqus_url = 'https:\/\/kfly8.github.io\/post\/perl5-indirect-object-notation\/';
+    var disqus_url = 'http:\/\/kfly8.github.io\/post\/2014\/indirect-object-notation\/';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -672,57 +717,32 @@ done_testing();
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 	        
-			
+
 			
 
-	        <section class="share">
-	            <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> BACK TO TOP</a></p>
-	            <p class="info prompt">SHARE</p>
-	            <a href="http://twitter.com/share?text=%e9%96%93%e6%8e%a5%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e8%a8%98%e6%b3%95%e3%81%ae%e3%82%a2%e3%83%b3%e3%83%81%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3&url=https%3a%2f%2fkfly8.github.io%2fpost%2fperl5-indirect-object-notation%2f" title="Share on Twitter"
-	                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-	                <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
-	            </a>
-	            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fkfly8.github.io%2fpost%2fperl5-indirect-object-notation%2f" title="Share on Facebook"
-	                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-	                <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
-	            </a>
-	            <a href="https://plus.google.com/share?url=https%3a%2f%2fkfly8.github.io%2fpost%2fperl5-indirect-object-notation%2f" title="Share on Google+"
-	               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-	                <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
-	            </a>
-	        </section>
-
-	        <footer class="post-footer">
-	            <section class="author">
-    <div class="authorimage" style="background: url(https://kfly8.github.io/img/avatar.jpg)"></div>
-    <h4>kobaken</h4>
-    <p class="bio">Hello World!</p>
-    <p class="meta">
-      <i class="fa fa-fw fa-map-marker"></i> Tokyo
-    </p>
-</section>
-	        </footer>
 	    </article>
 	</main>
 
     <footer class="site-footer">
-	<div class="inner">
-		<section class="footer-social">
-			
-		    <a href="//twitter.com/kfly8" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp;
-		    
-		    
-		    <a href="//github.com/kfly8" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
-		    
-		    <a href="" target="_blank" title="RSS"><i class="fa fa-2x fa-fw fa-rss"></i> <span class="hidden">RSS</span></a>
-		</section>
 
-		<section class="copyright">&copy; 2015 <a href="https://kfly8.github.io/">kobaken</a>. </section>
-	</div>
+	<section class="author">
+    <div class="authorimage" style="background: url(http://kfly8.github.io/img/avatar.jpg)"></div>
+    <h4>kobaken</h4>
+    <p class="bio">Hello World!</p>
+    <p class="meta">
+      <i class="fa fa-fw fa-map-marker"></i> Tokyo
+      <a href="//twitter.com/kfly8" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp; 
+      <a href="//github.com/kfly8" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      <a href="" target="_blank" title="RSS"><i class="fa fa-2x fa-fw fa-rss"></i> <span class="hidden">RSS</span></a>
+    </p>
+</section>
+
+	<section class="copyright">&copy; 2016 <a href="http://kfly8.github.io/">kobaken</a>. </section>
 </footer>
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://kfly8.github.io/js/index.js"></script>
-<script src="https://kfly8.github.io/js/smooth-scroll.min.js"></script>
+<script src="http://kfly8.github.io/js/index.js"></script>
+<script src="http://kfly8.github.io/js/smooth-scroll.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
 
 <script>
@@ -735,6 +755,14 @@ done_testing();
 </script>
 <script>hljs.initHighlightingOnLoad();</script>
 
+
+<!-- Google Analytics -->
+<script>
+  var _gaq=[['_setAccount','UA-71885424-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
 
 
 </body>
