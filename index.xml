@@ -68,9 +68,9 @@ $ hugo server -w --bind=0.0.0.0
 &gt;&lt;/iframe&gt;
 
 
-&lt;p&gt;一例に過ぎないけど、はてなは embed便利だったなーと思う。
-私の場合は、そこまで embed する機会が少ないので、様子見。
-&lt;a href=&#34;http://riteshkr.com/embed.js/&#34;&gt;embed.js&lt;/a&gt; なるもので、統一的なI/Fで embed できるようなので、試してみてもいいかもしれない。&lt;/p&gt;
+&lt;p&gt;こういうのを自前で書くのは楽しいけど、はてなは便利だったなーと思う。
+embed に関しては、私の場合は、そこまで embed する機会がないので、様子見。
+また、&lt;a href=&#34;http://riteshkr.com/embed.js/&#34;&gt;embed.js&lt;/a&gt; なるもので、統一的なI/Fで embed できるようなので、試してみてもいいかもしれない。&lt;/p&gt;
 </description>
     </item>
     
