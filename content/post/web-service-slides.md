@@ -21,7 +21,7 @@ markdownを作ってスライド作るワークフローはほとんど（後述
 
 
 （スライドの内容はともかく）試しに作成した結果
-<iframe src="//slides.com/kfly8/isucon_ttp/embed?style=light" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+{{% slides kfly8 isucon_ttp %}}
 
 元々はこんな感じ。->
 [slide](http://kfly8.github.io/doc/2014-09-17_gotandapm/) /

@@ -12,8 +12,7 @@ description: |
 数学の話を息抜きにしてきた。
 グラフが、写真なあたりまさに息抜き←手抜き
 
-<iframe src="//slides.com/kfly8/landau_symbol/embed" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
+{{% slides kfly8 landau_symbol %}}
 
 インデックス構造によって計算オーダーが変わったりするので、
 云々かんぬんで久しぶりに数学に触れられて、楽しかった。

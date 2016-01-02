@@ -6,13 +6,13 @@ title: "Kyoto.pmに参加。温泉発火村のLTもやらせてもらった。"
 tags: ["perl"]
 description: |
   こんばんは。
-  初開催の[http://www.atnd.org/events/25439:title=Kyoto.pm Tech Talks #01]に参加させてもらいました。
+  初開催の Kyoto.pm に参加させてもらいました。
   そして、温泉ハッカソンを企画した話で初LTもさせてもらいました。
 ---
 
 
 こんばんは。
-初開催の[Kyoto.pm](http://www.atnd.org/events/25439)に参加させてもらいました。
+初開催の [Kyoto.pm](http://www.atnd.org/events/25439) に参加させてもらいました。
 そして、温泉ハッカソンを企画した話で初LTもさせてもらいました。
 
 会場を貸してくださった、はてなさん。

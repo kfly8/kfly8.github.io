@@ -16,7 +16,7 @@ description: |
 
 isucon楽しい！！！！ので参加すると良いって気持ちで発表してきました><
 
-<iframe src="//slides.com/kfly8/isucon_ttp/embed?style=light" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+{{% slides kfly8 "isucon_ttp" %}}
 
 gotandapmはまた１２月の開催されるそうで楽しみです！！！
 
