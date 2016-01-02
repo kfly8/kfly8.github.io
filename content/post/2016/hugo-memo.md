@@ -5,6 +5,8 @@ linktitle: "HUGO MEMO"
 title: "HUGO MEMO"
 tags: ["HUGO"]
 description: |
+  はてなブログからHUGO + Github Pages にした。
+  最低限のメモを以下に記す。
 ---
 
 はてなブログからHUGO + Github Pages にした。
@@ -53,8 +55,8 @@ $ hugo server -w --bind=0.0.0.0
 
 {{% hatenablog "//techblog.karupas.org/embed/20111117/1321542949" %}}
 
-一例に過ぎないけど、はてなは embed便利だったなーと思う。
-私の場合は、そこまで embed する機会が少ないので、様子見。
-[embed.js](http://riteshkr.com/embed.js/) なるもので、統一的なI/Fで embed できるようなので、試してみてもいいかもしれない。
+こういうのを自前で書くのは楽しいけど、はてなは便利だったなーと思う。
+embed に関しては、私の場合は、そこまで embed する機会がないので、様子見。
+また、[embed.js](http://riteshkr.com/embed.js/) なるもので、統一的なI/Fで embed できるようなので、試してみてもいいかもしれない。
 
 
