@@ -33,7 +33,7 @@
 &lt;h1 id=&#34;commands:13e641743651635a6778bb60f5fc24ec&#34;&gt;commands&lt;/h1&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ brew install hugo
-$ hugo server -w --bind=0.0.0.0 #
+$ hugo server -w --bind=0.0.0.0
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&#34;themes-http-themes-gohugo-io:13e641743651635a6778bb60f5fc24ec&#34;&gt;&lt;a href=&#34;http://themes.gohugo.io/&#34;&gt;themes&lt;/a&gt;&lt;/h1&gt;
