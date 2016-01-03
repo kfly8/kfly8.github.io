@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>コード書くときに意識するよになった３つ &middot; kobaken&#39;s blog</title>
+    <meta name="author" content="kobaken">
+    <meta name="description" content="Programming, Tech And Math">
+    <meta name="generator" content="Hugo 0.16-DEV" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link rel="shortcut icon" href="http://kfly8.github.io/img/favicon.ico">
+    <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.2/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="http://kfly8.github.io/css/screen.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css">
+    <link rel="stylesheet" href="http://kfly8.github.io/css/solarized-light.css">
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #3498db;}
+    .pagination a {color: #3498db;}
+    .gist .gist-file .gist-meta a:visited {color: #3498db !important;}
+    a:focus, a:hover {color: #2079b4;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #2079b4;}
+    .older-posts:hover, .newer-posts:hover {color: #2079b4;}
+</style>
+</head>
+
+<body class="post-template">
+
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="http://kfly8.github.io/">kobaken&rsquo;s blog</a></h1>
+	
+	
+	<h1 class="blog-subtitle">Programming, Tech and Math</h1>
+	
+</header>
+    
+
+    <main class="content" role="main">
+	    <article class="post">
+	        <header>
+	        <h1 class="post-title">コード書くときに意識するよになった３つ</h1>
+	        <div class="post-meta">
+            <time datetime="22 July 2012">22 July 2012</time>
+            <span class="post-meta tags">
+<i class="fa fa-fw fa-tag"></i>
+
+</span>
+
+          </div>
+	        </header>
+
+	        <section class="post-content">
+	            <p>社会人として、コードを書くようになって、もう一年半くらい経ってしまった、、
+HHKBを買って盛り上がっているうちに、偉そうなこと書いてみます。</p>
+
+<p><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="6" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAGFBMVEUiIiI9PT0eHh4gIB4hIBkcHBwcHBwcHBydr+JQAAAACHRSTlMABA4YHyQsM5jtaMwAAADfSURBVDjL7ZVBEgMhCAQBAf//42xcNbpAqakcM0ftUmFAAIBE81IqBJdS3lS6zs3bIpB9WED3YYXFPmHRfT8sgyrCP1x8uEUxLMzNWElFOYCV6mHWWwMzdPEKHlhLw7NWJqkHc4uIZphavDzA2JPzUDsBZziNae2S6owH8xPmX8G7zzgKEOPUoYHvGz1TBCxMkd3kwNVbU0gKHkx+iZILf77IofhrY1nYFnB/lQPb79drWOyJVa/DAvg9B/rLB4cC+Nqgdz/TvBbBnr6GBReqn/nRmDgaQEej7WhonozjF+Y2I/fZou/qAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://www.instagram.com/p/K1hB2fIDGe/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">ずっと機を逃していたが買ってしまった、、、</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">@kfly8が投稿した写真 - <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2012-05-20T05:09:19+00:00">2012  5月 19 10:09午後 PDT</time></p></div></blockquote>
+<script async defer src="//platform.instagram.com/en_US/embeds.js"></script></p>
+
+<p>ソーシャルゲームを作っていると、
+仕様が変わったり、追加されることがよくあります。</p>
+
+<p>そういう時でも対応しやすいコードを書くために、
+最近、大きく３つのことを意識するようになりました。</p>
+
+<p>１個目！</p>
+
+<ul>
+<li>そのコード、直感的？</li>
+</ul>
+
+<p>責任範囲を超えた&rdquo;なんでもバスケット&rdquo;みたいなコードは、
+どんな使い方ができるか想像しがたいと思っています。</p>
+
+<ul>
+<li>何するコード？</li>
+<li>お前がやるべきこと？</li>
+<li>どう使えれば気持ちいい？
+とブツブツ唱えてから作ると嬉しいなと思います。</li>
+</ul>
+
+<p>もっぱら方法として効果があると思うのは、</p>
+
+<p>使い方を書いてから、中身を実装すること！</p>
+
+<p>２個目！</p>
+
+<ul>
+<li>コードを書かない</li>
+</ul>
+
+<p>エンジニアとして働いていて、幸い、自分はコードを書くのが好きです。
+（ハッカソンしたいーーー。）</p>
+
+<p>なんですが、
+- ゲームとしてすべきことの把握
+- 企画の目的の把握
+- アプリのコードの把握
+ができていると、コードを書かないって選択肢がまま取れます。</p>
+
+<p>「もうその機能はあるから５分でできるよ！」</p>
+
+<p>好き嫌いが分かれるかもですが、
+意味のあるコードを書くのに時間を使えた方が自分は幸せだと思うので、
+「コードを書かない」って選択肢を手札に入れています。</p>
+
+<p>あのモジュールがあるから
+「コードを書かない」という選択は取りきれていないので、
+精進精進、、</p>
+
+<p>３個目！</p>
+
+<ul>
+<li>コードを書くのに本気にならない</li>
+</ul>
+
+<p>本気で書いたコードは、もしものときに殺される可能性大だからです。</p>
+
+<p>ソーシャルゲームを作っていると、
+- 問い合わせの対応
+- 不具合
+- 仕様変更
+- 新機能！</p>
+
+<p>など、大概作るより強力な弾丸が飛んできます。
+作るのに本気だと、あとあと打ち返せないと思っています。</p>
+
+<p>どんだけ怠慢なんだよと思われるかもしれませんが、
+自分は全知全能な人でなく、凡人なんだという思想からです。</p>
+
+<ul>
+<li>仕様の先読みした抽象化</li>
+</ul>
+
+<p>は難しい選択肢だと思っています。
+ゲームの理解、アプリのコード理解、技術理解など、把握すべきところが多いと思います。
+迷うくらいなら、様子を見るべきだと思っています。</p>
+
+<p>以上、自分への戒め！でした。</p>
+
+	        </section>
+
+	        <section class="share">
+	            <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> </a></p>
+	            <p class="info prompt"></p>
+	            <a href="http://twitter.com/share?text=%e3%82%b3%e3%83%bc%e3%83%89%e6%9b%b8%e3%81%8f%e3%81%a8%e3%81%8d%e3%81%ab%e6%84%8f%e8%ad%98%e3%81%99%e3%82%8b%e3%82%88%e3%81%ab%e3%81%aa%e3%81%a3%e3%81%9f%ef%bc%93%e3%81%a4&url=http%3a%2f%2fkfly8.github.io%2fpost%2f2012%2f07%2f22%2fthree-things%2f" title="Share on Twitter"
+	                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+	                <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
+	            </a>
+	            <a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkfly8.github.io%2fpost%2f2012%2f07%2f22%2fthree-things%2f" title="Share on Facebook"
+	                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+	                <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
+	            </a>
+	            <a href="https://plus.google.com/share?url=http%3a%2f%2fkfly8.github.io%2fpost%2f2012%2f07%2f22%2fthree-things%2f" title="Share on Google+"
+	               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+	                <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
+	            </a>
+              <a href="http://b.hatena.ne.jp/entry/http://kfly8.github.io/post/2012/07/22/three-things/" class="hatena-bookmark-button" data-hatena-bookmark-title="コード書くときに意識するよになった３つ" data-hatena-bookmark-layout="simple" title="このエントリーをはてなブックマークに追加">
+	              <i class="fa fa-2x fa-fw fa-hatena" style="margin-left: -8px"></i> <span class="hidden">B!</span>
+              </a>
+	        </section>
+
+			
+	        	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'kfly8';
+    var disqus_identifier = 'http:\/\/kfly8.github.io\/post\/2012\/07\/22\/three-things\/';
+    var disqus_title = 'コード書くときに意識するよになった３つ';
+    var disqus_url = 'http:\/\/kfly8.github.io\/post\/2012\/07\/22\/three-things\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	        
+
+			
+
+      <script>
+  (function() {
+    var cx = '018021510789573224316:hxz-kvt2ixg';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="google-search">
+  <gcse:search></gcse:search>
+</div>
+
+	    </article>
+	</main>
+
+    <footer class="site-footer">
+  <section class="author">
+    <div class="authorimage" style="background: url(http://kfly8.github.io/img/avatar.jpg)"></div>
+    <h4>kobaken</h4>
+    <p class="bio">Hello World!</p>
+    <p class="meta">
+      <i class="fa fa-fw fa-map-marker"></i> Tokyo
+      <a href="//twitter.com/kfly8" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp; 
+      <a href="//github.com/kfly8" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      <a href="" target="_blank" title="RSS"><i class="fa fa-2x fa-fw fa-rss"></i> <span class="hidden">RSS</span></a>
+    </p>
+</section>
+
+  <section class="copyright">&copy; 2016 <a href="http://kfly8.github.io/">kobaken</a>.  Powered by <a href="https://gohugo.io/">HUGO</a></section>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://kfly8.github.io/js/index.js"></script>
+<script src="http://kfly8.github.io/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<!-- Google Analytics -->
+<script>
+  var _gaq=[['_setAccount','UA-71885424-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+</body>
+</html>

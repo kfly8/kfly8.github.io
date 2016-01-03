@@ -11,10 +11,10 @@
     
     <item>
       <title>HUGO MEMO</title>
-      <link>http://kfly8.github.io/post/2016/hugo-memo/</link>
+      <link>http://kfly8.github.io/post/2016/01/03/hugo-memo/</link>
       <pubDate>Sun, 03 Jan 2016 00:53:00 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/2016/hugo-memo/</guid>
+      <guid>http://kfly8.github.io/post/2016/01/03/hugo-memo/</guid>
       <description>
 
 &lt;p&gt;はてなブログからHUGO + Github Pages にした。
@@ -76,10 +76,10 @@ embed に関しては、私の場合は、そこまで embed する機会がな�
     
     <item>
       <title>2016年の抱負</title>
-      <link>http://kfly8.github.io/post/2016/ambition/</link>
+      <link>http://kfly8.github.io/post/2016/01/02/ambition/</link>
       <pubDate>Sat, 02 Jan 2016 22:12:00 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/2016/ambition/</guid>
+      <guid>http://kfly8.github.io/post/2016/01/02/ambition/</guid>
       <description>
 
 &lt;p&gt;新年あけましておめでとうございます。
@@ -135,10 +135,10 @@ embed に関しては、私の場合は、そこまで embed する機会がな�
     
     <item>
       <title>2015年の振り返り</title>
-      <link>http://kfly8.github.io/post/2015/look-back/</link>
+      <link>http://kfly8.github.io/post/2015/12/31/look-back/</link>
       <pubDate>Thu, 31 Dec 2015 00:00:00 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/2015/look-back/</guid>
+      <guid>http://kfly8.github.io/post/2015/12/31/look-back/</guid>
       <description>
 
 &lt;p&gt;2015年の振り返り。&lt;/p&gt;
@@ -228,10 +228,10 @@ embed に関しては、私の場合は、そこまで embed する機会がな�
     
     <item>
       <title>About Dancer2(ja)</title>
-      <link>http://kfly8.github.io/post/2015/about-dancer2/</link>
+      <link>http://kfly8.github.io/post/2015/12/20/about-dancer2/</link>
       <pubDate>Sun, 20 Dec 2015 20:43:25 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/2015/about-dancer2/</guid>
+      <guid>http://kfly8.github.io/post/2015/12/20/about-dancer2/</guid>
       <description>
 
 &lt;p&gt;この記事は、&lt;a href=&#34;http://qiita.com/advent-calendar/2015/perl5&#34;&gt;Perl5 Advent Calendar 2015&lt;/a&gt; の20日目の記事です。&lt;/p&gt;
@@ -396,10 +396,10 @@ package MyApp::Bar {
     
     <item>
       <title>設定とFixture</title>
-      <link>http://kfly8.github.io/post/2015/setting-and-fixture/</link>
+      <link>http://kfly8.github.io/post/2015/12/02/setting-and-fixture/</link>
       <pubDate>Wed, 02 Dec 2015 18:53:37 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/2015/setting-and-fixture/</guid>
+      <guid>http://kfly8.github.io/post/2015/12/02/setting-and-fixture/</guid>
       <description>
 
 &lt;p&gt;&lt;strong&gt;この記事は、&lt;a href=&#34;http://qiita.com/advent-calendar/2015/mobilefactory&#34;&gt;モバイルファクトリー Advent Calendar 2015&lt;/a&gt; 2日目の記事です&lt;/strong&gt;&lt;/p&gt;
@@ -582,10 +582,10 @@ sub try_load {
     
     <item>
       <title>Hello, Crystal</title>
-      <link>http://kfly8.github.io/post/2015/hello-crystal/</link>
+      <link>http://kfly8.github.io/post/2015/12/02/hello-crystal/</link>
       <pubDate>Wed, 02 Dec 2015 18:39:52 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/2015/hello-crystal/</guid>
+      <guid>http://kfly8.github.io/post/2015/12/02/hello-crystal/</guid>
       <description>
 
 &lt;p&gt;&lt;strong&gt;この記事は &lt;a href=&#34;http://www.adventar.org/calendars/800&#34;&gt;Crystal Advent Calendar 2015&lt;/a&gt; の 2 日目の記事です&lt;/strong&gt;&lt;/p&gt;
@@ -731,10 +731,10 @@ To https://git.heroku.com/arcane-harbor-8307.git
     
     <item>
       <title>DBIx::Schema::DSL::Dumper というのを書きました</title>
-      <link>http://kfly8.github.io/post/2015/dbix-schema-dsl-dumper/</link>
+      <link>http://kfly8.github.io/post/2015/02/04/dbix-schema-dsl-dumper/</link>
       <pubDate>Wed, 04 Feb 2015 21:00:12 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/2015/dbix-schema-dsl-dumper/</guid>
+      <guid>http://kfly8.github.io/post/2015/02/04/dbix-schema-dsl-dumper/</guid>
       <description>&lt;p&gt;songmuさんの書いた&lt;a href=&#34;https://github.com/Songmu/p5-DBIx-Schema-DSL&#34;&gt;DBIx::Schema::DSL&lt;/a&gt;
 を使いたい状況が出て来て、
 すでに結構もりもり書かれてたDDLを移行する為に書いてみました。&lt;/p&gt;
@@ -761,10 +761,10 @@ print DBIx::Schema::DSL::Dumper-&amp;gt;dump(
     
     <item>
       <title>間接オブジェクト記法のアンチパターン</title>
-      <link>http://kfly8.github.io/post/2014/indirect-object-notation/</link>
+      <link>http://kfly8.github.io/post/2014/12/17/indirect-object-notation/</link>
       <pubDate>Wed, 17 Dec 2014 12:54:09 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/2014/indirect-object-notation/</guid>
+      <guid>http://kfly8.github.io/post/2014/12/17/indirect-object-notation/</guid>
       <description>
 
 &lt;p&gt;この記事は &lt;a href=&#34;http://qiita.com/advent-calendar/2014/perl&#34;&gt;Perl Advent Calendar 2014&lt;/a&gt; の 17日目 の記事です。&lt;/p&gt;
@@ -1384,10 +1384,10 @@ done_testing();
     
     <item>
       <title>#Perl入学式 のお手伝いさせてもらってきた</title>
-      <link>http://kfly8.github.io/post/2014/supported-perl-entrance/</link>
+      <link>http://kfly8.github.io/post/2014/11/30/supported-perl-entrance/</link>
       <pubDate>Sun, 30 Nov 2014 19:02:59 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/2014/supported-perl-entrance/</guid>
+      <guid>http://kfly8.github.io/post/2014/11/30/supported-perl-entrance/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;http://www.perl-entrance.org/&#34;&gt;Perl入学式&lt;/a&gt; に参加するのは初めてだったのですが、
@@ -1520,10 +1520,10 @@ done_testing;
     
     <item>
       <title>#chibapm 5で好き放題ランダウ記号の話をしてきた</title>
-      <link>http://kfly8.github.io/post/2014/chibapm5/</link>
+      <link>http://kfly8.github.io/post/2014/10/11/chibapm5/</link>
       <pubDate>Sat, 11 Oct 2014 19:25:28 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/2014/chibapm5/</guid>
+      <guid>http://kfly8.github.io/post/2014/10/11/chibapm5/</guid>
       <description>&lt;p&gt;数学の話を息抜きにしてきた。
 グラフが、写真なあたりまさに息抜き←手抜き&lt;/p&gt;
 
@@ -1546,10 +1546,10 @@ done_testing;
     
     <item>
       <title>isuconの予選で失格してきた</title>
-      <link>http://kfly8.github.io/post/2014/isucon/</link>
+      <link>http://kfly8.github.io/post/2014/10/07/isucon/</link>
       <pubDate>Tue, 07 Oct 2014 16:28:16 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/2014/isucon/</guid>
+      <guid>http://kfly8.github.io/post/2014/10/07/isucon/</guid>
       <description>
 
 &lt;p&gt;牡蠣途中&lt;/p&gt;
@@ -1616,10 +1616,10 @@ $row-&amp;gt;{login}...
     
     <item>
       <title>slides.comを使ってみた</title>
-      <link>http://kfly8.github.io/post/2014/web-service-slides/</link>
+      <link>http://kfly8.github.io/post/2014/09/24/web-service-slides/</link>
       <pubDate>Wed, 24 Sep 2014 00:52:11 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/2014/web-service-slides/</guid>
+      <guid>http://kfly8.github.io/post/2014/09/24/web-service-slides/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;http://search.cpan.org/~yusukebe/App-revealup-0.08/lib/App/revealup.pm&#34;&gt;App::revealup&lt;/a&gt;で作成したslideを公開する時、
@@ -1724,10 +1724,10 @@ vim 0.0.0.0.html
     
     <item>
       <title>#gotandapm たのしんできた</title>
-      <link>http://kfly8.github.io/post/2014/gotandapm2/</link>
+      <link>http://kfly8.github.io/post/2014/09/19/gotandapm2/</link>
       <pubDate>Fri, 19 Sep 2014 13:22:07 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/2014/gotandapm2/</guid>
+      <guid>http://kfly8.github.io/post/2014/09/19/gotandapm2/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://gotanda-pm.connpass.com/event/8404/&#34;&gt;Gotanda.pm #2&lt;/a&gt;で
 飲んだり発表したり話を聞いたり飲んだりしてきました１
 主催のid:karupaneruraありがとうございました！！！！！&lt;/p&gt;
@@ -1752,10 +1752,10 @@ vim 0.0.0.0.html
     
     <item>
       <title>ほんとにあったスキーマの話「ソーシャルゲーム」と題して、YAPCのトーク応募してみた</title>
-      <link>http://kfly8.github.io/post/2014/apply-yapcasia/</link>
+      <link>http://kfly8.github.io/post/2014/07/04/apply-yapcasia/</link>
       <pubDate>Fri, 04 Jul 2014 16:08:19 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/2014/apply-yapcasia/</guid>
+      <guid>http://kfly8.github.io/post/2014/07/04/apply-yapcasia/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://yapcasia.org/2014/talk/list&#34;&gt;YAPC::Asiaのトーク&lt;/a&gt;の応募数が尋常じゃないので、駆け込みブログです&amp;gt;&amp;lt;
 (YAPC終わった後に、yet another yapcをするしかないんじゃないか？！)&lt;/p&gt;
 
@@ -1772,10 +1772,10 @@ vim 0.0.0.0.html
     
     <item>
       <title>Hello Android</title>
-      <link>http://kfly8.github.io/post/2014/hello-android/</link>
+      <link>http://kfly8.github.io/post/2014/01/20/hello-android/</link>
       <pubDate>Mon, 20 Jan 2014 22:52:40 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/2014/hello-android/</guid>
+      <guid>http://kfly8.github.io/post/2014/01/20/hello-android/</guid>
       <description>
 
 &lt;p&gt;いまさら、、あんどろいどにはろーわーるどしました（え&lt;/p&gt;

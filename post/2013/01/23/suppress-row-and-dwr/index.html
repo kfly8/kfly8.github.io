@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>suppressしたrow objの存在しないkeyにアクセスして、Data::WeightedRoundRobin の初期値が使われて...orz   &middot; kobaken&#39;s blog</title>
+    <meta name="author" content="kobaken">
+    <meta name="description" content="Programming, Tech And Math">
+    <meta name="generator" content="Hugo 0.16-DEV" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link rel="shortcut icon" href="http://kfly8.github.io/img/favicon.ico">
+    <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.2/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="http://kfly8.github.io/css/screen.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css">
+    <link rel="stylesheet" href="http://kfly8.github.io/css/solarized-light.css">
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #3498db;}
+    .pagination a {color: #3498db;}
+    .gist .gist-file .gist-meta a:visited {color: #3498db !important;}
+    a:focus, a:hover {color: #2079b4;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #2079b4;}
+    .older-posts:hover, .newer-posts:hover {color: #2079b4;}
+</style>
+</head>
+
+<body class="post-template">
+
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="http://kfly8.github.io/">kobaken&rsquo;s blog</a></h1>
+	
+	
+	<h1 class="blog-subtitle">Programming, Tech and Math</h1>
+	
+</header>
+    
+
+    <main class="content" role="main">
+	    <article class="post">
+	        <header>
+	        <h1 class="post-title">suppressしたrow objの存在しないkeyにアクセスして、Data::WeightedRoundRobin の初期値が使われて...orz  </h1>
+	        <div class="post-meta">
+            <time datetime="23 January 2013">23 January 2013</time>
+            <span class="post-meta tags">
+<i class="fa fa-fw fa-tag"></i>
+
+<a href="http://kfly8.github.io/tags/perl">perl </a>
+
+</span>
+
+          </div>
+	        </header>
+
+	        <section class="post-content">
+	            <p>たった今、かなしい！となったので勢いに任せて書きます.</p>
+
+<p>普段、Data::WeightedRoundRobin のSugarを次のような感じで
+exportして使っています.</p>
+
+<pre><code class="language-perl">use Data::WeightedRoundRobin;
+
+sub list2dwr (&amp;@) {## no critic
+    my $code = shift;
+    return Data::WeightedRoundRobin-&gt;new([ map { $code-&gt;($_) } @_ ])
+}
+
+my $dwr = list2dwr {
+    +{
+       key    =&gt; $_,
+       value  =&gt; $_ * $_,
+       weight =&gt; $_,
+    }
+} qw/1 2 3 4/;
+</code></pre>
+
+<p>普段、Teng のsuppress_object_creation も、データが多くなるってとき、
+使っています.</p>
+
+<pre><code class="language-perl">my @rows = do {
+    my $iter = model('DB::Hoge')-&gt;search(+{ user_id =&gt; $args-&gt;{user_id} });
+    $iter-&gt;suppress_object_creation(1);
+    $iter-&gt;all;
+};
+</code></pre>
+
+<p>で、はまったコードはこれ.</p>
+
+<pre><code class="language-perl">my @rows = do {
+    my $iter = model('DB::Hoge')-&gt;search(+{ user_id =&gt; $args-&gt;{user_id} });
+    $iter-&gt;suppress_object_creation(1);
+    $iter-&gt;all;
+};
+
+my $dwr = list2dwr {
+    +{
+       key    =&gt; $_-&gt;{id},
+       value  =&gt; $_,
+       weight =&gt; $_-&gt;{weihgt},
+    }
+} @rows;
+</code></pre>
+
+<p>分かりにくいと思うので、拡大！！
+コレ！！！！！</p>
+
+<pre><code class="language-perl">weight =&gt; $_-&gt;{weihgt}, # not weight!!!
+</code></pre>
+
+<p>順としては</p>
+
+<ul>
+<li>$_-&gt;{weihgt} が undefined</li>
+<li>Data::WeightedRoundRobin の、DEFAULT_WEIGHT 100が適用される</li>
+<li>orz</li>
+</ul>
+
+<p>テストコードで気づくと思いつつ、意地悪なテストじゃなかったら、すり抜けるなーと</p>
+
+<p>普段、次のような恩恵を自然と預かっているんだなと改め思う
+- $_-&gt;weight に対するアクセスが普段メソッド通しているので、typoに気づく
+- hashへのアクセスもバリデータを通しているので、気づく
+- readonly にしていればとか、、、</p>
+
+<p>だから、どうしよう&hellip;
+と思ったが少し閃いた</p>
+
+<p>どうせ、ラップして使っているなら、default値は使わないぜ作戦</p>
+
+<pre><code class="language-perl">sub list2dwr (&amp;@) {## no critic
+    my $code = shift;
+    return Data::WeightedRoundRobin-&gt;new([ map { $code-&gt;($_) } @_ ], { default_weight =&gt; sub { die } } )
+}
+</code></pre>
+
+<p>Data::WeightedRoundRobin で、default_weight がコードリファレンスだったら実行してもらう必要があるけど、、</p>
+
+<p>あとは、suppress_object_creation でreadonlyにする作戦？！</p>
+
+	        </section>
+
+	        <section class="share">
+	            <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> </a></p>
+	            <p class="info prompt"></p>
+	            <a href="http://twitter.com/share?text=suppress%e3%81%97%e3%81%9frow%20obj%e3%81%ae%e5%ad%98%e5%9c%a8%e3%81%97%e3%81%aa%e3%81%84key%e3%81%ab%e3%82%a2%e3%82%af%e3%82%bb%e3%82%b9%e3%81%97%e3%81%a6%e3%80%81Data%3a%3aWeightedRoundRobin%20%e3%81%ae%e5%88%9d%e6%9c%9f%e5%80%a4%e3%81%8c%e4%bd%bf%e3%82%8f%e3%82%8c%e3%81%a6...orz%20%20&url=http%3a%2f%2fkfly8.github.io%2fpost%2f2013%2f01%2f23%2fsuppress-row-and-dwr%2f" title="Share on Twitter"
+	                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+	                <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
+	            </a>
+	            <a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkfly8.github.io%2fpost%2f2013%2f01%2f23%2fsuppress-row-and-dwr%2f" title="Share on Facebook"
+	                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+	                <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
+	            </a>
+	            <a href="https://plus.google.com/share?url=http%3a%2f%2fkfly8.github.io%2fpost%2f2013%2f01%2f23%2fsuppress-row-and-dwr%2f" title="Share on Google+"
+	               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+	                <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
+	            </a>
+              <a href="http://b.hatena.ne.jp/entry/http://kfly8.github.io/post/2013/01/23/suppress-row-and-dwr/" class="hatena-bookmark-button" data-hatena-bookmark-title="suppressしたrow objの存在しないkeyにアクセスして、Data::WeightedRoundRobin の初期値が使われて...orz  " data-hatena-bookmark-layout="simple" title="このエントリーをはてなブックマークに追加">
+	              <i class="fa fa-2x fa-fw fa-hatena" style="margin-left: -8px"></i> <span class="hidden">B!</span>
+              </a>
+	        </section>
+
+			
+	        	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'kfly8';
+    var disqus_identifier = 'http:\/\/kfly8.github.io\/post\/2013\/01\/23\/suppress-row-and-dwr\/';
+    var disqus_title = 'suppressしたrow objの存在しないkeyにアクセスして、Data::WeightedRoundRobin の初期値が使われて...orz  ';
+    var disqus_url = 'http:\/\/kfly8.github.io\/post\/2013\/01\/23\/suppress-row-and-dwr\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	        
+
+			
+
+      <script>
+  (function() {
+    var cx = '018021510789573224316:hxz-kvt2ixg';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="google-search">
+  <gcse:search></gcse:search>
+</div>
+
+	    </article>
+	</main>
+
+    <footer class="site-footer">
+  <section class="author">
+    <div class="authorimage" style="background: url(http://kfly8.github.io/img/avatar.jpg)"></div>
+    <h4>kobaken</h4>
+    <p class="bio">Hello World!</p>
+    <p class="meta">
+      <i class="fa fa-fw fa-map-marker"></i> Tokyo
+      <a href="//twitter.com/kfly8" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp; 
+      <a href="//github.com/kfly8" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      <a href="" target="_blank" title="RSS"><i class="fa fa-2x fa-fw fa-rss"></i> <span class="hidden">RSS</span></a>
+    </p>
+</section>
+
+  <section class="copyright">&copy; 2016 <a href="http://kfly8.github.io/">kobaken</a>.  Powered by <a href="https://gohugo.io/">HUGO</a></section>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://kfly8.github.io/js/index.js"></script>
+<script src="http://kfly8.github.io/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<!-- Google Analytics -->
+<script>
+  var _gaq=[['_setAccount','UA-71885424-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+</body>
+</html>

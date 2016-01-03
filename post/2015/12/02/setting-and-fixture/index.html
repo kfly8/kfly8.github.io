@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>設定とFixture &middot; kobaken&#39;s blog</title>
+    <meta name="author" content="kobaken">
+    <meta name="description" content="Programming, Tech And Math">
+    <meta name="generator" content="Hugo 0.16-DEV" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link rel="shortcut icon" href="http://kfly8.github.io/img/favicon.ico">
+    <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.2/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="http://kfly8.github.io/css/screen.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css">
+    <link rel="stylesheet" href="http://kfly8.github.io/css/solarized-light.css">
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #3498db;}
+    .pagination a {color: #3498db;}
+    .gist .gist-file .gist-meta a:visited {color: #3498db !important;}
+    a:focus, a:hover {color: #2079b4;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #2079b4;}
+    .older-posts:hover, .newer-posts:hover {color: #2079b4;}
+</style>
+</head>
+
+<body class="post-template">
+
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="http://kfly8.github.io/">kobaken&rsquo;s blog</a></h1>
+	
+	
+	<h1 class="blog-subtitle">Programming, Tech and Math</h1>
+	
+</header>
+    
+
+    <main class="content" role="main">
+	    <article class="post">
+	        <header>
+	        <h1 class="post-title">設定とFixture</h1>
+	        <div class="post-meta">
+            <time datetime="02 December 2015">02 December 2015</time>
+            <span class="post-meta tags">
+<i class="fa fa-fw fa-tag"></i>
+
+<a href="http://kfly8.github.io/tags/perl">perl </a>
+
+<a href="http://kfly8.github.io/tags/test">test </a>
+
+</span>
+
+          </div>
+	        </header>
+
+	        <section class="post-content">
+	            
+
+<p><strong>この記事は、<a href="http://qiita.com/advent-calendar/2015/mobilefactory">モバイルファクトリー Advent Calendar 2015</a> 2日目の記事です</strong></p>
+
+<p>昨日は、nekobato さんの <a href="http://qiita.com/nekobato/items/0cd3ed1742310f74653c">superagentとaxiosの使い分け</a> でした</p>
+
+<p><a href="http://qiita.com/advent-calendar/2014/perl">Perl Advent Calender 2014</a> の最高の記事の
+<a href="http://www.songmu.jp/riji/entry/2014-12-25-test-anything.html">ソースコード以外もとにかくテストする。もしくはカバレッジだけではダメだという話</a> から、
+<code>アプリケーション設定ファイルのテスト</code> と <code>Fixtureのテスト</code> の例を書いてみたいと思います</p>
+
+<h1 id="アプリケーション設定ファイルのテスト:d08054f2f5aa943738fabfb18293ec30">アプリケーション設定ファイルのテスト</h1>
+
+<p>本番環境、開発環境、テスト環境で設定が過不足がないかチェックするため、
+<a href="https://metacpan.org/pod/Test%3A%3ADeep">Test::Deep</a>, <a href="https://metacpan.org/pod/Test%3A%3ADeep%3A%3AMatcher">Test::Deep::Matcher</a> を利用しています</p>
+
+<p>テストの流れとしては</p>
+
+<ol>
+<li>本番環境の設定値を、Test::Deep::Matcher のmatcher に変換</li>
+<li>開発環境、テスト環境の設定値が、matcher にあうか比較</li>
+</ol>
+
+<p>です</p>
+
+<p>例えば、以下のような本番設定があったとして..</p>
+
+<pre><code class="language-json"># production.pl
+{
+  servers =&gt; [
+    'XX.XX.XXX.XXX:11211',
+    'XX.XX.XXX.YYY:11211',
+  ],
+  options =&gt; {
+    utf8 =&gt; 1,
+  },
+}
+</code></pre>
+
+<p>再帰的にmatcherに変換してあげます</p>
+
+<pre><code class="language-perl">use Test::Deep::Matcher;
+use Test::Deep qw//;
+
+sub convert_matcher {
+    my $v = shift;
+
+    if (!ref $v) {
+        return Data::Util::is_integer($v) ? is_integer
+             : Data::Util::is_number($v)  ? is_number
+             : Data::Util::is_string($v)  ? is_string
+             : Data::Util::is_value($v)   ? is_value
+             : undef;
+    }
+    elsif(ref $v eq 'ARRAY') {
+        return Test::Deep::array_each(convert_matcher($v-&gt;[0])) # XXX: 仮定
+    }
+    elsif(rev $v eq 'HASH') {
+        return +{ map { $_ =&gt; convert_matcher($v-&gt;{$_}) } keys %$v }
+    }
+}
+</code></pre>
+
+<p>あとは比較するだけです</p>
+
+<pre><code class="language-perl">my $expect = convert_matcher($production_conf)
+cmp_deeply $development_conf, $expect;
+</code></pre>
+
+<h2 id="余談:d08054f2f5aa943738fabfb18293ec30">(余談)</h2>
+
+<ul>
+<li>上の例では、本番環境の設定から(雑な)型推定をしました</li>
+<li>設定の型定義を用意しておけるなら、その方が良いかもしれません
+
+<ul>
+<li>異常値などの定義をしやすいですし</li>
+</ul></li>
+</ul>
+
+<p>以下、<code>crystal</code> の例です</p>
+
+<pre><code class="language-ruby">require &quot;json&quot;
+
+class Config
+  JSON.mapping({
+    servers: String,
+    options: { type: ServerOptions },
+  })
+end
+
+class ServerOptions
+  JSON.mapping({
+    utf8: Int32
+  })
+end
+</code></pre>
+
+<h1 id="fixture-のテスト:d08054f2f5aa943738fabfb18293ec30">Fixture のテスト</h1>
+
+<p>リレーションチェックのため、
+<a href="https://metacpan.org/pod/DBIx%3A%3ASchema%3A%3ADSL">DBIx::Schema::DSL</a>, <a href="https://metacpan.org/pod/SQL%3A%3ATranslator%3A%3ASchema">SQL::Translator::Schema</a> を利用しています</p>
+
+<p>チェックには、外部キー制約を利用します
+実際のアプリケーションでの利用は、<a href="http://connpass.com/event/11463/">諸事情</a> でしていないですが、
+テストでの利用では最高に便利です
+(この辺の外部キーありなしのスイッチを、<code>no_fk_output/output</code> だけで簡単にできるのが、<code>DBIx::Schema::DSL</code> めっちゃ便利だーってなって便利です)</p>
+
+<p>流れは、</p>
+
+<ul>
+<li>外部キー制約つきのスキーマを用意して、<code>INSERT</code> する</li>
+</ul>
+
+<p>だけです。
+ただ、エラーメッセージを、人間が読みやすい形にするため、地味にループを回すようなコードにしています:p</p>
+
+<pre><code class="language-perl"># Schema
+use 5.014002;
+package MyProj::DB::Schema {
+    use DBIx::Schema::DSL;
+
+    create_table 'module' =&gt; columns {
+        integer 'id', primary_key, auto_increment;
+        varchar 'name';
+        integer 'author_id';
+
+        add_index 'author_id_idx' =&gt; ['author_id'];
+
+        belongs_to 'author';
+    };
+
+    create_table 'author' =&gt; columns {
+        integer 'id', primary_key, auto_increment;
+        varchar 'name', unique;
+    };
+}
+</code></pre>
+
+<pre><code class="language-perl"># belongs_to.t
+
+$db-&gt;execute(MyProj::DB::Schema-&gt;output);
+
+my $schema         = MyProj::DB::Schema-&gt;context-&gt;schema;
+my $module_schema  = $schema-&gt;get_table('module');
+my $constraints    = $module_schema-&gt;fkey_constraints;
+
+for my $fkey (@$constraints) {
+    my $ref_table = $fkey-&gt;reference_table;
+
+    my @errors = try_load($ref_table);
+    ok !@errors
+       or note explain @errors;
+}
+
+sub try_load {
+    my ($table) = @_;
+
+    my @errors;
+    for my $row (@{$FIXTURE_DATA{$table}}) {
+        try {
+            $db-&gt;insert($table =&gt; $row);
+        }
+        catch {
+            push @errors =&gt; shift;
+        };
+    }
+    return @errors;
+}
+</code></pre>
+
+<h1 id="まとめ:d08054f2f5aa943738fabfb18293ec30">まとめ</h1>
+
+<ul>
+<li><code>アプリケーション設定ファイルのテスト</code> と <code>Fixtureのテスト</code> の実装例を紹介しました</li>
+</ul>
+
+<p>明日は、 nekobato さんです!</p>
+
+	        </section>
+
+	        <section class="share">
+	            <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> </a></p>
+	            <p class="info prompt"></p>
+	            <a href="http://twitter.com/share?text=%e8%a8%ad%e5%ae%9a%e3%81%a8Fixture&url=http%3a%2f%2fkfly8.github.io%2fpost%2f2015%2f12%2f02%2fsetting-and-fixture%2f" title="Share on Twitter"
+	                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+	                <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
+	            </a>
+	            <a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkfly8.github.io%2fpost%2f2015%2f12%2f02%2fsetting-and-fixture%2f" title="Share on Facebook"
+	                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+	                <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
+	            </a>
+	            <a href="https://plus.google.com/share?url=http%3a%2f%2fkfly8.github.io%2fpost%2f2015%2f12%2f02%2fsetting-and-fixture%2f" title="Share on Google+"
+	               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+	                <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
+	            </a>
+              <a href="http://b.hatena.ne.jp/entry/http://kfly8.github.io/post/2015/12/02/setting-and-fixture/" class="hatena-bookmark-button" data-hatena-bookmark-title="設定とFixture" data-hatena-bookmark-layout="simple" title="このエントリーをはてなブックマークに追加">
+	              <i class="fa fa-2x fa-fw fa-hatena" style="margin-left: -8px"></i> <span class="hidden">B!</span>
+              </a>
+	        </section>
+
+			
+	        	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'kfly8';
+    var disqus_identifier = 'http:\/\/kfly8.github.io\/post\/2015\/12\/02\/setting-and-fixture\/';
+    var disqus_title = '設定とFixture';
+    var disqus_url = 'http:\/\/kfly8.github.io\/post\/2015\/12\/02\/setting-and-fixture\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	        
+
+			
+
+      <script>
+  (function() {
+    var cx = '018021510789573224316:hxz-kvt2ixg';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="google-search">
+  <gcse:search></gcse:search>
+</div>
+
+	    </article>
+	</main>
+
+    <footer class="site-footer">
+  <section class="author">
+    <div class="authorimage" style="background: url(http://kfly8.github.io/img/avatar.jpg)"></div>
+    <h4>kobaken</h4>
+    <p class="bio">Hello World!</p>
+    <p class="meta">
+      <i class="fa fa-fw fa-map-marker"></i> Tokyo
+      <a href="//twitter.com/kfly8" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp; 
+      <a href="//github.com/kfly8" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      <a href="" target="_blank" title="RSS"><i class="fa fa-2x fa-fw fa-rss"></i> <span class="hidden">RSS</span></a>
+    </p>
+</section>
+
+  <section class="copyright">&copy; 2016 <a href="http://kfly8.github.io/">kobaken</a>.  Powered by <a href="https://gohugo.io/">HUGO</a></section>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://kfly8.github.io/js/index.js"></script>
+<script src="http://kfly8.github.io/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<!-- Google Analytics -->
+<script>
+  var _gaq=[['_setAccount','UA-71885424-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+</body>
+</html>

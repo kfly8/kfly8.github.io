@@ -11,10 +11,10 @@
     
     <item>
       <title>TypeScriptさわるぞー #TODO</title>
-      <link>http://kfly8.github.io/post/2013/hello-typescript/</link>
+      <link>http://kfly8.github.io/post/2013/11/16/hello-typescript/</link>
       <pubDate>Sat, 16 Nov 2013 18:18:56 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/2013/hello-typescript/</guid>
+      <guid>http://kfly8.github.io/post/2013/11/16/hello-typescript/</guid>
       <description>
 
 &lt;p&gt;jsを大きな規模でもちゃんと動くようにしたいと、のたまったので、
@@ -206,10 +206,10 @@ var p2 = Pt.origin;
     
     <item>
       <title>大規模なjsってどうして書きにくい？</title>
-      <link>http://kfly8.github.io/post/2013/why-difficult-to-write-js/</link>
+      <link>http://kfly8.github.io/post/2013/11/16/why-difficult-to-write-js/</link>
       <pubDate>Sat, 16 Nov 2013 00:53:40 +0900</pubDate>
       
-      <guid>http://kfly8.github.io/post/2013/why-difficult-to-write-js/</guid>
+      <guid>http://kfly8.github.io/post/2013/11/16/why-difficult-to-write-js/</guid>
       <description>
 
 &lt;p&gt;フロントサイドでの話です。&lt;/p&gt;
