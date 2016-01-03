@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>間接オブジェクト記法のアンチパターン &middot; kobaken&#39;s blog</title>
+    <meta name="author" content="kobaken">
+    <meta name="description" content="Programming, Tech And Math">
+    <meta name="generator" content="Hugo 0.16-DEV" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link rel="shortcut icon" href="http://kfly8.github.io/img/favicon.ico">
+    <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.2/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="http://kfly8.github.io/css/screen.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css">
+    <link rel="stylesheet" href="http://kfly8.github.io/css/solarized-light.css">
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #3498db;}
+    .pagination a {color: #3498db;}
+    .gist .gist-file .gist-meta a:visited {color: #3498db !important;}
+    a:focus, a:hover {color: #2079b4;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #2079b4;}
+    .older-posts:hover, .newer-posts:hover {color: #2079b4;}
+</style>
+</head>
+
+<body class="post-template">
+
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="http://kfly8.github.io/">kobaken&rsquo;s blog</a></h1>
+	
+	
+	<h1 class="blog-subtitle">Programming, Tech and Math</h1>
+	
+</header>
+    
+
+    <main class="content" role="main">
+	    <article class="post">
+	        <header>
+	        <h1 class="post-title">間接オブジェクト記法のアンチパターン</h1>
+	        <div class="post-meta">
+            <time datetime="17 December 2014">17 December 2014</time>
+            <span class="post-meta tags">
+<i class="fa fa-fw fa-tag"></i>
+
+<a href="http://kfly8.github.io/tags/perl">perl </a>
+
+</span>
+
+          </div>
+	        </header>
+
+	        <section class="post-content">
+	            
+
+<p>この記事は <a href="http://qiita.com/advent-calendar/2014/perl">Perl Advent Calendar 2014</a> の 17日目 の記事です。</p>
+
+<p>16日目の記事は <a href="http://qiita.com/magnolia_k_">magnolia<em>k</em></a> さんの <a href="http://qiita.com/magnolia_k_/items/b0a14e29c8090568f5b3">perlの関数を第一級オブジェクトとして扱う話</a> でした</p>
+
+<h1 id="目次:ed130a5c49b36845906533f63e9cb3a3">目次</h1>
+
+<ul>
+<li><a href="#section1">はじめに</a></li>
+<li><a href="#section2">間接オブジェクト記法ってそもそも何？</a></li>
+<li><a href="#section3">間接オブジェクト記法が活きる例</a></li>
+<li><a href="#section4">ハマる例1 Try::Tiny のuse 漏れ</a></li>
+<li><a href="#section5">余談 code block</a></li>
+<li><a href="#section6">ハマる例2? UNIVERSAL</a></li>
+<li><a href="#section7">ハマる例3 テストにて</a></li>
+<li><a href="#section8">まとめ</a></li>
+<li><a href="#section9">明日</a></li>
+</ul>
+
+<h1 id="a-name-section1-はじめに-a:ed130a5c49b36845906533f63e9cb3a3"><a name="section1">はじめに</a></h1>
+
+<p>15日目の記事の id:akihiro0228 さんの記事を読んで、
+<iframe src="//akihiro0228.hatenablog.com/embed/2014/12/15/221806"
+ class="embed-card embed-blogcard"
+ scrolling="no"
+ frameborder="0"
+ style="display: block; width: 100%; height: 190px; max-width: 500px; margin: 10px 0px;"
+></iframe>
+</p>
+
+<p>自分がよくハマってしまう<a href="http://perldoc.jp/docs/perl/5.8.8/perlobj.pod#Indirect32Object32Syntax">間接オブジェクト記法</a>について紹介したいと思います。
+<b>便乗です！</b></p>
+
+<h1 id="a-name-section2-間接オブジェクト記法ってそもそも何-a:ed130a5c49b36845906533f63e9cb3a3"><a name="section2">間接オブジェクト記法ってそもそも何？</a></h1>
+
+<p>メソッドを呼び出しの別表現です</p>
+
+<pre><code class="language-perl">$obj-&gt;method($a, $b); # 普段の呼び出し
+
+method $obj $a, $b;   # 間接オブジェクト記法
+</code></pre>
+
+<p>一番なじみやすい例はnewだと思います</p>
+
+<pre><code class="language-perl">my $dog = new Dog;
+</code></pre>
+
+<p>普段は、誤読につながりやすいのであまり使うことをおすすめしないです
+ですが、意図せず間接オブジェクト記法な呼び出しにしてしまったり、
+この表現の方が簡潔に書ける例もあったりするので紹介してみたいと思います</p>
+
+<h1 id="a-name-section3-間接オブジェクト記法が活きる例-a:ed130a5c49b36845906533f63e9cb3a3"><a name="section3">間接オブジェクト記法が活きる例</a></h1>
+
+<p>定数を扱う時に便利なconstantプラグマを使ってみます
+普段使う時は、以下のような感じで使うと思います</p>
+
+<pre><code class="language-perl">use constant FOO =&gt; 'foo';
+</code></pre>
+
+<p>これを動的に定数定義してみたいとします</p>
+
+<p>動的に定義したい場合は
+<code>use XXX</code> は、<code>BEGIN { require XXX; do { XXX-&gt;import } }</code> のsugarなので、
+このsugarをほどいて１つ１つ自分で順に追ってやれば変数だったりが使えます</p>
+
+<pre><code class="language-perl">package XXX;
+
+BEGIN {
+    require constant;
+    constant-&gt;import(FOO =&gt; 'foo' x 4);
+}
+
+say FOO; # =&gt; foofoofoofoo
+</code></pre>
+
+<p>間接オブジェクト記法を使ってみると以下のようになります</p>
+
+<pre><code class="language-perl">package YYY;
+
+BEGIN {
+    require constant;
+    import constant FOO =&gt; 'foo' x 4;
+}
+
+say FOO; # =&gt; foofoofoofoo
+</code></pre>
+
+<p>どうですかね？
+普段のconstantプラグマの使い方に近く、簡潔に書けているように思います</p>
+
+<hr />
+
+<p>逆に今度は、よくあるハマる例を書いてみます</p>
+
+<h1 id="a-name-section4-ハマる例1-try-tiny-のuse-漏れ-a:ed130a5c49b36845906533f63e9cb3a3"><a name="section4">ハマる例1 Try::Tiny のuse 漏れ</a></h1>
+
+<p>ずばり、 id:karupanerura 先生の話を例を取ってみます。</p>
+
+<iframe src="//techblog.karupas.org/embed/20111117/1321542949"
+ class="embed-card embed-blogcard"
+ scrolling="no"
+ frameborder="0"
+ style="display: block; width: 100%; height: 190px; max-width: 500px; margin: 10px 0px;"
+></iframe>
+
+
+<pre><code class="language-perl">use strict;
+use warnings;
+use utf8;
+use feature 'say';
+
+# XXX わざとuseしないで、errorを起こす
+#use Try::Tiny;
+
+try {
+    say 'foo';
+    say 'bar';
+}
+# =&gt;
+# foo
+# bar
+# Can't locate object method &quot;try&quot; via package &quot;1&quot; (perhaps you forgot to load &quot;1&quot;?) at try2.pl line 6.
+</code></pre>
+
+<p>このエラーだとよくわからないので、
+7日目の id:papix さんと11日目の id:hisaichi5518 さんが紹介しているB::Deparseを使います</p>
+
+<iframe src="//papix.hatenablog.com/embed/2014/12/07/150335"
+ class="embed-card embed-blogcard"
+ scrolling="no"
+ frameborder="0"
+ style="display: block; width: 100%; height: 190px; max-width: 500px; margin: 10px 0px;"
+></iframe>
+
+
+<iframe src="//hisaichi5518.hatenablog.jp/embed/2014/12/11/222358"
+ class="embed-card embed-blogcard"
+ scrolling="no"
+ frameborder="0"
+ style="display: block; width: 100%; height: 190px; max-width: 500px; margin: 10px 0px;"
+></iframe>
+
+
+<pre><code class="language-perl"># perl -MO=Deparse %
+
+use utf8;
+use warnings;
+use strict;
+use feature 'say';
+do {
+    say 'foo';
+    say 'bar'
+}-&gt;try;
+</code></pre>
+
+<p>do の最後に評価された 1 を package として、1-&gt;try みたいなことをしています</p>
+
+<pre><code># Can't locate object method &quot;try&quot; via package &quot;1&quot; (perhaps you forgot to load &quot;1&quot;?) at try2.pl line 6.
+</code></pre>
+
+<p><code>package</code>が1だとちょっと分かりにくいと思うので、
+次の例を見てみてください</p>
+
+<pre><code class="language-perl">use strict;
+use warnings;
+use utf8;
+use feature 'say';
+
+#use Try::Tiny;
+
+try {
+    say 'foo';
+    bless {}, 'foo'; # XXX obj を最後においてやる
+}
+# =&gt;
+# foo
+# Can't locate object method &quot;try&quot; via package &quot;foo&quot; at try2.pl line 6.
+</code></pre>
+
+<p>Deparse すると以下のようになります</p>
+
+<pre><code class="language-perl">use utf8;
+use warnings;
+use strict;
+use feature 'say';
+do {
+    say 'foo';
+    bless {}, 'foo'
+}-&gt;try;
+</code></pre>
+
+<p>今度のエラーと、Deparse した例を見ると、foo-&gt;try と呼び出しされたことが分かってもらえると思います</p>
+
+<pre><code># Can't locate object method &quot;try&quot; via package &quot;foo&quot; at try2.pl line 6.
+</code></pre>
+
+<p>最後にちゃんと <code>use Try::Tiny</code> した例です</p>
+
+<pre><code class="language-perl">use strict;
+use warnings;
+use utf8;
+use feature 'say';
+
+use Try::Tiny;
+
+try {
+    say 'foo';
+    bless {}, 'foo';
+}
+# =&gt; foo
+</code></pre>
+
+<pre><code class="language-perl"># perl -MO=Deparse %
+
+use utf8;
+use Try::Tiny;
+use warnings;
+use strict;
+use feature 'say';
+try sub {
+    say 'foo';
+    bless {}, 'foo';
+}
+;
+</code></pre>
+
+<p>Deparse したコードを見ると、try に coderef が渡されていることが分かると思います</p>
+
+<h1 id="a-name-section5-余談-code-block-a:ed130a5c49b36845906533f63e9cb3a3"><a name="section5">余談 code block</a></h1>
+
+<p><a href="https://metacpan.org/source/DOY/Try-Tiny-0.22/lib/Try/Tiny.pm#L24">Try::Tiny の try のコード</a>
+を見ると、次のようにサブルーチン名に<code>(&amp;;@)</code>といった指定がされています</p>
+
+<pre><code class="language-perl">sub try (&amp;;@) {
+</code></pre>
+
+<p>これはプロトタイプと呼ばれるものです
+&gt; <a href="http://perldoc.jp/docs/perl/5.6.1/perlsub.pod#Prototypes">http://perldoc.jp/docs/perl/5.6.1/perlsub.pod#Prototypes</a></p>
+
+<p>これにより、blockで、coderef を表現できるので、より簡潔な記法ができます
+try 以外にも、grep, mapなどが身近な例だと思います</p>
+
+<h3 id="coderef-を実行しながら-sumを取る関数を実装してみます:ed130a5c49b36845906533f63e9cb3a3">coderef を実行しながら、sumを取る関数を実装してみます</h3>
+
+<p>まずは、prototypeを使わない例</p>
+
+<pre><code class="language-perl">use strict;
+use warnings;
+use utf8;
+use Test::More;
+use Test::Exception;
+use Test::Perl::Critic;
+use List::Util qw/sum/;
+
+sub sum_map {
+    my $cb = shift;
+    sum map { $cb-&gt;($_); } @_;
+}
+
+subtest 'basic' =&gt; sub {
+
+    is sum_map(sub { $_[0] * 10 }, 1..10), 550;
+};
+
+subtest 'dies' =&gt; sub {
+
+    dies_ok { sum_map { $_ * 10 }, 1..10; }
+
+    # =&gt;
+    # Use of uninitialized value $_ in multiplication (*) at proto.pl line 23.
+    # Odd number of elements in anonymous hash at proto.pl line 23.
+    # Not a CODE reference at proto.pl line 10.
+};
+
+subtest 'critic' =&gt; sub {
+    critic_ok($0);
+};
+
+done_testing;
+</code></pre>
+
+<p>次にprototypeを指定してみます</p>
+
+<pre><code class="language-perl">use warnings;
+use utf8;
+use Test::More;
+use Test::Exception;
+use Test::Perl::Critic;
+use List::Util qw/sum/;
+
+sub sum_map (&amp;@) {
+    my $cb = shift;
+    sum map { $cb-&gt;($_) } @_;
+}
+
+subtest 'basic' =&gt; sub {
+
+    my $ret = sum_map { $_ * 10 } 1..10;
+    is $ret, 550;
+};
+
+subtest 'other use case' =&gt; sub {
+
+    my $ret = sum_map(sub { $_[0] * 10 }, 1..10);
+    is $ret, 550;
+};
+
+subtest 'critic' =&gt; sub {
+    critic_ok($0); ## failed!!
+
+    # not ok 1 - Test::Perl::Critic for &quot;proto2.pl&quot;
+    # Failed test 'Test::Perl::Critic for &quot;proto2.pl&quot;'
+    #   at proto2.pl line 27.
+    #
+    # Perl::Critic found these violations in &quot;proto2.pl&quot;:
+    # Subroutine prototypes used at line 9, column 1.  See page 194 of PBP.  (Severity: 5)
+};
+
+done_testing;
+</code></pre>
+
+<p>critic のテストが通りませんでした
+blockが coderef になっているのは、確かに副作用が強いです
+その為、多用はしたくないです</p>
+
+<p>以下のように ## no critic と注釈をつけてあげて、
+副作用を許容してあげることができます
+&gt; <a href="http://search.cpan.org/~thaljef/Perl-Critic-1.123/lib/Perl/Critic.pm#BENDING_THE_RULES">http://search.cpan.org/~thaljef/Perl-Critic-1.123/lib/Perl/Critic.pm#BENDING_THE_RULES</a></p>
+
+<pre><code class="language-perl">use strict;
+use warnings;
+use utf8;
+use Test::More;
+use Test::Exception;
+use Test::Perl::Critic;
+use List::Util qw/sum/;
+
+sub sum_map (&amp;@) { ## no critic
+    my $cb = shift;
+    sum map { $cb-&gt;($_) } @_;
+}
+
+subtest 'critic' =&gt; sub {
+    critic_ok($0), '注釈をつけることで回避';
+};
+
+done_testing;
+</code></pre>
+
+<h1 id="a-name-section6-ハマる例2-universal-a:ed130a5c49b36845906533f63e9cb3a3"><a name="section6">ハマる例2? UNIVERSAL</a></h1>
+
+<p>間接オブジェクトわざとらしく使ってみたいと思います
+<code>can</code>を使っているのがわざとらしいです！</p>
+
+<pre><code class="language-perl">use strict;
+use warnings;
+use utf8;
+use feature qw/say/;
+
+my $dog = bless {}, 'Dog';
+
+if (can $dog 'bow') {
+    say 'can bow';
+}
+else {
+    say 'cannot bow';
+} # =&gt; cannot bow
+
+</code></pre>
+
+<pre><code class="language-perl">#perl -MO=Deparse %
+
+use utf8;
+use warnings;
+use strict;
+use feature 'say';
+my $dog = bless({}, 'Dog');
+if ($dog-&gt;can('bow')) {
+    say 'can bow';
+}
+else {
+    say 'cannot bow';
+}
+</code></pre>
+
+<pre><code class="language-perl"># original
+if (can $dog 'bow')
+
+# Deparse
+if ($dog-&gt;can('bow')) {
+</code></pre>
+
+<p>$dogにcan methodは生やしていないですが、
+Perlの場合、全てのクラスは暗黙的にUNIVERSAL を元にするようになっているので、
+$dog-&gt;can で UNIVERSAL-&gt;can が呼び出しされます</p>
+
+<p>試しに、UNIVERSALのcanが呼び出しされないように、
+このパッケージに <code>can</code> というサブルーチンを生やしてみます</p>
+
+<pre><code class="language-perl">use strict;
+use warnings;
+use utf8;
+use feature qw/say/;
+
+my $dog = bless {}, 'Dog';
+
+sub can { 1 }
+
+if (can $dog 'bow') { # XXX =&gt; syntax error
+    say 'can bow';
+}
+else {
+    say 'cannot bow';
+}
+
+=pod
+
+syntax error at can2.pl line 10, near &quot;$dog 'bow'&quot;
+can2.pl had compilation errors.
+use utf8;
+use warnings;
+use strict;
+use feature 'say';
+my $dog = bless({}, 'Dog');
+sub can {
+    use warnings;
+    use strict;
+    use feature 'say';
+    1;
+}
+</code></pre>
+
+<p>$dog と &lsquo;bow&rsquo; の間にカンマがなくて、エラーになりました
+もちろんカンマを入れれば、次のように、&rsquo;can bow&rsquo;と表示されます</p>
+
+<p>このカンマのあるなしの意思表示で、間接記法であるかどうか示します
+それは意思表示としては、わかりずらいので、誤読の元になりやすいです</p>
+
+<pre><code class="language-perl">use strict;
+use warnings;
+use utf8;
+use feature qw/say/;
+
+my $dog = bless {}, 'Dog';
+
+sub can { 1 }
+
+if (can $dog, 'bow') { # リストにするため、カンマを入れた
+    say 'can bow';
+}
+else {
+    say 'cannot bow';
+} # =&gt; can bow
+
+</code></pre>
+
+<p>このように暗黙に定義されたメソッドで、間接オブジェクト記法が出てくるなんて、
+あまりないと思いますが、良い機会なので、
+UNIVERSALに生えているメソッドを洗ってみます</p>
+
+<p>Class::Inspector を使うと、<code>can, isa, VERSION, DOES</code> ということが分かります
+<a href="http://perldoc.perl.org/UNIVERSAL.html">http://perldoc.perl.org/UNIVERSAL.html</a> の通りです
+これで、もう多分、if (isa $foo &lsquo;FOO&rsquo;) とやってハマること？もないでしょう？</p>
+
+<pre><code class="language-perl">use strict;
+use warnings;
+use utf8;
+
+package Dog;
+
+sub new { bless {}, shift };
+
+package main;
+
+use Test::More;
+
+my $dog = Dog-&gt;new;
+
+subtest 'isa' =&gt; sub {
+    isa_ok $dog, 'Dog';
+    isa_ok $dog, 'UNIVERSAL';
+};
+
+subtest 'methods' =&gt; sub {
+
+    ok $dog-&gt;can('can');
+    ok $dog-&gt;can('isa');
+    ok $dog-&gt;can('VERSION');
+    ok $dog-&gt;can('DOES');
+};
+
+subtest 'methods count' =&gt; sub {
+
+    require Class::Inspector;
+    is scalar @{Class::Inspector-&gt;methods('UNIVERSAL')}, 4;
+
+    is_deeply(Class::Inspector-&gt;methods('Dog'), [qw/new/]);
+};
+
+done_testing;
+</code></pre>
+
+<h1 id="a-name-section7-ハマる例3-テストにて-a:ed130a5c49b36845906533f63e9cb3a3"><a name="section7">ハマる例3 テストにて</a></h1>
+
+<p>生々しいですが、例2のClass::Inspector を使っていて、今、ミスった例です。</p>
+
+<pre><code class="language-perl">use strict;
+use warnings;
+use utf8;
+
+package Dog;
+
+sub new { bless {}, shift };
+
+package main;
+use Test::More;
+use Class::Inspector;
+
+is_deeply Class::Inspector-&gt;methods('Dog'), [qw/new/];
+# XXX failed!!
+# =&gt; Can't locate object method &quot;is_deeply&quot; via package &quot;Class::Inspector&quot; at can5.pl line 12
+
+=pod
+use utf8;
+package Dog;
+sub new {
+    use warnings;
+    use strict;
+    bless {}, shift();
+}
+package main;
+sub BEGIN {
+    use warnings;
+    use strict;
+    require Test::More;
+    do {
+        'Test::More'-&gt;import
+    };
+}
+use Class::Inspector;
+use warnings;
+use strict;
+'Class::Inspector'-&gt;is_deeply-&gt;methods('Dog'), ['new'];
+
+</code></pre>
+
+<p>これは、要点だけを絞り出すと次のようになっています</p>
+
+<pre><code class="language-perl">package Foo;
+sub new { bless {}, shift() }
+
+use strict;
+use warnings;
+use utf8;
+
+use Test::More;
+
+isa_ok Foo-&gt;new, 'Foo';
+
+done_testing;
+</code></pre>
+
+<pre><code class="language-perl"># Deparse
+
+package Foo;
+sub new {
+    bless {}, shift();
+}
+use utf8;
+use Test::More;
+use warnings;
+use strict;
+'Foo'-&gt;isa_ok-&gt;new, '???';
+done_testing();
+/Users/kfly8/aa.pl syntax OK
+</code></pre>
+
+<p>実際にはまった例では、</p>
+
+<pre><code class="language-perl">is_deeply Class::Inspector-&gt;methods('Dog'), [qw/new/];
+</code></pre>
+
+<p>が、次のように評価されてしまい、残念なことになりました</p>
+
+<pre><code class="language-perl">'Class::Inspector'-&gt;is_deeply-&gt;methods('Dog'), ['new'];
+</code></pre>
+
+<p>括弧付きで呼び出してあげてください</p>
+
+<pre><code class="language-perl">is_deeply(Class::Inspector-&gt;methods('Dog'), ['new']);
+</code></pre>
+
+<h1 id="a-name-section8-まとめ-a:ed130a5c49b36845906533f63e9cb3a3"><a name="section8">まとめ</a></h1>
+
+<ul>
+<li>Perl には、method を呼び出す方法に、method $obj LIST のような呼び出し方もあり、それを間接オブジェクト記法という</li>
+<li>使いどころを（すごい）選べば、import constant FOO =&gt; &lsquo;foo&rsquo; のような簡潔な表現になる</li>
+<li>よくあるハマり方
+
+<ul>
+<li>関数のexport漏れ
+
+<ul>
+<li>余談 prototype</li>
+</ul></li>
+<li>暗黙なmethod定義</li>
+<li>func Class-&gt;foo の Class-&gt;func-&gt;foo という誤読しやすい評価順</li>
+</ul></li>
+</ul>
+
+<h1 id="a-name-section9-明日-a:ed130a5c49b36845906533f63e9cb3a3"><a name="section9">明日</a></h1>
+
+<p>18日目は、<a href="http://qiita.com/waniji">wanji</a> さんです！</p>
+
+	        </section>
+
+	        <section class="share">
+	            <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> </a></p>
+	            <p class="info prompt"></p>
+	            <a href="http://twitter.com/share?text=%e9%96%93%e6%8e%a5%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e8%a8%98%e6%b3%95%e3%81%ae%e3%82%a2%e3%83%b3%e3%83%81%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3&url=http%3a%2f%2fkfly8.github.io%2fpost%2f2014%2f12%2f17%2findirect-object-notation%2f" title="Share on Twitter"
+	                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+	                <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
+	            </a>
+	            <a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkfly8.github.io%2fpost%2f2014%2f12%2f17%2findirect-object-notation%2f" title="Share on Facebook"
+	                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+	                <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
+	            </a>
+	            <a href="https://plus.google.com/share?url=http%3a%2f%2fkfly8.github.io%2fpost%2f2014%2f12%2f17%2findirect-object-notation%2f" title="Share on Google+"
+	               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+	                <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
+	            </a>
+              <a href="http://b.hatena.ne.jp/entry/http://kfly8.github.io/post/2014/12/17/indirect-object-notation/" class="hatena-bookmark-button" data-hatena-bookmark-title="間接オブジェクト記法のアンチパターン" data-hatena-bookmark-layout="simple" title="このエントリーをはてなブックマークに追加">
+	              <i class="fa fa-2x fa-fw fa-hatena" style="margin-left: -8px"></i> <span class="hidden">B!</span>
+              </a>
+	        </section>
+
+			
+	        	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'kfly8';
+    var disqus_identifier = 'http:\/\/kfly8.github.io\/post\/2014\/12\/17\/indirect-object-notation\/';
+    var disqus_title = '間接オブジェクト記法のアンチパターン';
+    var disqus_url = 'http:\/\/kfly8.github.io\/post\/2014\/12\/17\/indirect-object-notation\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	        
+
+			
+
+      <script>
+  (function() {
+    var cx = '018021510789573224316:hxz-kvt2ixg';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="google-search">
+  <gcse:search></gcse:search>
+</div>
+
+	    </article>
+	</main>
+
+    <footer class="site-footer">
+  <section class="author">
+    <div class="authorimage" style="background: url(http://kfly8.github.io/img/avatar.jpg)"></div>
+    <h4>kobaken</h4>
+    <p class="bio">Hello World!</p>
+    <p class="meta">
+      <i class="fa fa-fw fa-map-marker"></i> Tokyo
+      <a href="//twitter.com/kfly8" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp; 
+      <a href="//github.com/kfly8" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      <a href="" target="_blank" title="RSS"><i class="fa fa-2x fa-fw fa-rss"></i> <span class="hidden">RSS</span></a>
+    </p>
+</section>
+
+  <section class="copyright">&copy; 2016 <a href="http://kfly8.github.io/">kobaken</a>.  Powered by <a href="https://gohugo.io/">HUGO</a></section>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://kfly8.github.io/js/index.js"></script>
+<script src="http://kfly8.github.io/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<!-- Google Analytics -->
+<script>
+  var _gaq=[['_setAccount','UA-71885424-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+</body>
+</html>

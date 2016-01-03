@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>大規模なjsってどうして書きにくい？ &middot; kobaken&#39;s blog</title>
+    <meta name="author" content="kobaken">
+    <meta name="description" content="Programming, Tech And Math">
+    <meta name="generator" content="Hugo 0.16-DEV" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link rel="shortcut icon" href="http://kfly8.github.io/img/favicon.ico">
+    <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.2/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="http://kfly8.github.io/css/screen.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css">
+    <link rel="stylesheet" href="http://kfly8.github.io/css/solarized-light.css">
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #3498db;}
+    .pagination a {color: #3498db;}
+    .gist .gist-file .gist-meta a:visited {color: #3498db !important;}
+    a:focus, a:hover {color: #2079b4;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #2079b4;}
+    .older-posts:hover, .newer-posts:hover {color: #2079b4;}
+</style>
+</head>
+
+<body class="post-template">
+
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="http://kfly8.github.io/">kobaken&rsquo;s blog</a></h1>
+	
+	
+	<h1 class="blog-subtitle">Programming, Tech and Math</h1>
+	
+</header>
+    
+
+    <main class="content" role="main">
+	    <article class="post">
+	        <header>
+	        <h1 class="post-title">大規模なjsってどうして書きにくい？</h1>
+	        <div class="post-meta">
+            <time datetime="16 November 2013">16 November 2013</time>
+            <span class="post-meta tags">
+<i class="fa fa-fw fa-tag"></i>
+
+<a href="http://kfly8.github.io/tags/javascript">javascript </a>
+
+</span>
+
+          </div>
+	        </header>
+
+	        <section class="post-content">
+	            
+
+<p>フロントサイドでの話です。</p>
+
+<p>そんな話を、id:karupanerura と<a href="http://www.zusaar.com/event/1737003">#isucon反省会</a>帰り、東海道線で話した</p>
+
+<p>２人で話した答え:</p>
+
+<ul>
+<li>「パッケージの責任範囲を小さくするベストプラクティスが分からない」</li>
+<li>つまりは「コードを読む範囲を小さくしたい」</li>
+</ul>
+
+<p>所感:</p>
+
+<ul>
+<li>&ldquo;よしなに&rdquo;やってくれるって、&rdquo;なんかこわい&rdquo;
+
+<ul>
+<li>jsのフロントサイドのライブラリって何となくそういうの多い気がする</li>
+<li>作るのも大変</li>
+</ul></li>
+<li>CPANのように客観的によくテストする仕組みがあれば、使う人も作る人も幸せになれる？</li>
+<li>一つのことを上手くやる小さなモジュールを組み合わせたい</li>
+</ul>
+
+<h1 id="どうやって解決するか:a4a4c87ac166d9b91d6cbdab97b38561">どうやって解決するか？</h1>
+
+<ul>
+<li>モジュールを決められた仕様で書いて、requireして使うcommonjsライクがいいんでは？と話した
+
+<ul>
+<li>モジュール毎にHTTP Requestするのはいやなので、concatとかもしやすくしたい</li>
+<li>【追記】せっかく非同期に読み込むこともできるのだから、依存関係解決しながらいい感じに読み込むめばいいのか、、と思うと、require.jsでいいのか 、、このサポートのことは一旦忘れよう、</li>
+</ul></li>
+</ul>
+
+<p>例えば、以下のようにfoo,bar.jsというモジュールを作り、、</p>
+
+<pre><code class="language-sh"># lib/foo.js
+exports.foo = function() {...};
+# lib/bar.js
+exports.bar = function() {...};
+</code></pre>
+
+<p>package.jsonやcpanfileのようなpackagefileを書くと、、</p>
+
+<pre><code class="language-sh">require lib/foo.js;
+require lib/bar.js;
+</code></pre>
+
+<p>gruntのようなビルドツールでビルドして、、</p>
+
+<pre><code class="language-sh"># generate file
+SHELL% BUILD aaa # generate aaa.js
+</code></pre>
+
+<p>requireして、各モジュールが使える</p>
+
+<pre><code class="language-html"># some.html
+&lt;script src=&quot;aaa.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(function() {
+    var foo = aaa.require('foo'); # source.mapも利用しやすいはず
+    var bar = aaa.require('bar');
+})();
+&lt;/script&gt;
+</code></pre>
+
+<p>テストは、npm test とか</p>
+
+<h1 id="最後:a4a4c87ac166d9b91d6cbdab97b38561">最後</h1>
+
+<p>上のようなことなら、個人でやる分には素直に書けるけど、、最初の命題に対するアプローチどうなんだろうか、、？jsの何が一番いけてない？</p>
+
+<p>すばらしいライブラリやaltjsがあるというのに、jsを書くというアプローチ、、
+悪い言い方ですが、臭いモノの蓋を開けても、そんなに臭わないようにしたいなーというそんな願望の現れです。かっこつければ、js書くのが楽しくなれば、それはそれで意義深いかも？！という感じでございます。</p>
+
+<p>以上！</p>
+
+	        </section>
+
+	        <section class="share">
+	            <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> </a></p>
+	            <p class="info prompt"></p>
+	            <a href="http://twitter.com/share?text=%e5%a4%a7%e8%a6%8f%e6%a8%a1%e3%81%aajs%e3%81%a3%e3%81%a6%e3%81%a9%e3%81%86%e3%81%97%e3%81%a6%e6%9b%b8%e3%81%8d%e3%81%ab%e3%81%8f%e3%81%84%ef%bc%9f&url=http%3a%2f%2fkfly8.github.io%2fpost%2f2013%2f11%2f16%2fwhy-difficult-to-write-js%2f" title="Share on Twitter"
+	                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+	                <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
+	            </a>
+	            <a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fkfly8.github.io%2fpost%2f2013%2f11%2f16%2fwhy-difficult-to-write-js%2f" title="Share on Facebook"
+	                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+	                <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
+	            </a>
+	            <a href="https://plus.google.com/share?url=http%3a%2f%2fkfly8.github.io%2fpost%2f2013%2f11%2f16%2fwhy-difficult-to-write-js%2f" title="Share on Google+"
+	               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+	                <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
+	            </a>
+              <a href="http://b.hatena.ne.jp/entry/http://kfly8.github.io/post/2013/11/16/why-difficult-to-write-js/" class="hatena-bookmark-button" data-hatena-bookmark-title="大規模なjsってどうして書きにくい？" data-hatena-bookmark-layout="simple" title="このエントリーをはてなブックマークに追加">
+	              <i class="fa fa-2x fa-fw fa-hatena" style="margin-left: -8px"></i> <span class="hidden">B!</span>
+              </a>
+	        </section>
+
+			
+	        	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'kfly8';
+    var disqus_identifier = 'http:\/\/kfly8.github.io\/post\/2013\/11\/16\/why-difficult-to-write-js\/';
+    var disqus_title = '大規模なjsってどうして書きにくい？';
+    var disqus_url = 'http:\/\/kfly8.github.io\/post\/2013\/11\/16\/why-difficult-to-write-js\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	        
+
+			
+
+      <script>
+  (function() {
+    var cx = '018021510789573224316:hxz-kvt2ixg';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div class="google-search">
+  <gcse:search></gcse:search>
+</div>
+
+	    </article>
+	</main>
+
+    <footer class="site-footer">
+  <section class="author">
+    <div class="authorimage" style="background: url(http://kfly8.github.io/img/avatar.jpg)"></div>
+    <h4>kobaken</h4>
+    <p class="bio">Hello World!</p>
+    <p class="meta">
+      <i class="fa fa-fw fa-map-marker"></i> Tokyo
+      <a href="//twitter.com/kfly8" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp; 
+      <a href="//github.com/kfly8" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      <a href="" target="_blank" title="RSS"><i class="fa fa-2x fa-fw fa-rss"></i> <span class="hidden">RSS</span></a>
+    </p>
+</section>
+
+  <section class="copyright">&copy; 2016 <a href="http://kfly8.github.io/">kobaken</a>.  Powered by <a href="https://gohugo.io/">HUGO</a></section>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://kfly8.github.io/js/index.js"></script>
+<script src="http://kfly8.github.io/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<!-- Google Analytics -->
+<script>
+  var _gaq=[['_setAccount','UA-71885424-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+</body>
+</html>
